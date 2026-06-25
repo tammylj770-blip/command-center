@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0049)file:///C:/Users/tammy/Downloads/index%20(3).html -->
+<!-- saved from url=(0049)file:///C:/Users/tammy/Downloads/index%20(4).html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -104,7 +104,7 @@ select option{background:var(--g2)}
   <div class="htag">Command Center — Tammy Plamondon, Broker</div>
 </header>
 <div class="nav">
-  <button class="tb" onclick="go(&#39;dashboard&#39;)">Home</button>
+  <button class="tb on" onclick="go(&#39;dashboard&#39;)">Home</button>
   <button class="tb" onclick="go(&#39;crm&#39;)">Contacts</button>
   <button class="tb" onclick="go(&#39;pipeline&#39;)">Pipeline</button>
   <button class="tb" onclick="go(&#39;closings&#39;)">Closings</button>
@@ -114,19 +114,20 @@ select option{background:var(--g2)}
   <button class="tb" onclick="go(&#39;comps&#39;)">Comps/CMA</button>
   <button class="tb" onclick="go(&#39;social&#39;)">Social</button>
   <button class="tb" onclick="go(&#39;drip&#39;)">Drip</button>
-  <button class="tb on" onclick="go(&#39;openhouse&#39;)">Open House</button>
+  <button class="tb" onclick="go(&#39;openhouse&#39;)">Open House</button>
+  <button class="tb" onclick="go(&#39;transactions&#39;)">📁 Transactions</button>
 </div>
 <div class="main">
 
 <!-- DASHBOARD -->
-<div id="sec-dashboard" class="sec">
+<div id="sec-dashboard" class="sec on">
   <div style="margin-bottom:16px">
     <div style="font-family:Bebas Neue,sans-serif;font-size:30px;letter-spacing:2px">You are up, Tammy.</div>
     <div style="font-size:12px;color:var(--muted);margin-top:3px">No fluff. No filter. Just real estate. Click anyone in the pipeline to edit them.</div>
   </div>
   <div class="g4" style="margin-bottom:16px">
     <div class="stat"><div class="snum" id="d-listings">0</div><div class="slbl">Active Listings</div></div>
-    <div class="stat"><div class="snum" id="d-uc">1</div><div class="slbl">Under Contract</div></div>
+    <div class="stat"><div class="snum" id="d-uc">2</div><div class="slbl">Under Contract</div></div>
     <div class="stat"><div class="snum" id="d-leads">5</div><div class="slbl">Hot Leads</div></div>
     <div class="stat"><div class="snum" id="d-closed">2</div><div class="slbl">Closed 2026</div></div>
   </div>
@@ -140,7 +141,7 @@ select option{background:var(--g2)}
     <button class="qb" onclick="go(&#39;ai&#39;)">Ask Claude</button>
   </div>
   <div class="g2">
-    <div class="card"><div class="ct">TODAY'S FOCUS</div><div id="d-focus" style="font-size:13px;line-height:1.9;color:var(--muted)"><strong style="color:var(--pink)">1 deal under contract</strong> - check deadlines in Transact.<br><strong style="color:var(--gold)">5 contacts in leads</strong> - follow up before end of day.<br><strong style="color:var(--green)">2 closings this year - $18,093 net</strong>. <strong style="color:var(--turq)">Q4 is yours to win.</strong></div></div>
+    <div class="card"><div class="ct">TODAY'S FOCUS</div><div id="d-focus" style="font-size:13px;line-height:1.9;color:var(--muted)"><strong style="color:var(--pink)">2 deals under contract</strong> - check deadlines in Transact.<br><strong style="color:var(--gold)">5 contacts in leads</strong> - follow up before end of day.<br><strong style="color:var(--green)">2 closings this year - $18,093 net</strong>. <strong style="color:var(--turq)">Q4 is yours to win.</strong></div></div>
     <div class="card"><div class="ct">ANNIVERSARIES - NEXT 30 DAYS</div><div id="d-anni" style="font-size:12px;color:var(--muted)"><div style="color:var(--muted);font-size:12px">No anniversaries in next 30 days.</div></div></div>
   </div>
   <div class="card">
@@ -149,7 +150,7 @@ select option{background:var(--g2)}
       <div class="pc"><div class="pl" style="color:var(--muted)">New Leads</div><div id="d-p-leads"><div class="pi" onclick="editContact(1)">Georgia Property Preservation ANT LLC</div><div class="pi" onclick="editContact(2)">Sydnee Miller</div><div class="pi" onclick="editContact(3)">David and Nia Sturgill</div><div class="pi" onclick="editContact(5)">Jennifer and Jeremy Garrett</div></div></div>
       <div class="pc"><div class="pl" style="color:var(--gold)">Nurturing</div><div id="d-p-active"><div style="color:var(--muted);font-size:11px">None</div></div></div>
       <div class="pc"><div class="pl" style="color:var(--turq)">Listed / Searching</div><div id="d-p-listed"><div style="color:var(--muted);font-size:11px">None</div></div></div>
-      <div class="pc"><div class="pl" style="color:var(--pink)">Under Contract</div><div id="d-p-closing"><div class="pi" onclick="editContact(4)">Bryan Ramirez</div></div></div>
+      <div class="pc"><div class="pl" style="color:var(--pink)">Under Contract</div><div id="d-p-closing"><div class="pi" onclick="editContact(4)">Bryan Ramirez</div><div class="pi" onclick="editContact(1782397163714)">Briana</div></div></div>
     </div>
   </div>
   <div class="card"><div class="ct">2026 NUMBERS</div>
@@ -193,7 +194,7 @@ select option{background:var(--g2)}
     <button class="pill" onclick="filterS(&#39;Zillow&#39;,this)">Zillow</button>
     <button class="pill" onclick="filterS(&#39;Sign Call&#39;,this)">Sign Call</button>
   </div>
-  <div class="cg" id="crm-grid"><div class="cc" onclick="editContact(1)" title="Click to edit"><div style="position:absolute;top:10px;right:10px;font-size:10px;color:var(--muted)">Edit</div><div class="cn">Georgia Property Preservation ANT LLC</div><div class="cm">770-899-1408</div><div class="cm">turnerroberto@gmail.com</div><div class="note">1 Carlton Dr Rockmart GA FAILED did not close repeat client</div><div style="margin-top:6px"><span class="ctag tag-past">past</span><span class="src-tag">Repeat</span><span class="agent-tag">Tammy</span></div></div><div class="cc" onclick="editContact(2)" title="Click to edit"><div style="position:absolute;top:10px;right:10px;font-size:10px;color:var(--muted)">Edit</div><div class="cn">Sydnee Miller</div><div class="cm">678-770-1878</div><div class="cm">smiller789@gmail.com</div><div class="cm">Price: $375,900</div><div class="cm" style="color:var(--turq)">Closed: May 20 2026</div><div class="note">108 Jeffery Ln Dallas GA CLOSED $375900 Lender Craig Lebhaft Milestone Rebecca h...</div><div style="margin-top:6px"><span class="ctag tag-past">past</span><span class="src-tag">Social Media</span><span class="agent-tag">Rebecca</span></div></div><div class="cc" onclick="editContact(3)" title="Click to edit"><div style="position:absolute;top:10px;right:10px;font-size:10px;color:var(--muted)">Edit</div><div class="cn">David and Nia Sturgill</div><div class="cm">678-663-4211</div><div class="cm">davidleesturgill@gmail.com</div><div class="cm">Price: $529,000</div><div class="cm" style="color:var(--turq)">Closed: Jun 5 2026</div><div class="note">763 Kiowa Ln Marietta GA CLOSED $529000 Repeat client TC Rebecca $1300 Lender Ja...</div><div style="margin-top:6px"><span class="ctag tag-past">past</span><span class="src-tag">Repeat</span><span class="agent-tag">Rebecca</span></div></div><div class="cc" onclick="editContact(4)" title="Click to edit"><div style="position:absolute;top:10px;right:10px;font-size:10px;color:var(--muted)">Edit</div><div class="cn">Bryan Ramirez</div><div class="cm">404-667-0679</div><div class="cm">bryanramirez185@yahoo.com</div><div class="cm">Price: $165,000</div><div class="note">807 Jones Ave Rockmart GA CONTINGENT Closing Jun 19 2026 Lender Linda Kennedy CC...</div><div style="margin-top:6px"><span class="ctag tag-buyer">buyer</span><span class="src-tag">Website</span><span class="agent-tag">Rebecca</span></div></div><div class="cc" onclick="editContact(5)" title="Click to edit"><div style="position:absolute;top:10px;right:10px;font-size:10px;color:var(--muted)">Edit</div><div class="cn">Jennifer and Jeremy Garrett</div><div class="cm">706-506-4327</div><div class="cm">gjen08@aol.com</div><div class="cm">Price: $139,711</div><div class="note">00 Puckett Rd FAILED transaction Family source</div><div style="margin-top:6px"><span class="ctag tag-buyer">buyer</span><span class="src-tag">Family</span><span class="agent-tag">Tammy</span></div></div><div class="cc" onclick="editContact(6)" title="Click to edit"><div style="position:absolute;top:10px;right:10px;font-size:10px;color:var(--muted)">Edit</div><div class="cn">92 Holliday Rd Seller</div><div class="cm">Price: $349,900</div><div class="note">92 Holliday Rd Franklin GA FAILED listing side did not close</div><div style="margin-top:6px"><span class="ctag tag-seller">seller</span><span class="src-tag">Repeat</span><span class="agent-tag">Tammy</span></div></div></div>
+  <div class="cg" id="crm-grid"><div class="cc" onclick="editContact(1)" title="Click to edit"><div style="position:absolute;top:10px;right:10px;font-size:10px;color:var(--muted)">Edit</div><div class="cn">Georgia Property Preservation ANT LLC</div><div class="cm">770-899-1408</div><div class="cm">turnerroberto@gmail.com</div><div class="note">1 Carlton Dr Rockmart GA FAILED did not close repeat client</div><div style="margin-top:6px"><span class="ctag tag-past">past</span><span class="src-tag">Repeat</span><span class="agent-tag">Tammy</span></div></div><div class="cc" onclick="editContact(2)" title="Click to edit"><div style="position:absolute;top:10px;right:10px;font-size:10px;color:var(--muted)">Edit</div><div class="cn">Sydnee Miller</div><div class="cm">678-770-1878</div><div class="cm">smiller789@gmail.com</div><div class="cm">Price: $375,900</div><div class="cm" style="color:var(--turq)">Closed: May 20 2026</div><div class="note">108 Jeffery Ln Dallas GA CLOSED $375900 Lender Craig Lebhaft Milestone Rebecca h...</div><div style="margin-top:6px"><span class="ctag tag-past">past</span><span class="src-tag">Social Media</span><span class="agent-tag">Rebecca</span></div></div><div class="cc" onclick="editContact(3)" title="Click to edit"><div style="position:absolute;top:10px;right:10px;font-size:10px;color:var(--muted)">Edit</div><div class="cn">David and Nia Sturgill</div><div class="cm">678-663-4211</div><div class="cm">davidleesturgill@gmail.com</div><div class="cm">Price: $529,000</div><div class="cm" style="color:var(--turq)">Closed: Jun 5 2026</div><div class="note">763 Kiowa Ln Marietta GA CLOSED $529000 Repeat client TC Rebecca $1300 Lender Ja...</div><div style="margin-top:6px"><span class="ctag tag-past">past</span><span class="src-tag">Repeat</span><span class="agent-tag">Rebecca</span></div></div><div class="cc" onclick="editContact(4)" title="Click to edit"><div style="position:absolute;top:10px;right:10px;font-size:10px;color:var(--muted)">Edit</div><div class="cn">Bryan Ramirez</div><div class="cm">404-667-0679</div><div class="cm">bryanramirez185@yahoo.com</div><div class="cm">Price: $165,000</div><div class="note">807 Jones Ave Rockmart GA CONTINGENT Closing Jun 19 2026 Lender Linda Kennedy CC...</div><div style="margin-top:6px"><span class="ctag tag-buyer">buyer</span><span class="src-tag">Website</span><span class="agent-tag">Rebecca</span></div></div><div class="cc" onclick="editContact(5)" title="Click to edit"><div style="position:absolute;top:10px;right:10px;font-size:10px;color:var(--muted)">Edit</div><div class="cn">Jennifer and Jeremy Garrett</div><div class="cm">706-506-4327</div><div class="cm">gjen08@aol.com</div><div class="cm">Price: $139,711</div><div class="note">00 Puckett Rd FAILED transaction Family source</div><div style="margin-top:6px"><span class="ctag tag-buyer">buyer</span><span class="src-tag">Family</span><span class="agent-tag">Tammy</span></div></div><div class="cc" onclick="editContact(6)" title="Click to edit"><div style="position:absolute;top:10px;right:10px;font-size:10px;color:var(--muted)">Edit</div><div class="cn">92 Holliday Rd Seller</div><div class="cm">Price: $349,900</div><div class="note">92 Holliday Rd Franklin GA FAILED listing side did not close</div><div style="margin-top:6px"><span class="ctag tag-seller">seller</span><span class="src-tag">Repeat</span><span class="agent-tag">Tammy</span></div></div><div class="cc" onclick="editContact(1782397163714)" title="Click to edit"><div style="position:absolute;top:10px;right:10px;font-size:10px;color:var(--muted)">Edit</div><div class="cn">Briana</div><div class="cm">Boggan</div><div class="cm">briboggan@gmail.com</div><div class="cm">Price: 275k</div><div class="cm" style="color:var(--turq)">Closed: August 18th 2026</div><div class="note">Sold her Grandparents Marilyn and James Dean a home in Cedartown and her brother...</div><div style="margin-top:6px"><span class="ctag tag-buyer">buyer</span><span class="src-tag">Repeat</span><span class="agent-tag">Rebecca</span></div></div></div>
   <div id="crm-empty" style="text-align:center;padding:40px;color:var(--muted);display:none">No contacts found.</div>
 </div>
 
@@ -205,7 +206,7 @@ select option{background:var(--g2)}
     <div class="pc"><div class="pl" style="color:var(--muted)">New Leads</div><div id="fp-leads"><div class="pi" onclick="editContact(1)" title="Click to edit">Georgia Property Preservation ANT LLC<br><span style="color:var(--muted);font-size:10px">Repeat</span></div><div class="pi" onclick="editContact(2)" title="Click to edit">Sydnee Miller<br><span style="color:var(--muted);font-size:10px">Social Media $375,900</span></div><div class="pi" onclick="editContact(3)" title="Click to edit">David and Nia Sturgill<br><span style="color:var(--muted);font-size:10px">Repeat $529,000</span></div><div class="pi" onclick="editContact(5)" title="Click to edit">Jennifer and Jeremy Garrett<br><span style="color:var(--muted);font-size:10px">Family $139,711</span></div><div class="pi" onclick="editContact(6)" title="Click to edit">92 Holliday Rd Seller<br><span style="color:var(--muted);font-size:10px">Repeat $349,900</span></div></div></div>
     <div class="pc"><div class="pl" style="color:var(--gold)">Nurturing</div><div id="fp-active"><div style="color:var(--muted);font-size:11px;padding:6px">Empty</div></div></div>
     <div class="pc"><div class="pl" style="color:var(--turq)">Listed / Searching</div><div id="fp-listed"><div style="color:var(--muted);font-size:11px;padding:6px">Empty</div></div></div>
-    <div class="pc"><div class="pl" style="color:var(--pink)">Under Contract</div><div id="fp-closing"><div class="pi" onclick="editContact(4)" title="Click to edit">Bryan Ramirez<br><span style="color:var(--muted);font-size:10px">Website $165,000</span></div></div></div>
+    <div class="pc"><div class="pl" style="color:var(--pink)">Under Contract</div><div id="fp-closing"><div class="pi" onclick="editContact(4)" title="Click to edit">Bryan Ramirez<br><span style="color:var(--muted);font-size:10px">Website $165,000</span></div><div class="pi" onclick="editContact(1782397163714)" title="Click to edit">Briana<br><span style="color:var(--muted);font-size:10px">Repeat 275k</span></div></div></div>
   </div>
 </div>
 
@@ -463,7 +464,7 @@ select option{background:var(--g2)}
 </div>
 
 <!-- OPEN HOUSE -->
-<div id="sec-openhouse" class="sec on">
+<div id="sec-openhouse" class="sec">
   <div class="shdr">Open House Manager</div>
   <div class="ssub">Capture every lead. Follow up like a pro.</div>
   <div class="g2">
@@ -486,6 +487,26 @@ select option{background:var(--g2)}
     <button class="btn bp" onclick="runAI(&#39;ohfu&#39;)">Write Follow-Up</button>
     <div class="ai-box" id="ohfu-box"><div class="ail"><span>Your Email</span><button class="copy-btn" onclick="cp(&#39;ohfu-txt&#39;)">Copy</button></div><div id="ohfu-txt"></div></div>
   </div>
+</div>
+
+
+<!-- TRANSACTIONS -->
+<div id="sec-transactions" class="sec">
+  <div class="shdr">Transaction Manager</div>
+  <div class="ssub">Every deal. Every date. Every deadline. Click anything to edit.</div>
+
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px">
+    <div class="pills" id="tx-filter">
+      <button class="pill on" onclick="filterTX(&#39;all&#39;,this)">All</button>
+      <button class="pill" onclick="filterTX(&#39;active&#39;,this)">Active</button>
+      <button class="pill" onclick="filterTX(&#39;closed&#39;,this)">Closed</button>
+      <button class="pill" onclick="filterTX(&#39;cancelled&#39;,this)">Cancelled</button>
+    </div>
+    <button class="btn bp" onclick="openTX(null)">+ New Transaction</button>
+  </div>
+
+  <div id="tx-list"><div style="background:var(--g1);border:1px solid var(--g3);border-radius:12px;padding:18px;margin-bottom:14px"><div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px"><div><div style="font-weight:700;font-size:16px">807 Jones Ave, Rockmart GA 30153</div><div style="font-size:12px;color:var(--muted);margin-top:3px">Bryan Ramirez &nbsp;|&nbsp; $165,000</div><div style="margin-top:6px"><span class="bdg bdg-g" style="margin-right:6px">ACTIVE</span><span class="bdg bdg-w" style="margin-right:6px">BUYER</span><span class="bdg bdg-w">Georgia</span></div></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn bp" style="padding:6px 14px;font-size:11px" onclick="openTX(901)">Edit</button></div></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-bottom:14px"><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Binding Date</div><div style="font-size:12px;font-weight:700;color:var(--white)">Jun 6, 2026<span style="font-size:10px;font-weight:400"></span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Closing Date</div><div style="font-size:12px;font-weight:700;color:var(--red)">Jun 19, 2026<span style="font-size:10px;font-weight:400"> (6d PAST)</span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Agent</div><div style="font-size:12px;font-weight:700;color:var(--white)">Rebecca Winkles<span style="font-size:10px;font-weight:400"></span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Lender</div><div style="font-size:12px;font-weight:700;color:var(--white)">Linda Kennedy - CCM<span style="font-size:10px;font-weight:400"></span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Attorney</div><div style="font-size:12px;font-weight:700;color:var(--white)">Christina Jenkins LLC<span style="font-size:10px;font-weight:400"></span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Loan Type</div><div style="font-size:12px;font-weight:700;color:var(--white)">FHA<span style="font-size:10px;font-weight:400"></span></div></div></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px"><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--muted)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Due Diligence</div><div style="font-size:13px;font-weight:700;color:var(--muted);margin-bottom:4px">No date set</div><span class="bdg bdg-g" style="font-size:9px">COMPLETE</span></div><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--muted)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Inspection</div><div style="font-size:13px;font-weight:700;color:var(--muted);margin-bottom:4px">No date set</div><span class="bdg bdg-g" style="font-size:9px">COMPLETE</span></div><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--muted)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Appraisal</div><div style="font-size:13px;font-weight:700;color:var(--muted);margin-bottom:4px">No date set</div><span class="bdg bdg-g" style="font-size:9px">COMPLETE</span></div><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--muted)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Financing</div><div style="font-size:13px;font-weight:700;color:var(--muted);margin-bottom:4px">No date set</div><span class="bdg bdg-y" style="font-size:9px">APPROVED</span><div style="font-size:11px;color:var(--muted);margin-top:6px">Contingent</div></div><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--muted)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Earnest Money</div><div style="font-size:13px;font-weight:700;color:var(--muted);margin-bottom:4px">No date set</div><span class="bdg bdg-g" style="font-size:9px">RECEIVED</span><div style="font-size:11px;color:var(--muted);margin-top:6px">$1,000 held by Christina Jenkins LLC</div></div></div><div style="margin-top:12px;background:var(--g2);border-radius:8px;padding:10px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)">Document Checklist</span><span style="font-size:12px;font-weight:700;color:var(--red)">0 / 14 (0%)</span></div><div style="background:var(--g3);border-radius:20px;height:6px;overflow:hidden"><div style="background:var(--pink);height:100%;width:0%;transition:width .3s"></div></div></div><div style="margin-top:10px;background:var(--black);border:1px dashed var(--g3);border-radius:6px;padding:8px;font-size:11px;color:var(--muted)">Stage 3 Contingent. Buyer: bryanramirez185@yahoo.com. Lender: Linda Kennedy CCM. Attorney: Christina Jenkins LLC.</div></div></div>
+  <div id="tx-empty" style="text-align: center; padding: 40px; color: var(--muted); display: none;">No transactions yet. Hit + New Transaction to get started.</div>
 </div>
 
 </div><!-- /main -->
@@ -563,6 +584,269 @@ select option{background:var(--g2)}
     <div style="display:flex;gap:8px;margin-top:12px">
       <button class="btn bg" onclick="previewModal()">Preview</button>
       <button class="btn bp" onclick="logModal()">Log It</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- TRANSACTION MODAL -->
+<div class="modal-ov" id="m-tx">
+  <div class="modal" style="width:min(750px,97vw)">
+    <div class="mtitle">
+      <span id="tx-modal-title">New Transaction</span>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button id="tx-del-btn" class="btn bred" style="display:none;padding:6px 14px;font-size:11px" onclick="deleteTX()">Delete</button>
+        <button class="mclose" onclick="closeModal(&#39;m-tx&#39;)">X</button>
+      </div>
+    </div>
+    <input type="hidden" id="tx-edit-id" value="">
+
+    <!-- PROPERTY INFO -->
+    <div style="font-family:Bebas Neue,sans-serif;font-size:15px;color:var(--turq);margin-bottom:10px;letter-spacing:1px">PROPERTY INFO</div>
+    <div class="g2">
+      <div class="f"><label>Property Address</label><input type="text" id="tx-addr" placeholder="807 Jones Ave, Rockmart GA 30153"></div>
+      <div class="f"><label>MLS Number</label><input type="text" id="tx-mls" placeholder="7123456"></div>
+    </div>
+    <div class="g2">
+      <div class="f"><label>Sale Price / List Price</label><input type="text" id="tx-price" placeholder="$165,000"></div>
+      <div class="f"><label>Transaction Type</label>
+        <select id="tx-type">
+          <option value="buyer">Buyer Side</option>
+          <option value="listing">Listing Side</option>
+          <option value="both">Both Sides</option>
+        </select>
+      </div>
+    </div>
+    <div class="g2">
+      <div class="f"><label>Status</label>
+        <select id="tx-status">
+          <option value="active">Active / Under Contract</option>
+          <option value="closed">Closed</option>
+          <option value="cancelled">Cancelled / Fell Through</option>
+        </select>
+      </div>
+      <div class="f"><label>State</label>
+        <select id="tx-state">
+          <option>Georgia</option>
+          <option>Alabama</option>
+          <option>Florida</option>
+        </select>
+      </div>
+    </div>
+
+    <hr style="border-color:var(--g3);margin:14px 0">
+
+    <!-- PARTIES -->
+    <div style="font-family:Bebas Neue,sans-serif;font-size:15px;color:var(--turq);margin-bottom:10px;letter-spacing:1px">PARTIES</div>
+    <div class="g2">
+      <div class="f"><label>Buyer Name(s)</label><input type="text" id="tx-buyer" placeholder="Bryan Ramirez"></div>
+      <div class="f"><label>Buyer Phone</label><input type="text" id="tx-buyer-phone" placeholder="404-667-0679"></div>
+    </div>
+    <div class="g2">
+      <div class="f"><label>Seller Name(s)</label><input type="text" id="tx-seller" placeholder="John &amp; Jane Smith"></div>
+      <div class="f"><label>Seller Phone</label><input type="text" id="tx-seller-phone" placeholder="770-555-1234"></div>
+    </div>
+    <div class="g2">
+      <div class="f"><label>Buyer Agent / Tammy or Rebecca</label>
+        <select id="tx-agent">
+          <option>Tammy Plamondon</option>
+          <option>Rebecca Winkles</option>
+          <option>Both</option>
+          <option>Cooperating Agent</option>
+        </select>
+      </div>
+      <div class="f"><label>Co-op Agent Name &amp; Brokerage</label><input type="text" id="tx-coop" placeholder="Jane Doe - RE/MAX"></div>
+    </div>
+    <div class="g2">
+      <div class="f"><label>Lender Name</label><input type="text" id="tx-lender" placeholder="Linda Kennedy - CCM"></div>
+      <div class="f"><label>Lender Phone</label><input type="text" id="tx-lender-phone" placeholder="770-555-9999"></div>
+    </div>
+    <div class="g2">
+      <div class="f"><label>Closing Attorney / Title Company</label><input type="text" id="tx-attorney" placeholder="Christina Jenkins LLC"></div>
+      <div class="f"><label>Attorney Phone</label><input type="text" id="tx-attorney-phone" placeholder="770-555-8888"></div>
+    </div>
+    <div class="g2">
+      <div class="f"><label>TC Name (Rebecca or other)</label><input type="text" id="tx-tc" placeholder="Rebecca Winkles"></div>
+      <div class="f"><label>TC Fee $</label><input type="number" id="tx-tc-fee" placeholder="0"></div>
+    </div>
+
+    <hr style="border-color:var(--g3);margin:14px 0">
+
+    <!-- KEY DATES -->
+    <div style="font-family:Bebas Neue,sans-serif;font-size:15px;color:var(--turq);margin-bottom:10px;letter-spacing:1px">KEY DATES</div>
+    <div class="g2">
+      <div class="f"><label>Binding Agreement Date</label><input type="text" id="tx-binding" placeholder="June 6, 2026" oninput="calcDates()"></div>
+      <div class="f"><label>Target Closing Date</label><input type="text" id="tx-closing" placeholder="July 18, 2026"></div>
+    </div>
+    <div class="g2">
+      <div class="f"><label>Actual Closing Date</label><input type="text" id="tx-closed-date" placeholder="Leave blank until closed"></div>
+      <div class="f"><label>Possession Date</label><input type="text" id="tx-possession" placeholder="At closing or date"></div>
+    </div>
+
+    <hr style="border-color:var(--g3);margin:14px 0">
+
+    <!-- CONTINGENCIES -->
+    <div style="font-family:Bebas Neue,sans-serif;font-size:15px;color:var(--turq);margin-bottom:10px;letter-spacing:1px">CONTINGENCIES &amp; DEADLINES</div>
+
+    <div style="background:var(--g2);border-radius:10px;padding:14px;margin-bottom:10px">
+      <div style="font-weight:700;font-size:13px;color:var(--white);margin-bottom:8px">Due Diligence Period</div>
+      <div class="g2">
+        <div class="f"><label>Number of Days from Binding</label><input type="number" id="tx-dd-days" placeholder="10" oninput="calcDates()"></div>
+        <div class="f"><label>Due Diligence Deadline</label><input type="text" id="tx-dd-date" placeholder="Auto-calculated" style="background:var(--black)"></div>
+      </div>
+      <div class="f"><label>Notes</label><input type="text" id="tx-dd-notes" placeholder="Inspection scheduled, termite, roof..."></div>
+      <div class="f"><label>Status</label>
+        <select id="tx-dd-status">
+          <option value="pending">Pending</option>
+          <option value="complete">Complete - Satisfied</option>
+          <option value="extended">Extended</option>
+          <option value="terminated">Terminated</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="background:var(--g2);border-radius:10px;padding:14px;margin-bottom:10px">
+      <div style="font-weight:700;font-size:13px;color:var(--white);margin-bottom:8px">Inspection</div>
+      <div class="g2">
+        <div class="f"><label>Inspection Date &amp; Time</label><input type="text" id="tx-insp-date" placeholder="June 12, 2026 at 10am"></div>
+        <div class="f"><label>Inspector Name</label><input type="text" id="tx-inspector" placeholder="Bob Smith Inspections"></div>
+      </div>
+      <div class="g2">
+        <div class="f"><label>Repair Request Deadline</label><input type="text" id="tx-repair-deadline" placeholder="June 14, 2026"></div>
+        <div class="f"><label>Repair Response Deadline</label><input type="text" id="tx-repair-response" placeholder="June 16, 2026"></div>
+      </div>
+      <div class="f"><label>Repair Amount Agreed $</label><input type="number" id="tx-repair-amt" placeholder="0"></div>
+      <div class="f"><label>Notes</label><input type="text" id="tx-insp-notes" placeholder="Roof concerns, HVAC serviced..."></div>
+      <div class="f"><label>Status</label>
+        <select id="tx-insp-status">
+          <option value="scheduled">Scheduled</option>
+          <option value="complete">Complete</option>
+          <option value="repairs-requested">Repairs Requested</option>
+          <option value="repairs-agreed">Repairs Agreed</option>
+          <option value="waived">Waived</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="background:var(--g2);border-radius:10px;padding:14px;margin-bottom:10px">
+      <div style="font-weight:700;font-size:13px;color:var(--white);margin-bottom:8px">Appraisal Contingency</div>
+      <div class="g2">
+        <div class="f"><label>Number of Days from Binding</label><input type="number" id="tx-ap-days" placeholder="21" oninput="calcDates()"></div>
+        <div class="f"><label>Appraisal Deadline</label><input type="text" id="tx-ap-date" placeholder="Auto-calculated" style="background:var(--black)"></div>
+      </div>
+      <div class="g2">
+        <div class="f"><label>Appraised Value $</label><input type="number" id="tx-appraisal-val" placeholder="0"></div>
+        <div class="f"><label>Appraisal Date Completed</label><input type="text" id="tx-appraisal-done" placeholder="Leave blank until done"></div>
+      </div>
+      <div class="f"><label>Notes</label><input type="text" id="tx-ap-notes" placeholder="Came in at value, low appraisal gap..."></div>
+      <div class="f"><label>Status</label>
+        <select id="tx-ap-status">
+          <option value="pending">Pending</option>
+          <option value="scheduled">Scheduled</option>
+          <option value="complete">Complete - At Value</option>
+          <option value="low">Low Appraisal - Negotiating</option>
+          <option value="waived">Waived</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="background:var(--g2);border-radius:10px;padding:14px;margin-bottom:10px">
+      <div style="font-weight:700;font-size:13px;color:var(--white);margin-bottom:8px">Financing Contingency</div>
+      <div class="g2">
+        <div class="f"><label>Number of Days from Binding</label><input type="number" id="tx-fin-days" placeholder="21" oninput="calcDates()"></div>
+        <div class="f"><label>Financing Deadline</label><input type="text" id="tx-fin-date" placeholder="Auto-calculated" style="background:var(--black)"></div>
+      </div>
+      <div class="g2">
+        <div class="f"><label>Loan Type</label>
+          <select id="tx-loan-type">
+            <option>Conventional</option>
+            <option>FHA</option>
+            <option>VA</option>
+            <option>USDA</option>
+            <option>Cash</option>
+            <option>Assumable</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="f"><label>Loan Amount $</label><input type="number" id="tx-loan-amt" placeholder="0"></div>
+      </div>
+      <div class="f"><label>Clear to Close Date</label><input type="text" id="tx-ctc" placeholder="Leave blank until received"></div>
+      <div class="f"><label>Notes</label><input type="text" id="tx-fin-notes" placeholder="Pre-approved, clear to close received..."></div>
+      <div class="f"><label>Status</label>
+        <select id="tx-fin-status">
+          <option value="pending">Pending - In Underwriting</option>
+          <option value="approved">Conditionally Approved</option>
+          <option value="clear">Clear to Close</option>
+          <option value="denied">Denied</option>
+          <option value="waived">Waived / Cash</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="background:var(--g2);border-radius:10px;padding:14px;margin-bottom:10px">
+      <div style="font-weight:700;font-size:13px;color:var(--white);margin-bottom:8px">Earnest Money</div>
+      <div class="g2">
+        <div class="f"><label>Earnest Money Amount $</label><input type="number" id="tx-em-amt" placeholder="1000"></div>
+        <div class="f"><label>Days from Binding to Deliver</label><input type="number" id="tx-em-days" placeholder="3" oninput="calcDates()"></div>
+      </div>
+      <div class="g2">
+        <div class="f"><label>Earnest Money Deadline</label><input type="text" id="tx-em-date" placeholder="Auto-calculated" style="background:var(--black)"></div>
+        <div class="f"><label>Date Received</label><input type="text" id="tx-em-received" placeholder="Leave blank until received"></div>
+      </div>
+      <div class="g2">
+        <div class="f"><label>Held By</label><input type="text" id="tx-em-held" placeholder="Christina Jenkins LLC"></div>
+        <div class="f"><label>Check / Wire Number</label><input type="text" id="tx-em-check" placeholder="Check #1234"></div>
+      </div>
+      <div class="f"><label>Status</label>
+        <select id="tx-em-status">
+          <option value="pending">Pending - Not Yet Received</option>
+          <option value="received">Received and Deposited</option>
+          <option value="applied">Applied to Closing</option>
+          <option value="returned">Returned to Buyer</option>
+          <option value="forfeited">Forfeited to Seller</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="background:var(--g2);border-radius:10px;padding:14px;margin-bottom:10px">
+      <div style="font-weight:700;font-size:13px;color:var(--white);margin-bottom:8px">Home Sale Contingency</div>
+      <div class="g2">
+        <div class="f"><label>Buyer Must Sell Address</label><input type="text" id="tx-hsc-addr" placeholder="Leave blank if none"></div>
+        <div class="f"><label>Home Sale Deadline</label><input type="text" id="tx-hsc-deadline" placeholder="Leave blank if none"></div>
+      </div>
+      <div class="f"><label>Status</label>
+        <select id="tx-hsc-status">
+          <option value="none">No Home Sale Contingency</option>
+          <option value="pending">Pending - Home Not Yet Sold</option>
+          <option value="complete">Complete - Home Sold</option>
+          <option value="removed">Removed</option>
+        </select>
+      </div>
+    </div>
+
+    <hr style="border-color:var(--g3);margin:14px 0">
+
+    <!-- DOCUMENTS & CHECKLIST -->
+    <div style="font-family:Bebas Neue,sans-serif;font-size:15px;color:var(--turq);margin-bottom:10px;letter-spacing:1px">DOCUMENTS &amp; FILE</div>
+    <div class="f"><label>Google Drive Folder Link</label><input type="text" id="tx-drive" placeholder="Paste your Google Drive folder link here"></div>
+    <div style="margin-top:8px;margin-bottom:14px">
+      <div id="tx-drive-link-display" style="display:none">
+        <a id="tx-drive-link-a" href="file:///C:/Users/tammy/Downloads/index%20(4).html#" target="_blank" style="color:var(--turq);font-size:13px;font-weight:700">Open Google Drive Folder</a>
+      </div>
+    </div>
+
+    <div style="font-weight:700;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Document Checklist</div>
+    <div id="tx-checklist" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px"></div>
+
+    <hr style="border-color:var(--g3);margin:14px 0">
+
+    <!-- NOTES -->
+    <div style="font-family:Bebas Neue,sans-serif;font-size:15px;color:var(--turq);margin-bottom:10px;letter-spacing:1px">NOTES</div>
+    <div class="f"><textarea id="tx-notes" style="min-height:80px" placeholder="Any other important notes about this transaction..."></textarea></div>
+
+    <div class="fe">
+      <button class="btn bg" onclick="closeModal(&#39;m-tx&#39;)">Cancel</button>
+      <button class="btn bp" onclick="saveTX()">Save Transaction</button>
     </div>
   </div>
 </div>
@@ -1091,10 +1375,359 @@ async function runTpl() {
   }
 }
 
+
+// ── TRANSACTIONS ──
+var transactions = JSON.parse(localStorage.getItem("lm5_tx") || "null");
+
+var BUYER_DOCS = ["Purchase & Sale Agreement","Exhibit A - Legal Description","Lead Paint Disclosure","Property Disclosure","Pre-Approval Letter","Earnest Money Receipt","Inspection Report","Repair Request / Amendment","Appraisal Report","Clear to Close Letter","Closing Disclosure (CD)","Final Walkthrough Confirmation","HUD / Settlement Statement","Commission Disbursement Auth"];
+var LISTING_DOCS = ["Listing Agreement","MLS Input Sheet","Seller Disclosure","Lead Paint Disclosure","Earnest Money Receipt","Purchase & Sale Agreement","Inspection Report","Repair Response","Appraisal Report","Closing Disclosure (CD)","HUD / Settlement Statement","Commission Disbursement Auth"];
+
+var SEED_TX = [
+  {
+    id:901,
+    addr:"807 Jones Ave, Rockmart GA 30153",
+    mls:"",
+    price:"$165,000",
+    type:"buyer",
+    status:"active",
+    state:"Georgia",
+    buyer:"Bryan Ramirez",
+    buyerPhone:"404-667-0679",
+    seller:"",
+    sellerPhone:"",
+    agent:"Rebecca Winkles",
+    coop:"",
+    lender:"Linda Kennedy - CCM",
+    lenderPhone:"",
+    attorney:"Christina Jenkins LLC",
+    attorneyPhone:"",
+    tc:"Rebecca Winkles",
+    tcFee:"0",
+    binding:"Jun 6, 2026",
+    closing:"Jun 19, 2026",
+    closedDate:"",
+    possession:"At closing",
+    ddDays:"10",ddDate:"",ddNotes:"",ddStatus:"complete",
+    inspDate:"",inspector:"",repairDeadline:"",repairResponse:"",repairAmt:"0",inspNotes:"",inspStatus:"complete",
+    apDays:"21",apDate:"",apNotes:"",apStatus:"complete",appraisalVal:"",appraisalDone:"",
+    finDays:"21",finDate:"",loanType:"FHA",loanAmt:"",ctc:"",finNotes:"Contingent",finStatus:"approved",
+    emAmt:"1000",emDays:"3",emDate:"",emReceived:"",emHeld:"Christina Jenkins LLC",emCheck:"",emStatus:"received",
+    hscAddr:"",hscDeadline:"",hscStatus:"none",
+    drive:"",
+    notes:"Stage 3 Contingent. Buyer: bryanramirez185@yahoo.com. Lender: Linda Kennedy CCM. Attorney: Christina Jenkins LLC.",
+    docs:{}
+  }
+];
+
+if (!transactions) transactions = SEED_TX.slice();
+
+function saveTXData() {
+  localStorage.setItem("lm5_tx", JSON.stringify(transactions));
+}
+saveTXData();
+
+var txFilter = "all";
+function filterTX(f, btn) {
+  txFilter = f;
+  document.querySelectorAll("#tx-filter .pill").forEach(function(p){ p.classList.remove("on"); });
+  btn.classList.add("on");
+  renderTX();
+}
+
+function addDays(dateStr, days) {
+  if (!dateStr || !days) return "";
+  var d = new Date(dateStr);
+  if (isNaN(d.getTime())) return "";
+  d.setDate(d.getDate() + parseInt(days));
+  return d.toLocaleDateString("en-US", {month:"short",day:"numeric",year:"numeric"});
+}
+
+function daysUntil(dateStr) {
+  if (!dateStr) return null;
+  var d = new Date(dateStr);
+  if (isNaN(d.getTime())) return null;
+  var now = new Date();
+  now.setHours(0,0,0,0);
+  return Math.round((d - now) / 86400000);
+}
+
+function urgencyColor(days) {
+  if (days === null) return "var(--muted)";
+  if (days < 0) return "var(--red)";
+  if (days <= 3) return "var(--red)";
+  if (days <= 7) return "var(--gold)";
+  return "var(--green)";
+}
+
+function calcDates() {
+  var binding = document.getElementById("tx-binding") ? document.getElementById("tx-binding").value : "";
+  var ddDays = document.getElementById("tx-dd-days") ? document.getElementById("tx-dd-days").value : "";
+  var apDays = document.getElementById("tx-ap-days") ? document.getElementById("tx-ap-days").value : "";
+  var finDays = document.getElementById("tx-fin-days") ? document.getElementById("tx-fin-days").value : "";
+  var emDays = document.getElementById("tx-em-days") ? document.getElementById("tx-em-days").value : "";
+
+  if (document.getElementById("tx-dd-date")) document.getElementById("tx-dd-date").value = addDays(binding, ddDays);
+  if (document.getElementById("tx-ap-date")) document.getElementById("tx-ap-date").value = addDays(binding, apDays);
+  if (document.getElementById("tx-fin-date")) document.getElementById("tx-fin-date").value = addDays(binding, finDays);
+  if (document.getElementById("tx-em-date")) document.getElementById("tx-em-date").value = addDays(binding, emDays);
+}
+
+function buildChecklist(type, savedDocs) {
+  var docs = type === "listing" ? LISTING_DOCS : BUYER_DOCS;
+  var el = document.getElementById("tx-checklist");
+  if (!el) return;
+  el.innerHTML = docs.map(function(d){
+    var key = d.replace(/[^a-z0-9]/gi,"");
+    var checked = savedDocs && savedDocs[key] ? "checked" : "";
+    return "<label style='display:flex;align-items:center;gap:8px;background:var(--g2);border-radius:6px;padding:8px 10px;cursor:pointer;font-size:12px'>" +
+      "<input type='checkbox' id='doc-" + key + "' " + checked + " style='width:auto;margin-top:0;accent-color:var(--pink)'>" +
+      d + "</label>";
+  }).join("");
+}
+
+function getChecklistDocs() {
+  var allDocs = BUYER_DOCS.concat(LISTING_DOCS.filter(function(d){ return BUYER_DOCS.indexOf(d) === -1; }));
+  var result = {};
+  allDocs.forEach(function(d){
+    var key = d.replace(/[^a-z0-9]/gi,"");
+    var el = document.getElementById("doc-" + key);
+    if (el) result[key] = el.checked;
+  });
+  return result;
+}
+
+function openTX(id) {
+  var tx = id ? transactions.find(function(t){ return t.id === id; }) : null;
+  document.getElementById("tx-modal-title").textContent = tx ? "Edit Transaction" : "New Transaction";
+  document.getElementById("tx-edit-id").value = tx ? tx.id : "";
+  document.getElementById("tx-del-btn").style.display = tx ? "block" : "none";
+
+  var fields = ["tx-addr","tx-mls","tx-price","tx-buyer","tx-buyer-phone","tx-seller","tx-seller-phone","tx-coop","tx-lender","tx-lender-phone","tx-attorney","tx-attorney-phone","tx-tc","tx-binding","tx-closing","tx-closed-date","tx-possession","tx-dd-days","tx-dd-date","tx-dd-notes","tx-insp-date","tx-inspector","tx-repair-deadline","tx-repair-response","tx-repair-amt","tx-insp-notes","tx-ap-days","tx-ap-date","tx-ap-notes","tx-appraisal-val","tx-appraisal-done","tx-fin-days","tx-fin-date","tx-loan-amt","tx-ctc","tx-fin-notes","tx-em-amt","tx-em-days","tx-em-date","tx-em-received","tx-em-held","tx-em-check","tx-hsc-addr","tx-hsc-deadline","tx-drive","tx-notes","tx-tc-fee"];
+  var map = {
+    "tx-addr":"addr","tx-mls":"mls","tx-price":"price","tx-buyer":"buyer","tx-buyer-phone":"buyerPhone",
+    "tx-seller":"seller","tx-seller-phone":"sellerPhone","tx-coop":"coop",
+    "tx-lender":"lender","tx-lender-phone":"lenderPhone","tx-attorney":"attorney","tx-attorney-phone":"attorneyPhone",
+    "tx-tc":"tc","tx-binding":"binding","tx-closing":"closing","tx-closed-date":"closedDate","tx-possession":"possession",
+    "tx-dd-days":"ddDays","tx-dd-date":"ddDate","tx-dd-notes":"ddNotes",
+    "tx-insp-date":"inspDate","tx-inspector":"inspector","tx-repair-deadline":"repairDeadline","tx-repair-response":"repairResponse","tx-repair-amt":"repairAmt","tx-insp-notes":"inspNotes",
+    "tx-ap-days":"apDays","tx-ap-date":"apDate","tx-ap-notes":"apNotes","tx-appraisal-val":"appraisalVal","tx-appraisal-done":"appraisalDone",
+    "tx-fin-days":"finDays","tx-fin-date":"finDate","tx-loan-amt":"loanAmt","tx-ctc":"ctc","tx-fin-notes":"finNotes",
+    "tx-em-amt":"emAmt","tx-em-days":"emDays","tx-em-date":"emDate","tx-em-received":"emReceived","tx-em-held":"emHeld","tx-em-check":"emCheck",
+    "tx-hsc-addr":"hscAddr","tx-hsc-deadline":"hscDeadline","tx-drive":"drive","tx-notes":"notes","tx-tc-fee":"tcFee"
+  };
+
+  fields.forEach(function(fid){
+    var el = document.getElementById(fid);
+    if (!el) return;
+    el.value = tx && map[fid] && tx[map[fid]] !== undefined ? tx[map[fid]] : "";
+  });
+
+  var selects = {
+    "tx-type": tx ? tx.type : "buyer",
+    "tx-status": tx ? tx.status : "active",
+    "tx-state": tx ? tx.state : "Georgia",
+    "tx-agent": tx ? tx.agent : "Rebecca Winkles",
+    "tx-loan-type": tx ? tx.loanType : "Conventional",
+    "tx-dd-status": tx ? tx.ddStatus : "pending",
+    "tx-insp-status": tx ? tx.inspStatus : "scheduled",
+    "tx-ap-status": tx ? tx.apStatus : "pending",
+    "tx-fin-status": tx ? tx.finStatus : "pending",
+    "tx-em-status": tx ? tx.emStatus : "pending",
+    "tx-hsc-status": tx ? tx.hscStatus : "none"
+  };
+  Object.keys(selects).forEach(function(k){
+    var el = document.getElementById(k);
+    if (el) el.value = selects[k];
+  });
+
+  buildChecklist(tx ? tx.type : "buyer", tx ? tx.docs : {});
+
+  // Drive link
+  var driveEl = document.getElementById("tx-drive-link-display");
+  var driveA = document.getElementById("tx-drive-link-a");
+  if (tx && tx.drive) {
+    driveEl.style.display = "block";
+    driveA.href = tx.drive;
+  } else {
+    driveEl.style.display = "none";
+  }
+
+  document.getElementById("tx-type").addEventListener("change", function(){
+    buildChecklist(this.value, {});
+  });
+
+  openModal("m-tx");
+}
+
+function saveTX() {
+  var addr = document.getElementById("tx-addr") ? document.getElementById("tx-addr").value.trim() : "";
+  if (!addr) { showToast("Property address is required!"); return; }
+  var editId = document.getElementById("tx-edit-id") ? document.getElementById("tx-edit-id").value : "";
+
+  function gv(id) { var e = document.getElementById(id); return e ? e.value || "" : ""; }
+  function gs(id) { var e = document.getElementById(id); return e ? e.value || "" : ""; }
+
+  var data = {
+    addr:addr, mls:gv("tx-mls"), price:gv("tx-price"),
+    type:gs("tx-type"), status:gs("tx-status"), state:gs("tx-state"),
+    buyer:gv("tx-buyer"), buyerPhone:gv("tx-buyer-phone"),
+    seller:gv("tx-seller"), sellerPhone:gv("tx-seller-phone"),
+    agent:gs("tx-agent"), coop:gv("tx-coop"),
+    lender:gv("tx-lender"), lenderPhone:gv("tx-lender-phone"),
+    attorney:gv("tx-attorney"), attorneyPhone:gv("tx-attorney-phone"),
+    tc:gv("tx-tc"), tcFee:gv("tx-tc-fee"),
+    binding:gv("tx-binding"), closing:gv("tx-closing"), closedDate:gv("tx-closed-date"), possession:gv("tx-possession"),
+    ddDays:gv("tx-dd-days"), ddDate:gv("tx-dd-date"), ddNotes:gv("tx-dd-notes"), ddStatus:gs("tx-dd-status"),
+    inspDate:gv("tx-insp-date"), inspector:gv("tx-inspector"), repairDeadline:gv("tx-repair-deadline"), repairResponse:gv("tx-repair-response"), repairAmt:gv("tx-repair-amt"), inspNotes:gv("tx-insp-notes"), inspStatus:gs("tx-insp-status"),
+    apDays:gv("tx-ap-days"), apDate:gv("tx-ap-date"), apNotes:gv("tx-ap-notes"), apStatus:gs("tx-ap-status"), appraisalVal:gv("tx-appraisal-val"), appraisalDone:gv("tx-appraisal-done"),
+    finDays:gv("tx-fin-days"), finDate:gv("tx-fin-date"), loanType:gs("tx-loan-type"), loanAmt:gv("tx-loan-amt"), ctc:gv("tx-ctc"), finNotes:gv("tx-fin-notes"), finStatus:gs("tx-fin-status"),
+    emAmt:gv("tx-em-amt"), emDays:gv("tx-em-days"), emDate:gv("tx-em-date"), emReceived:gv("tx-em-received"), emHeld:gv("tx-em-held"), emCheck:gv("tx-em-check"), emStatus:gs("tx-em-status"),
+    hscAddr:gv("tx-hsc-addr"), hscDeadline:gv("tx-hsc-deadline"), hscStatus:gs("tx-hsc-status"),
+    drive:gv("tx-drive"), notes:gv("tx-notes"),
+    docs:getChecklistDocs()
+  };
+
+  if (editId) {
+    var idx = transactions.findIndex(function(t){ return t.id == editId; });
+    if (idx > -1) transactions[idx] = Object.assign({}, transactions[idx], data);
+    showToast("Transaction updated!");
+  } else {
+    data.id = Date.now();
+    transactions.push(data);
+    showToast("Transaction saved!");
+  }
+  saveTXData();
+  closeModal("m-tx");
+  renderTX();
+}
+
+function deleteTX() {
+  var editId = document.getElementById("tx-edit-id") ? document.getElementById("tx-edit-id").value : "";
+  if (!editId) return;
+  if (!confirm("Delete this transaction? Cannot be undone.")) return;
+  transactions = transactions.filter(function(t){ return t.id != editId; });
+  saveTXData();
+  closeModal("m-tx");
+  renderTX();
+  showToast("Transaction deleted.");
+}
+
+function statusBadge(status) {
+  if (status === "complete" || status === "clear" || status === "received" || status === "applied" || status === "complete-at-value" || status === "waived") return "bdg-g";
+  if (status === "pending" || status === "scheduled" || status === "approved" || status === "repairs-requested") return "bdg-y";
+  if (status === "terminated" || status === "denied" || status === "forfeited" || status === "low") return "bdg-red";
+  return "bdg-w";
+}
+
+function renderTX() {
+  var list = document.getElementById("tx-list");
+  var empty = document.getElementById("tx-empty");
+  var filtered = transactions.filter(function(t){
+    return txFilter === "all" || t.status === txFilter;
+  });
+  if (!filtered.length) {
+    if(list) list.innerHTML = "";
+    if(empty) empty.style.display = "block";
+    return;
+  }
+  if(empty) empty.style.display = "none";
+
+  if(list) list.innerHTML = filtered.map(function(tx){
+    var ddDays = daysUntil(tx.ddDate);
+    var apDays = daysUntil(tx.apDate);
+    var finDays = daysUntil(tx.finDate);
+    var emDays2 = daysUntil(tx.emDate);
+    var closingDays = daysUntil(tx.closing);
+    var docsTotal = BUYER_DOCS.length;
+    var docsChecked = tx.docs ? Object.values(tx.docs).filter(Boolean).length : 0;
+    var docPct = Math.round((docsChecked / docsTotal) * 100);
+
+    return "<div style='background:var(--g1);border:1px solid var(--g3);border-radius:12px;padding:18px;margin-bottom:14px'>" +
+
+      // Header
+      "<div style='display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px'>" +
+      "<div>" +
+      "<div style='font-weight:700;font-size:16px'>" + tx.addr + "</div>" +
+      "<div style='font-size:12px;color:var(--muted);margin-top:3px'>" +
+      (tx.buyer ? tx.buyer : "") + (tx.seller ? " / " + tx.seller : "") +
+      (tx.price ? " &nbsp;|&nbsp; " + tx.price : "") +
+      (tx.mls ? " &nbsp;|&nbsp; MLS: " + tx.mls : "") +
+      "</div>" +
+      "<div style='margin-top:6px'>" +
+      "<span class='bdg " + (tx.status === "active" ? "bdg-g" : tx.status === "closed" ? "bdg-w" : "bdg-red") + "' style='margin-right:6px'>" + tx.status.toUpperCase() + "</span>" +
+      "<span class='bdg bdg-w' style='margin-right:6px'>" + tx.type.toUpperCase() + "</span>" +
+      "<span class='bdg bdg-w'>" + tx.state + "</span>" +
+      "</div>" +
+      "</div>" +
+      "<div style='display:flex;gap:8px;flex-wrap:wrap'>" +
+      (tx.drive ? "<a href='" + tx.drive + "' target='_blank' style='background:var(--g2);border:1px solid var(--turq);color:var(--turq);border-radius:6px;padding:6px 12px;font-size:11px;font-weight:700;text-decoration:none'>Open Drive Folder</a>" : "") +
+      "<button class='btn bp' style='padding:6px 14px;font-size:11px' onclick='openTX(" + tx.id + ")'>Edit</button>" +
+      "</div>" +
+      "</div>" +
+
+      // Key Dates Row
+      "<div style='display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-bottom:14px'>" +
+      dateBox("Binding Date", tx.binding, null) +
+      dateBox("Closing Date", tx.closing, closingDays) +
+      dateBox("Agent", tx.agent, null) +
+      dateBox("Lender", tx.lender, null) +
+      dateBox("Attorney", tx.attorney, null) +
+      (tx.loanType ? dateBox("Loan Type", tx.loanType, null) : "") +
+      "</div>" +
+
+      // Contingency Cards
+      "<div style='display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px'>" +
+      contingencyCard("Due Diligence", tx.ddDate, ddDays, tx.ddStatus, tx.ddNotes) +
+      contingencyCard("Inspection", tx.inspDate, null, tx.inspStatus, tx.inspNotes) +
+      contingencyCard("Appraisal", tx.apDate, apDays, tx.apStatus, tx.apNotes) +
+      contingencyCard("Financing", tx.finDate, finDays, tx.finStatus, tx.finNotes) +
+      contingencyCard("Earnest Money", tx.emDate, emDays2, tx.emStatus, tx.emAmt ? "$" + Number(tx.emAmt).toLocaleString() + " held by " + (tx.emHeld || "?") : "") +
+      (tx.hscStatus !== "none" ? contingencyCard("Home Sale", tx.hscDeadline, daysUntil(tx.hscDeadline), tx.hscStatus, tx.hscAddr) : "") +
+      "</div>" +
+
+      // Doc Progress
+      "<div style='margin-top:12px;background:var(--g2);border-radius:8px;padding:10px'>" +
+      "<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:6px'>" +
+      "<span style='font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)'>Document Checklist</span>" +
+      "<span style='font-size:12px;font-weight:700;color:" + (docPct === 100 ? "var(--green)" : docPct > 50 ? "var(--gold)" : "var(--red)") + "'>" + docsChecked + " / " + docsTotal + " (" + docPct + "%)</span>" +
+      "</div>" +
+      "<div style='background:var(--g3);border-radius:20px;height:6px;overflow:hidden'>" +
+      "<div style='background:" + (docPct === 100 ? "var(--green)" : "var(--pink)") + ";height:100%;width:" + docPct + "%;transition:width .3s'></div>" +
+      "</div>" +
+      "</div>" +
+
+      (tx.notes ? "<div style='margin-top:10px;background:var(--black);border:1px dashed var(--g3);border-radius:6px;padding:8px;font-size:11px;color:var(--muted)'>" + tx.notes + "</div>" : "") +
+
+      "</div>";
+  }).join("");
+}
+
+function dateBox(label, value, days) {
+  var col = days !== null && days !== undefined ? urgencyColor(days) : "var(--white)";
+  var dayStr = days !== null && days !== undefined ? (days < 0 ? " (" + Math.abs(days) + "d PAST)" : days === 0 ? " (TODAY)" : " (" + days + "d)") : "";
+  return "<div style='background:var(--g2);border-radius:8px;padding:8px 10px'>" +
+    "<div style='font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px'>" + label + "</div>" +
+    "<div style='font-size:12px;font-weight:700;color:" + col + "'>" + (value || "—") + "<span style='font-size:10px;font-weight:400'>" + dayStr + "</span></div>" +
+    "</div>";
+}
+
+function contingencyCard(label, deadline, days, status, notes) {
+  var col = days !== null && days !== undefined ? urgencyColor(days) : "var(--muted)";
+  var dayStr = days !== null && days !== undefined ? (days < 0 ? Math.abs(days) + "d PAST" : days === 0 ? "TODAY" : days + " days") : "";
+  var bclass = statusBadge(status);
+  return "<div style='background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid " + col + "'>" +
+    "<div style='font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px'>" + label + "</div>" +
+    "<div style='font-size:13px;font-weight:700;color:" + col + ";margin-bottom:4px'>" + (deadline || "No date set") + (dayStr ? " &nbsp;|&nbsp; " + dayStr : "") + "</div>" +
+    "<span class='bdg " + bclass + "' style='font-size:9px'>" + (status || "").toUpperCase().replace(/-/g," ") + "</span>" +
+    (notes ? "<div style='font-size:11px;color:var(--muted);margin-top:6px'>" + notes + "</div>" : "") +
+    "</div>";
+}
+
 renderDash();
 renderCRM();
 renderClosings();
 renderOH();
+renderTX();
 </script>
 
 </body></html>
