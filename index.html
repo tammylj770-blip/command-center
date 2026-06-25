@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0049)file:///C:/Users/tammy/Downloads/index%20(5).html -->
+<!-- saved from url=(0049)file:///C:/Users/tammy/Downloads/index%20(7).html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -104,12 +104,12 @@ select option{background:var(--g2)}
   <div class="htag">Command Center — Tammy Plamondon, Broker</div>
 </header>
 <div class="nav">
-  <button class="tb" onclick="go(&#39;dashboard&#39;)">Home</button>
+  <button class="tb on" onclick="go(&#39;dashboard&#39;)">Home</button>
   <button class="tb" onclick="go(&#39;crm&#39;)">Contacts</button>
   <button class="tb" onclick="go(&#39;pipeline&#39;)">Pipeline</button>
   <button class="tb" onclick="go(&#39;closings&#39;)">Closings</button>
   <button class="tb" onclick="go(&#39;leads&#39;)">Lead Gen</button>
-  <button class="tb on" onclick="go(&#39;emails&#39;)">Emails</button>
+  <button class="tb" onclick="go(&#39;emails&#39;)">Emails</button>
   <button class="tb" onclick="go(&#39;ai&#39;)">AI Tools</button>
   <button class="tb" onclick="go(&#39;comps&#39;)">Comps/CMA</button>
   <button class="tb" onclick="go(&#39;social&#39;)">Social</button>
@@ -120,7 +120,7 @@ select option{background:var(--g2)}
 <div class="main">
 
 <!-- DASHBOARD -->
-<div id="sec-dashboard" class="sec">
+<div id="sec-dashboard" class="sec on">
   <div style="margin-bottom:16px">
     <div style="font-family:Bebas Neue,sans-serif;font-size:30px;letter-spacing:2px">You are up, Tammy.</div>
     <div style="font-size:12px;color:var(--muted);margin-top:3px">No fluff. No filter. Just real estate. Click anyone in the pipeline to edit them.</div>
@@ -360,7 +360,7 @@ select option{background:var(--g2)}
 </div>
 
 <!-- EMAILS -->
-<div id="sec-emails" class="sec on">
+<div id="sec-emails" class="sec">
   <div class="shdr">Email Templates</div>
   <div class="ssub">Fill in the blanks. Hit Generate. Copy. Send. Works every time.</div>
 
@@ -384,29 +384,17 @@ select option{background:var(--g2)}
     </div>
 
     <div class="card">
-      <div class="ct" id="tpl-title">Past Client Check-In</div>
-      <div id="tpl-fields"><div class="f"><label>Client Name(s)</label><input type="text" id="e1" placeholder="Bob and Linda Williams"></div><div class="f"><label>When you worked together</label><input type="text" id="e2" placeholder="sold your home on Elm Street in 2023"></div><div class="f"><label>Reason for reaching out</label><input type="text" id="e3" placeholder="home anniversary, market update, just thinking of you"></div><button class="btn bp" style="margin-top:10px;width:100%" onclick="generateEmail(&quot;ci&quot;)">Generate Email</button></div>
-      <div id="email-out" style="display: block; background: var(--black); border: 1px solid var(--turq); border-radius: 8px; padding: 16px; margin-top: 12px;">
+      <div class="ct" id="tpl-title">EMAIL EDITOR</div>
+      <div id="tpl-fields">
+        <div style="color:var(--muted);font-size:13px;padding:20px 0;text-align:center">Pick a template to get started</div>
+      </div>
+      <div id="email-out" style="display:none;background:var(--black);border:1px solid var(--turq);border-radius:8px;padding:16px;margin-top:12px">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
           <span style="font-size:10px;letter-spacing:2px;color:var(--turq);font-weight:700;text-transform:uppercase">Your Email</span>
           <button class="copy-btn" onclick="copyEmail()">Copy Email</button>
         </div>
-        <div id="email-subject" style="font-weight:700;font-size:13px;color:var(--white);margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--g3)">Subject: Checking In - Hope You Are Doing Well</div>
-        <div id="email-body" style="font-size:13px;line-height:1.8;white-space:pre-wrap;color:var(--white)">Hi bob ,
-
-I was just thinking about you all and had to reach out!
-
-It has been a little while since we  and I hope everything is going wonderfully.
-
-I just wanted to say hello and let you know I am thinking of you.
-
-As always, if you ever need anything - real estate related or not - I am here. And if you know anyone thinking about buying or selling, I would be honored if you thought of me. Referrals from people I love working with mean everything to me.
-
-Hope to catch up soon!
-
-Tammy Plamondon
-Broker - Loft and Main Realty Group
-No fluff. No filter. Just real estate.</div>
+        <div id="email-subject" style="font-weight:700;font-size:13px;color:var(--white);margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--g3)"></div>
+        <div id="email-body" style="font-size:13px;line-height:1.8;white-space:pre-wrap;color:var(--white)"></div>
       </div>
       <div style="margin-top:14px;background:var(--g2);border-radius:8px;padding:12px;font-size:12px;color:var(--muted)">
         Need something custom? <a href="https://claude.ai/" target="_blank" style="color:var(--turq);font-weight:700">Open Claude AI</a> and ask for a custom email.
@@ -639,8 +627,8 @@ No fluff. No filter. Just real estate.</div>
     <button class="btn bp" onclick="openTX(null)">+ New Transaction</button>
   </div>
 
-  <div id="tx-list"></div>
-  <div id="tx-empty" style="text-align:center;padding:40px;color:var(--muted)">No transactions yet. Hit + New Transaction to get started.</div>
+  <div id="tx-list"><div style="background:var(--g1);border:1px solid var(--g3);border-radius:12px;padding:18px;margin-bottom:14px"><div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px"><div><div style="font-weight:700;font-size:16px">807 Jones Ave, Rockmart GA 30153</div><div style="font-size:12px;color:var(--muted);margin-top:3px">Bryan Ramirez &nbsp;|&nbsp; $165,000</div><div style="margin-top:6px"><span class="bdg bdg-g" style="margin-right:6px">ACTIVE</span><span class="bdg bdg-w" style="margin-right:6px">BUYER</span><span class="bdg bdg-w">Georgia</span></div></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn bp" style="padding:6px 14px;font-size:11px" onclick="openTX(901)">Edit</button></div></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin-bottom:14px"><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Binding Date</div><div style="font-size:12px;font-weight:700;color:var(--white)">Jun 6, 2026<span style="font-size:10px;font-weight:400;color:var(--muted)"></span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Closing Date</div><div style="font-size:12px;font-weight:700;color:var(--red)">Jun 19, 2026<span style="font-size:10px;font-weight:400;color:var(--muted)"> (6d PAST)</span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Agent</div><div style="font-size:12px;font-weight:700;color:var(--white)">Rebecca Winkles<span style="font-size:10px;font-weight:400;color:var(--muted)"></span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Lender</div><div style="font-size:12px;font-weight:700;color:var(--white)">Linda Kennedy - CCM<span style="font-size:10px;font-weight:400;color:var(--muted)"></span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Attorney</div><div style="font-size:12px;font-weight:700;color:var(--white)">Christina Jenkins LLC<span style="font-size:10px;font-weight:400;color:var(--muted)"></span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Loan Type</div><div style="font-size:12px;font-weight:700;color:var(--white)">FHA<span style="font-size:10px;font-weight:400;color:var(--muted)"></span></div></div></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px"><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--g3)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Due Diligence</div><div style="font-size:13px;font-weight:700;color:var(--g3);margin-bottom:4px">No date set</div><span class="bdg bdg-g" style="font-size:9px">COMPLETE</span></div><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--g3)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Inspection</div><div style="font-size:13px;font-weight:700;color:var(--g3);margin-bottom:4px">No date set</div><span class="bdg bdg-g" style="font-size:9px">COMPLETE</span></div><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--g3)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Appraisal</div><div style="font-size:13px;font-weight:700;color:var(--g3);margin-bottom:4px">No date set</div><span class="bdg bdg-g" style="font-size:9px">COMPLETE</span></div><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--g3)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Financing</div><div style="font-size:13px;font-weight:700;color:var(--g3);margin-bottom:4px">No date set</div><span class="bdg bdg-y" style="font-size:9px">APPROVED</span><div style="font-size:11px;color:var(--muted);margin-top:6px">Contingent</div></div><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--g3)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Earnest Money</div><div style="font-size:13px;font-weight:700;color:var(--g3);margin-bottom:4px">No date set</div><span class="bdg bdg-g" style="font-size:9px">RECEIVED</span><div style="font-size:11px;color:var(--muted);margin-top:6px">$1,000 - Christina Jenkins LLC</div></div></div><div style="margin-top:12px;background:var(--g2);border-radius:8px;padding:10px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)">Document Checklist</span><span style="font-size:12px;font-weight:700;color:var(--red)">7 / 14 (50%)</span></div><div style="background:var(--g3);border-radius:20px;height:6px;overflow:hidden"><div style="background:var(--pink);height:100%;width:50%;transition:width .3s"></div></div></div><div style="margin-top:10px;background:var(--black);border:1px dashed var(--g3);border-radius:6px;padding:8px;font-size:11px;color:var(--muted)">Stage 3 Contingent. Buyer: bryanramirez185@yahoo.com. Lender: Linda Kennedy CCM. Attorney: Christina Jenkins LLC.</div></div><div style="background:var(--g1);border:1px solid var(--g3);border-radius:12px;padding:18px;margin-bottom:14px"><div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px"><div><div style="font-weight:700;font-size:16px">1606 Fieldgreen Overlook Stone Mountain Ga 30088</div><div style="font-size:12px;color:var(--muted);margin-top:3px">Briana Boggan &nbsp;|&nbsp; 280,000 &nbsp;|&nbsp; MLS: 7715838</div><div style="margin-top:6px"><span class="bdg bdg-g" style="margin-right:6px">ACTIVE</span><span class="bdg bdg-w" style="margin-right:6px">BUYER</span><span class="bdg bdg-w">Georgia</span></div></div><div style="display:flex;gap:8px;flex-wrap:wrap"><a href="https://drive.google.com/drive/u/0/folders/1kIL1S2IL34Vm0Cw4mniJ4tlyQymC-SJs" target="_blank" style="background:var(--g2);border:1px solid var(--turq);color:var(--turq);border-radius:6px;padding:6px 12px;font-size:11px;font-weight:700;text-decoration:none">Open Drive</a><button class="btn bp" style="padding:6px 14px;font-size:11px" onclick="openTX(1782399524901)">Edit</button></div></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin-bottom:14px"><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Binding Date</div><div style="font-size:12px;font-weight:700;color:var(--white)">June 22nd 2026<span style="font-size:10px;font-weight:400;color:var(--muted)"></span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Closing Date</div><div style="font-size:12px;font-weight:700;color:var(--white)">August 18th 2026<span style="font-size:10px;font-weight:400;color:var(--muted)"></span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Agent</div><div style="font-size:12px;font-weight:700;color:var(--white)">Rebecca Winkles<span style="font-size:10px;font-weight:400;color:var(--muted)"></span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Lender</div><div style="font-size:12px;font-weight:700;color:var(--white)">Mike Williams-Armed Forces Bank<span style="font-size:10px;font-weight:400;color:var(--muted)"></span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Attorney</div><div style="font-size:12px;font-weight:700;color:var(--white)">Okelley &amp; Sorohan -Duluth<span style="font-size:10px;font-weight:400;color:var(--muted)"></span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Loan Type</div><div style="font-size:12px;font-weight:700;color:var(--white)">VA<span style="font-size:10px;font-weight:400;color:var(--muted)"></span></div></div></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px"><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--g3)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Due Diligence</div><div style="font-size:13px;font-weight:700;color:var(--g3);margin-bottom:4px">No date set</div><span class="bdg bdg-y" style="font-size:9px">PENDING</span><div style="font-size:11px;color:var(--muted);margin-top:6px">Inspection with Noble-Completed, Termite-Completed</div></div><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--g3)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Inspection</div><div style="font-size:13px;font-weight:700;color:var(--g3);margin-bottom:4px">June 23, 2026 8:30 AM</div><span class="bdg bdg-g" style="font-size:9px">COMPLETE</span><div style="font-size:11px;color:var(--muted);margin-top:6px">No concerns from inspection or termite</div></div><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--g3)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Appraisal</div><div style="font-size:13px;font-weight:700;color:var(--g3);margin-bottom:4px">No date set</div><span class="bdg bdg-y" style="font-size:9px">PENDING</span></div><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--g3)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Financing</div><div style="font-size:13px;font-weight:700;color:var(--g3);margin-bottom:4px">No date set</div><span class="bdg bdg-y" style="font-size:9px">PENDING</span><div style="font-size:11px;color:var(--muted);margin-top:6px">Mike williams with Armed Forces Bank</div></div><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--g3)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Earnest Money</div><div style="font-size:13px;font-weight:700;color:var(--g3);margin-bottom:4px">No date set</div><span class="bdg bdg-g" style="font-size:9px">RECEIVED</span><div style="font-size:11px;color:var(--muted);margin-top:6px">$2,800 - Okelly &amp; Sorohan</div></div></div><div style="margin-top:12px;background:var(--g2);border-radius:8px;padding:10px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)">Document Checklist</span><span style="font-size:12px;font-weight:700;color:var(--red)">2 / 14 (14%)</span></div><div style="background:var(--g3);border-radius:20px;height:6px;overflow:hidden"><div style="background:var(--pink);height:100%;width:14%;transition:width .3s"></div></div></div></div></div>
+  <div id="tx-empty" style="text-align: center; padding: 40px; color: var(--muted); display: none;">No transactions yet. Hit + New Transaction to get started.</div>
 </div>
 
 </div><!-- /main -->
@@ -965,7 +953,7 @@ No fluff. No filter. Just real estate.</div>
     <div class="f"><label>Google Drive Folder Link</label><input type="text" id="tx-drive" placeholder="Paste your Google Drive folder link here"></div>
     <div style="margin-top:8px;margin-bottom:14px">
       <div id="tx-drive-link-display" style="display:none">
-        <a id="tx-drive-link-a" href="file:///C:/Users/tammy/Downloads/index%20(5).html#" target="_blank" style="color:var(--turq);font-size:13px;font-weight:700">Open Google Drive Folder</a>
+        <a id="tx-drive-link-a" href="file:///C:/Users/tammy/Downloads/index%20(7).html#" target="_blank" style="color:var(--turq);font-size:13px;font-weight:700">Open Google Drive Folder</a>
       </div>
     </div>
 
@@ -1714,6 +1702,381 @@ function showCopied(id) {
   if (!el) return;
   el.style.display = "block";
   setTimeout(function(){ el.style.display = "none"; }, 3000);
+}
+
+
+// ── TRANSACTIONS ──
+var transactions = JSON.parse(localStorage.getItem("lm5_tx") || "null");
+
+var BUYER_DOCS = ["Purchase and Sale Agreement","Exhibit A Legal Description","Lead Paint Disclosure","Property Disclosure","Pre-Approval Letter","Earnest Money Receipt","Inspection Report","Repair Request Amendment","Appraisal Report","Clear to Close Letter","Closing Disclosure CD","Final Walkthrough Confirmation","HUD Settlement Statement","Commission Disbursement Auth"];
+var LISTING_DOCS = ["Listing Agreement","MLS Input Sheet","Seller Disclosure","Lead Paint Disclosure","Earnest Money Receipt","Purchase and Sale Agreement","Inspection Report","Repair Response","Appraisal Report","Closing Disclosure CD","HUD Settlement Statement","Commission Disbursement Auth"];
+
+var SEED_TX = [
+  {
+    id:901,
+    addr:"807 Jones Ave, Rockmart GA 30153",
+    mls:"",
+    price:"$165,000",
+    type:"buyer",
+    status:"active",
+    state:"Georgia",
+    buyer:"Bryan Ramirez",
+    buyerPhone:"404-667-0679",
+    seller:"",
+    sellerPhone:"",
+    agent:"Rebecca Winkles",
+    coop:"",
+    lender:"Linda Kennedy - CCM",
+    lenderPhone:"",
+    attorney:"Christina Jenkins LLC",
+    attorneyPhone:"",
+    tc:"Rebecca Winkles",
+    tcFee:"0",
+    binding:"Jun 6, 2026",
+    closing:"Jun 19, 2026",
+    closedDate:"",
+    possession:"At closing",
+    ddDays:"10",ddDate:"Jun 16, 2026",ddNotes:"",ddStatus:"complete",
+    inspDate:"",inspector:"",repairDeadline:"",repairResponse:"",repairAmt:"0",inspNotes:"",inspStatus:"complete",
+    apDays:"21",apDate:"Jun 27, 2026",apNotes:"",apStatus:"complete",appraisalVal:"",appraisalDone:"",
+    finDays:"21",finDate:"Jun 27, 2026",loanType:"FHA",loanAmt:"",ctc:"",finNotes:"Contingent",finStatus:"approved",
+    emAmt:"1000",emDays:"3",emDate:"Jun 9, 2026",emReceived:"",emHeld:"Christina Jenkins LLC",emCheck:"",emStatus:"received",
+    hscAddr:"",hscDeadline:"",hscStatus:"none",
+    drive:"",
+    notes:"Stage 3 Contingent. Buyer: bryanramirez185@yahoo.com. Lender: Linda Kennedy CCM. Attorney: Christina Jenkins LLC.",
+    docs:{}
+  }
+];
+
+if (!transactions) transactions = SEED_TX.slice();
+
+function saveTXData() {
+  localStorage.setItem("lm5_tx", JSON.stringify(transactions));
+}
+saveTXData();
+
+var txFilter = "all";
+
+function filterTX(f, btn) {
+  txFilter = f;
+  document.querySelectorAll("#tx-filter .pill").forEach(function(p){ p.classList.remove("on"); });
+  btn.classList.add("on");
+  renderTX();
+}
+
+function addDays(dateStr, days) {
+  if (!dateStr || !days) return "";
+  var d = new Date(dateStr);
+  if (isNaN(d.getTime())) return "";
+  d.setDate(d.getDate() + parseInt(days));
+  return d.toLocaleDateString("en-US", {month:"short",day:"numeric",year:"numeric"});
+}
+
+function daysUntil(dateStr) {
+  if (!dateStr) return null;
+  var d = new Date(dateStr);
+  if (isNaN(d.getTime())) return null;
+  var now = new Date();
+  now.setHours(0,0,0,0);
+  return Math.round((d - now) / 86400000);
+}
+
+function urgencyColor(days) {
+  if (days === null) return "var(--muted)";
+  if (days < 0) return "var(--red)";
+  if (days <= 3) return "var(--red)";
+  if (days <= 7) return "var(--gold)";
+  return "var(--green)";
+}
+
+function calcDates() {
+  var binding = document.getElementById("tx-binding") ? document.getElementById("tx-binding").value : "";
+  var ddDays = document.getElementById("tx-dd-days") ? document.getElementById("tx-dd-days").value : "";
+  var apDays = document.getElementById("tx-ap-days") ? document.getElementById("tx-ap-days").value : "";
+  var finDays = document.getElementById("tx-fin-days") ? document.getElementById("tx-fin-days").value : "";
+  var emDays = document.getElementById("tx-em-days") ? document.getElementById("tx-em-days").value : "";
+  if (document.getElementById("tx-dd-date")) document.getElementById("tx-dd-date").value = addDays(binding, ddDays);
+  if (document.getElementById("tx-ap-date")) document.getElementById("tx-ap-date").value = addDays(binding, apDays);
+  if (document.getElementById("tx-fin-date")) document.getElementById("tx-fin-date").value = addDays(binding, finDays);
+  if (document.getElementById("tx-em-date")) document.getElementById("tx-em-date").value = addDays(binding, emDays);
+}
+
+function buildChecklist(type, savedDocs) {
+  var docs = type === "listing" ? LISTING_DOCS : BUYER_DOCS;
+  var container = document.getElementById("tx-checklist");
+  if (!container) return;
+  container.innerHTML = docs.map(function(d){
+    var key = d.replace(/[^a-z0-9]/gi,"");
+    var checked = savedDocs && savedDocs[key] ? "checked" : "";
+    return "<label style='display:flex;align-items:center;gap:8px;background:var(--g2);border-radius:6px;padding:8px 10px;cursor:pointer;font-size:12px'>" +
+      "<input type='checkbox' id='doc-" + key + "' " + checked + " style='width:auto;margin-top:0;accent-color:var(--pink)'>" +
+      d + "</label>";
+  }).join("");
+}
+
+function getChecklistDocs() {
+  var allDocs = BUYER_DOCS.concat(LISTING_DOCS.filter(function(d){ return BUYER_DOCS.indexOf(d) === -1; }));
+  var result = {};
+  allDocs.forEach(function(d){
+    var key = d.replace(/[^a-z0-9]/gi,"");
+    var el = document.getElementById("doc-" + key);
+    if (el) result[key] = el.checked;
+  });
+  return result;
+}
+
+function openTX(id) {
+  var tx = id ? transactions.find(function(t){ return t.id === id; }) : null;
+  document.getElementById("tx-modal-title").textContent = tx ? "Edit Transaction" : "New Transaction";
+  document.getElementById("tx-edit-id").value = tx ? tx.id : "";
+  document.getElementById("tx-del-btn").style.display = tx ? "block" : "none";
+
+  var map = {
+    "tx-addr":"addr","tx-mls":"mls","tx-price":"price",
+    "tx-buyer":"buyer","tx-buyer-phone":"buyerPhone",
+    "tx-seller":"seller","tx-seller-phone":"sellerPhone","tx-coop":"coop",
+    "tx-lender":"lender","tx-lender-phone":"lenderPhone",
+    "tx-attorney":"attorney","tx-attorney-phone":"attorneyPhone",
+    "tx-tc":"tc","tx-tc-fee":"tcFee",
+    "tx-binding":"binding","tx-closing":"closing",
+    "tx-closed-date":"closedDate","tx-possession":"possession",
+    "tx-dd-days":"ddDays","tx-dd-date":"ddDate","tx-dd-notes":"ddNotes",
+    "tx-insp-date":"inspDate","tx-inspector":"inspector",
+    "tx-repair-deadline":"repairDeadline","tx-repair-response":"repairResponse",
+    "tx-repair-amt":"repairAmt","tx-insp-notes":"inspNotes",
+    "tx-ap-days":"apDays","tx-ap-date":"apDate","tx-ap-notes":"apNotes",
+    "tx-appraisal-val":"appraisalVal","tx-appraisal-done":"appraisalDone",
+    "tx-fin-days":"finDays","tx-fin-date":"finDate",
+    "tx-loan-amt":"loanAmt","tx-ctc":"ctc","tx-fin-notes":"finNotes",
+    "tx-em-amt":"emAmt","tx-em-days":"emDays","tx-em-date":"emDate",
+    "tx-em-received":"emReceived","tx-em-held":"emHeld","tx-em-check":"emCheck",
+    "tx-hsc-addr":"hscAddr","tx-hsc-deadline":"hscDeadline",
+    "tx-drive":"drive","tx-notes":"notes"
+  };
+
+  Object.keys(map).forEach(function(fid){
+    var el = document.getElementById(fid);
+    if (!el) return;
+    el.value = tx && tx[map[fid]] !== undefined ? tx[map[fid]] : "";
+  });
+
+  var selects = {
+    "tx-type": tx ? tx.type : "buyer",
+    "tx-status": tx ? tx.status : "active",
+    "tx-state": tx ? tx.state : "Georgia",
+    "tx-agent": tx ? tx.agent : "Rebecca Winkles",
+    "tx-loan-type": tx ? tx.loanType : "Conventional",
+    "tx-dd-status": tx ? tx.ddStatus : "pending",
+    "tx-insp-status": tx ? tx.inspStatus : "scheduled",
+    "tx-ap-status": tx ? tx.apStatus : "pending",
+    "tx-fin-status": tx ? tx.finStatus : "pending",
+    "tx-em-status": tx ? tx.emStatus : "pending",
+    "tx-hsc-status": tx ? tx.hscStatus : "none"
+  };
+  Object.keys(selects).forEach(function(k){
+    var el = document.getElementById(k);
+    if (el) el.value = selects[k];
+  });
+
+  buildChecklist(tx ? tx.type : "buyer", tx ? tx.docs : {});
+
+  var driveEl = document.getElementById("tx-drive-link-display");
+  var driveA = document.getElementById("tx-drive-link-a");
+  if (tx && tx.drive && driveEl && driveA) {
+    driveEl.style.display = "block";
+    driveA.href = tx.drive;
+  } else if (driveEl) {
+    driveEl.style.display = "none";
+  }
+
+  var typeEl = document.getElementById("tx-type");
+  if (typeEl) {
+    typeEl.onchange = function(){ buildChecklist(this.value, {}); };
+  }
+
+  openModal("m-tx");
+}
+
+function saveTX() {
+  var addrEl = document.getElementById("tx-addr");
+  var addr = addrEl ? addrEl.value.trim() : "";
+  if (!addr) { showToast("Property address is required!"); return; }
+  var editIdEl = document.getElementById("tx-edit-id");
+  var editId = editIdEl ? editIdEl.value : "";
+
+  function gv(id) { var e = document.getElementById(id); return e ? e.value || "" : ""; }
+
+  var data = {
+    addr:addr, mls:gv("tx-mls"), price:gv("tx-price"),
+    type:gv("tx-type"), status:gv("tx-status"), state:gv("tx-state"),
+    buyer:gv("tx-buyer"), buyerPhone:gv("tx-buyer-phone"),
+    seller:gv("tx-seller"), sellerPhone:gv("tx-seller-phone"),
+    agent:gv("tx-agent"), coop:gv("tx-coop"),
+    lender:gv("tx-lender"), lenderPhone:gv("tx-lender-phone"),
+    attorney:gv("tx-attorney"), attorneyPhone:gv("tx-attorney-phone"),
+    tc:gv("tx-tc"), tcFee:gv("tx-tc-fee"),
+    binding:gv("tx-binding"), closing:gv("tx-closing"),
+    closedDate:gv("tx-closed-date"), possession:gv("tx-possession"),
+    ddDays:gv("tx-dd-days"), ddDate:gv("tx-dd-date"), ddNotes:gv("tx-dd-notes"), ddStatus:gv("tx-dd-status"),
+    inspDate:gv("tx-insp-date"), inspector:gv("tx-inspector"),
+    repairDeadline:gv("tx-repair-deadline"), repairResponse:gv("tx-repair-response"),
+    repairAmt:gv("tx-repair-amt"), inspNotes:gv("tx-insp-notes"), inspStatus:gv("tx-insp-status"),
+    apDays:gv("tx-ap-days"), apDate:gv("tx-ap-date"), apNotes:gv("tx-ap-notes"),
+    apStatus:gv("tx-ap-status"), appraisalVal:gv("tx-appraisal-val"), appraisalDone:gv("tx-appraisal-done"),
+    finDays:gv("tx-fin-days"), finDate:gv("tx-fin-date"), loanType:gv("tx-loan-type"),
+    loanAmt:gv("tx-loan-amt"), ctc:gv("tx-ctc"), finNotes:gv("tx-fin-notes"), finStatus:gv("tx-fin-status"),
+    emAmt:gv("tx-em-amt"), emDays:gv("tx-em-days"), emDate:gv("tx-em-date"),
+    emReceived:gv("tx-em-received"), emHeld:gv("tx-em-held"), emCheck:gv("tx-em-check"), emStatus:gv("tx-em-status"),
+    hscAddr:gv("tx-hsc-addr"), hscDeadline:gv("tx-hsc-deadline"), hscStatus:gv("tx-hsc-status"),
+    drive:gv("tx-drive"), notes:gv("tx-notes"),
+    docs:getChecklistDocs()
+  };
+
+  if (editId) {
+    var idx = transactions.findIndex(function(t){ return t.id == editId; });
+    if (idx > -1) transactions[idx] = Object.assign({}, transactions[idx], data);
+    showToast("Transaction updated!");
+  } else {
+    data.id = Date.now();
+    transactions.push(data);
+    showToast("Transaction saved!");
+  }
+  saveTXData();
+  closeModal("m-tx");
+  renderTX();
+}
+
+function deleteTX() {
+  var editIdEl = document.getElementById("tx-edit-id");
+  var editId = editIdEl ? editIdEl.value : "";
+  if (!editId) return;
+  if (!confirm("Delete this transaction? Cannot be undone.")) return;
+  transactions = transactions.filter(function(t){ return t.id != editId; });
+  saveTXData();
+  closeModal("m-tx");
+  renderTX();
+  showToast("Transaction deleted.");
+}
+
+function statusBadge(status) {
+  if (status === "complete" || status === "clear" || status === "received" || status === "applied" || status === "waived") return "bdg-g";
+  if (status === "pending" || status === "scheduled" || status === "approved" || status === "repairs-requested") return "bdg-y";
+  if (status === "terminated" || status === "denied" || status === "forfeited" || status === "low") return "bdg-red";
+  return "bdg-w";
+}
+
+function dateBox(label, value, days) {
+  var col = (days !== null && days !== undefined) ? urgencyColor(days) : "var(--white)";
+  var dayStr = "";
+  if (days !== null && days !== undefined) {
+    if (days < 0) dayStr = " (" + Math.abs(days) + "d PAST)";
+    else if (days === 0) dayStr = " (TODAY)";
+    else dayStr = " (" + days + "d)";
+  }
+  return "<div style='background:var(--g2);border-radius:8px;padding:8px 10px'>" +
+    "<div style='font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px'>" + label + "</div>" +
+    "<div style='font-size:12px;font-weight:700;color:" + col + "'>" + (value || "Not set") + "<span style='font-size:10px;font-weight:400;color:var(--muted)'>" + dayStr + "</span></div>" +
+    "</div>";
+}
+
+function contingencyCard(label, deadline, days, status, notes) {
+  var col = (days !== null && days !== undefined) ? urgencyColor(days) : "var(--g3)";
+  var dayStr = "";
+  if (days !== null && days !== undefined) {
+    if (days < 0) dayStr = Math.abs(days) + "d PAST";
+    else if (days === 0) dayStr = "TODAY";
+    else dayStr = days + " days";
+  }
+  var bclass = statusBadge(status);
+  return "<div style='background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid " + col + "'>" +
+    "<div style='font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px'>" + label + "</div>" +
+    "<div style='font-size:13px;font-weight:700;color:" + col + ";margin-bottom:4px'>" + (deadline || "No date set") + (dayStr ? " &nbsp;|&nbsp; <span style='font-size:11px'>" + dayStr + "</span>" : "") + "</div>" +
+    "<span class='bdg " + bclass + "' style='font-size:9px'>" + (status || "").toUpperCase().replace(/-/g," ") + "</span>" +
+    (notes ? "<div style='font-size:11px;color:var(--muted);margin-top:6px'>" + notes + "</div>" : "") +
+    "</div>";
+}
+
+function renderTX() {
+  var list = document.getElementById("tx-list");
+  var empty = document.getElementById("tx-empty");
+  if (!list) return;
+
+  var filtered = transactions.filter(function(t){
+    return txFilter === "all" || t.status === txFilter;
+  });
+
+  if (!filtered.length) {
+    list.innerHTML = "";
+    if (empty) empty.style.display = "block";
+    return;
+  }
+  if (empty) empty.style.display = "none";
+
+  list.innerHTML = filtered.map(function(tx){
+    var ddDays = daysUntil(tx.ddDate);
+    var apDays = daysUntil(tx.apDate);
+    var finDays = daysUntil(tx.finDate);
+    var emDays = daysUntil(tx.emDate);
+    var closingDays = daysUntil(tx.closing);
+    var docsTotal = BUYER_DOCS.length;
+    var docsChecked = tx.docs ? Object.values(tx.docs).filter(Boolean).length : 0;
+    var docPct = Math.round((docsChecked / docsTotal) * 100);
+    var docColor = docPct === 100 ? "var(--green)" : docPct > 50 ? "var(--gold)" : "var(--red)";
+
+    return "<div style='background:var(--g1);border:1px solid var(--g3);border-radius:12px;padding:18px;margin-bottom:14px'>" +
+
+      "<div style='display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px'>" +
+        "<div>" +
+          "<div style='font-weight:700;font-size:16px'>" + tx.addr + "</div>" +
+          "<div style='font-size:12px;color:var(--muted);margin-top:3px'>" +
+            (tx.buyer || "") + (tx.seller ? " / " + tx.seller : "") +
+            (tx.price ? " &nbsp;|&nbsp; " + tx.price : "") +
+            (tx.mls ? " &nbsp;|&nbsp; MLS: " + tx.mls : "") +
+          "</div>" +
+          "<div style='margin-top:6px'>" +
+            "<span class='bdg " + (tx.status === "active" ? "bdg-g" : tx.status === "closed" ? "bdg-w" : "bdg-red") + "' style='margin-right:6px'>" + (tx.status || "").toUpperCase() + "</span>" +
+            "<span class='bdg bdg-w' style='margin-right:6px'>" + (tx.type || "").toUpperCase() + "</span>" +
+            "<span class='bdg bdg-w'>" + (tx.state || "") + "</span>" +
+          "</div>" +
+        "</div>" +
+        "<div style='display:flex;gap:8px;flex-wrap:wrap'>" +
+          (tx.drive ? "<a href='" + tx.drive + "' target='_blank' style='background:var(--g2);border:1px solid var(--turq);color:var(--turq);border-radius:6px;padding:6px 12px;font-size:11px;font-weight:700;text-decoration:none'>Open Drive</a>" : "") +
+          "<button class='btn bp' style='padding:6px 14px;font-size:11px' onclick='openTX(" + tx.id + ")'>Edit</button>" +
+        "</div>" +
+      "</div>" +
+
+      "<div style='display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin-bottom:14px'>" +
+        dateBox("Binding Date", tx.binding, null) +
+        dateBox("Closing Date", tx.closing, closingDays) +
+        dateBox("Agent", tx.agent, null) +
+        dateBox("Lender", tx.lender, null) +
+        dateBox("Attorney", tx.attorney, null) +
+        (tx.loanType ? dateBox("Loan Type", tx.loanType, null) : "") +
+      "</div>" +
+
+      "<div style='display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px'>" +
+        contingencyCard("Due Diligence", tx.ddDate, ddDays, tx.ddStatus, tx.ddNotes) +
+        contingencyCard("Inspection", tx.inspDate, null, tx.inspStatus, tx.inspNotes) +
+        contingencyCard("Appraisal", tx.apDate, apDays, tx.apStatus, tx.apNotes) +
+        contingencyCard("Financing", tx.finDate, finDays, tx.finStatus, tx.finNotes) +
+        contingencyCard("Earnest Money", tx.emDate, emDays, tx.emStatus, tx.emAmt ? "$" + Number(tx.emAmt).toLocaleString() + " - " + (tx.emHeld || "") : "") +
+        (tx.hscStatus && tx.hscStatus !== "none" ? contingencyCard("Home Sale", tx.hscDeadline, daysUntil(tx.hscDeadline), tx.hscStatus, tx.hscAddr) : "") +
+      "</div>" +
+
+      "<div style='margin-top:12px;background:var(--g2);border-radius:8px;padding:10px'>" +
+        "<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:6px'>" +
+          "<span style='font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)'>Document Checklist</span>" +
+          "<span style='font-size:12px;font-weight:700;color:" + docColor + "'>" + docsChecked + " / " + docsTotal + " (" + docPct + "%)</span>" +
+        "</div>" +
+        "<div style='background:var(--g3);border-radius:20px;height:6px;overflow:hidden'>" +
+          "<div style='background:" + (docPct === 100 ? "var(--green)" : "var(--pink)") + ";height:100%;width:" + docPct + "%;transition:width .3s'></div>" +
+        "</div>" +
+      "</div>" +
+
+      (tx.notes ? "<div style='margin-top:10px;background:var(--black);border:1px dashed var(--g3);border-radius:6px;padding:8px;font-size:11px;color:var(--muted)'>" + tx.notes + "</div>" : "") +
+
+    "</div>";
+  }).join("");
 }
 
 renderDash();
