@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0049)file:///C:/Users/tammy/Downloads/index%20(7).html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Loft &amp; Main Command Center</title>
-<link href="./index_files/css2" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--black:#111;--pink:#E91E8C;--turq:#00C9B1;--white:#F5F5F5;--g1:#1a1a1a;--g2:#242424;--g3:#333;--g4:#444;--muted:#777;--gold:#FFD700;--green:#22c55e;--red:#ef4444}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -101,21 +101,21 @@ select option{background:var(--g2)}
 <body>
 <header>
   <div class="logo"><span class="p">LOFT</span> <span class="t">&amp;</span> <span class="p">MAIN</span> REALTY GROUP</div>
-  <div class="htag">Command Center — Tammy Plamondon, Broker</div>
+  <div class="htag">Command Center &mdash; Tammy Plamondon, Broker</div>
 </header>
 <div class="nav">
-  <button class="tb on" onclick="go(&#39;dashboard&#39;)">Home</button>
-  <button class="tb" onclick="go(&#39;crm&#39;)">Contacts</button>
-  <button class="tb" onclick="go(&#39;pipeline&#39;)">Pipeline</button>
-  <button class="tb" onclick="go(&#39;closings&#39;)">Closings</button>
-  <button class="tb" onclick="go(&#39;leads&#39;)">Lead Gen</button>
-  <button class="tb" onclick="go(&#39;emails&#39;)">Emails</button>
-  <button class="tb" onclick="go(&#39;ai&#39;)">AI Tools</button>
-  <button class="tb" onclick="go(&#39;comps&#39;)">Comps/CMA</button>
-  <button class="tb" onclick="go(&#39;social&#39;)">Social</button>
-  <button class="tb" onclick="go(&#39;drip&#39;)">Drip</button>
-  <button class="tb" onclick="go(&#39;openhouse&#39;)">Open House</button>
-  <button class="tb" onclick="go(&#39;transactions&#39;)">📁 Transactions</button>
+  <button class="tb on" onclick="go('dashboard')">Home</button>
+  <button class="tb" onclick="go('crm')">Contacts</button>
+  <button class="tb" onclick="go('pipeline')">Pipeline</button>
+  <button class="tb" onclick="go('closings')">Closings</button>
+  <button class="tb" onclick="go('leads')">Lead Gen</button>
+  <button class="tb" onclick="go('emails')">Emails</button>
+  <button class="tb" onclick="go('ai')">AI Tools</button>
+  <button class="tb" onclick="go('comps')">Comps/CMA</button>
+  <button class="tb" onclick="go('social')">Social</button>
+  <button class="tb" onclick="go('drip')">Drip</button>
+  <button class="tb" onclick="go('openhouse')">Open House</button>
+  <button class="tb" onclick="go('transactions')">📁 Transactions</button>
 </div>
 <div class="main">
 
@@ -127,38 +127,38 @@ select option{background:var(--g2)}
   </div>
   <div class="g4" style="margin-bottom:16px">
     <div class="stat"><div class="snum" id="d-listings">0</div><div class="slbl">Active Listings</div></div>
-    <div class="stat"><div class="snum" id="d-uc">2</div><div class="slbl">Under Contract</div></div>
-    <div class="stat"><div class="snum" id="d-leads">5</div><div class="slbl">Hot Leads</div></div>
-    <div class="stat"><div class="snum" id="d-closed">2</div><div class="slbl">Closed 2026</div></div>
+    <div class="stat"><div class="snum" id="d-uc">0</div><div class="slbl">Under Contract</div></div>
+    <div class="stat"><div class="snum" id="d-leads">0</div><div class="slbl">Hot Leads</div></div>
+    <div class="stat"><div class="snum" id="d-closed">0</div><div class="slbl">Closed 2026</div></div>
   </div>
   <div class="qs">
     <button class="qb" onclick="openAdd()">+ Add Contact</button>
-    <button class="qb" onclick="openModal(&#39;m-closing&#39;)">Log Closing</button>
-    <button class="qb" onclick="go(&#39;leads&#39;)">Lead Gen</button>
-    <button class="qb" onclick="go(&#39;emails&#39;)">Write Email</button>
-    <button class="qb" onclick="go(&#39;social&#39;)">Social Post</button>
-    <button class="qb" onclick="go(&#39;comps&#39;)">Run Comps</button>
-    <button class="qb" onclick="go(&#39;ai&#39;)">Ask Claude</button>
+    <button class="qb" onclick="openModal('m-closing')">Log Closing</button>
+    <button class="qb" onclick="go('leads')">Lead Gen</button>
+    <button class="qb" onclick="go('emails')">Write Email</button>
+    <button class="qb" onclick="go('social')">Social Post</button>
+    <button class="qb" onclick="go('comps')">Run Comps</button>
+    <button class="qb" onclick="go('ai')">Ask Claude</button>
   </div>
   <div class="g2">
-    <div class="card"><div class="ct">TODAY'S FOCUS</div><div id="d-focus" style="font-size:13px;line-height:1.9;color:var(--muted)"><strong style="color:var(--pink)">2 deals under contract</strong> - check deadlines in Transact.<br><strong style="color:var(--gold)">5 contacts in leads</strong> - follow up before end of day.<br><strong style="color:var(--green)">2 closings this year - $18,093 net</strong>. <strong style="color:var(--turq)">Q4 is yours to win.</strong></div></div>
-    <div class="card"><div class="ct">ANNIVERSARIES - NEXT 30 DAYS</div><div id="d-anni" style="font-size:12px;color:var(--muted)"><div style="color:var(--muted);font-size:12px">No anniversaries in next 30 days.</div></div></div>
+    <div class="card"><div class="ct">TODAY'S FOCUS</div><div id="d-focus" style="font-size:13px;line-height:1.9;color:var(--muted)">Loading...</div></div>
+    <div class="card"><div class="ct">ANNIVERSARIES - NEXT 30 DAYS</div><div id="d-anni" style="font-size:12px;color:var(--muted)">Checking...</div></div>
   </div>
   <div class="card">
     <div class="ct">PIPELINE - Click anyone to edit</div>
     <div class="pipe">
-      <div class="pc"><div class="pl" style="color:var(--muted)">New Leads</div><div id="d-p-leads"><div class="pi" onclick="editContact(1)">Georgia Property Preservation ANT LLC</div><div class="pi" onclick="editContact(2)">Sydnee Miller</div><div class="pi" onclick="editContact(3)">David and Nia Sturgill</div><div class="pi" onclick="editContact(5)">Jennifer and Jeremy Garrett</div></div></div>
-      <div class="pc"><div class="pl" style="color:var(--gold)">Nurturing</div><div id="d-p-active"><div style="color:var(--muted);font-size:11px">None</div></div></div>
-      <div class="pc"><div class="pl" style="color:var(--turq)">Listed / Searching</div><div id="d-p-listed"><div style="color:var(--muted);font-size:11px">None</div></div></div>
-      <div class="pc"><div class="pl" style="color:var(--pink)">Under Contract</div><div id="d-p-closing"><div class="pi" onclick="editContact(4)">Bryan Ramirez</div><div class="pi" onclick="editContact(1782397163714)">Briana</div></div></div>
+      <div class="pc"><div class="pl" style="color:var(--muted)">New Leads</div><div id="d-p-leads"></div></div>
+      <div class="pc"><div class="pl" style="color:var(--gold)">Nurturing</div><div id="d-p-active"></div></div>
+      <div class="pc"><div class="pl" style="color:var(--turq)">Listed / Searching</div><div id="d-p-listed"></div></div>
+      <div class="pc"><div class="pl" style="color:var(--pink)">Under Contract</div><div id="d-p-closing"></div></div>
     </div>
   </div>
   <div class="card"><div class="ct">2026 NUMBERS</div>
     <div class="g4">
-      <div class="stat"><div class="snum" style="color:var(--turq);font-size:22px" id="dv">$904,900</div><div class="slbl">Volume</div></div>
-      <div class="stat"><div class="snum" style="color:var(--gold);font-size:22px" id="dg">$27,147</div><div class="slbl">Gross Comm</div></div>
-      <div class="stat"><div class="snum" style="color:var(--green);font-size:22px" id="dn">$18,093</div><div class="slbl">Net Comm</div></div>
-      <div class="stat"><div class="snum" style="color:var(--red);font-size:22px" id="dt">$7,754</div><div class="slbl">Est Taxes</div></div>
+      <div class="stat"><div class="snum" style="color:var(--turq);font-size:22px" id="dv">$0</div><div class="slbl">Volume</div></div>
+      <div class="stat"><div class="snum" style="color:var(--gold);font-size:22px" id="dg">$0</div><div class="slbl">Gross Comm</div></div>
+      <div class="stat"><div class="snum" style="color:var(--green);font-size:22px" id="dn">$0</div><div class="slbl">Net Comm</div></div>
+      <div class="stat"><div class="snum" style="color:var(--red);font-size:22px" id="dt">$0</div><div class="slbl">Est Taxes</div></div>
     </div>
   </div>
 </div>
@@ -169,11 +169,11 @@ select option{background:var(--g2)}
   <div class="ssub">Click any card to edit. Every contact in one place.</div>
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
     <div class="pills" id="crm-filter" style="margin-bottom:0">
-      <button class="pill on" onclick="filterC(&#39;all&#39;,this)">All</button>
-      <button class="pill" onclick="filterC(&#39;lead&#39;,this)">Leads</button>
-      <button class="pill" onclick="filterC(&#39;buyer&#39;,this)">Buyers</button>
-      <button class="pill" onclick="filterC(&#39;seller&#39;,this)">Sellers</button>
-      <button class="pill" onclick="filterC(&#39;past&#39;,this)">Past Clients</button>
+      <button class="pill on" onclick="filterC('all',this)">All</button>
+      <button class="pill" onclick="filterC('lead',this)">Leads</button>
+      <button class="pill" onclick="filterC('buyer',this)">Buyers</button>
+      <button class="pill" onclick="filterC('seller',this)">Sellers</button>
+      <button class="pill" onclick="filterC('past',this)">Past Clients</button>
     </div>
     <div style="display:flex;gap:8px">
       <input type="text" id="crm-search" placeholder="Search..." style="width:180px;margin-top:0" oninput="renderCRM()">
@@ -181,20 +181,20 @@ select option{background:var(--g2)}
     </div>
   </div>
   <div class="pills" id="src-filter">
-    <button class="pill on" onclick="filterS(&#39;all&#39;,this)">All Sources</button>
-    <button class="pill" onclick="filterS(&#39;Facebook&#39;,this)">Facebook</button>
-    <button class="pill" onclick="filterS(&#39;Instagram&#39;,this)">Instagram</button>
-    <button class="pill" onclick="filterS(&#39;TikTok&#39;,this)">TikTok</button>
-    <button class="pill" onclick="filterS(&#39;Repeat&#39;,this)">Repeat</button>
-    <button class="pill" onclick="filterS(&#39;Sphere&#39;,this)">Sphere</button>
-    <button class="pill" onclick="filterS(&#39;Family&#39;,this)">Family</button>
-    <button class="pill" onclick="filterS(&#39;Referral&#39;,this)">Referral</button>
-    <button class="pill" onclick="filterS(&#39;Open House&#39;,this)">Open House</button>
-    <button class="pill" onclick="filterS(&#39;Social Media&#39;,this)">Social Media</button>
-    <button class="pill" onclick="filterS(&#39;Zillow&#39;,this)">Zillow</button>
-    <button class="pill" onclick="filterS(&#39;Sign Call&#39;,this)">Sign Call</button>
+    <button class="pill on" onclick="filterS('all',this)">All Sources</button>
+    <button class="pill" onclick="filterS('Facebook',this)">Facebook</button>
+    <button class="pill" onclick="filterS('Instagram',this)">Instagram</button>
+    <button class="pill" onclick="filterS('TikTok',this)">TikTok</button>
+    <button class="pill" onclick="filterS('Repeat',this)">Repeat</button>
+    <button class="pill" onclick="filterS('Sphere',this)">Sphere</button>
+    <button class="pill" onclick="filterS('Family',this)">Family</button>
+    <button class="pill" onclick="filterS('Referral',this)">Referral</button>
+    <button class="pill" onclick="filterS('Open House',this)">Open House</button>
+    <button class="pill" onclick="filterS('Social Media',this)">Social Media</button>
+    <button class="pill" onclick="filterS('Zillow',this)">Zillow</button>
+    <button class="pill" onclick="filterS('Sign Call',this)">Sign Call</button>
   </div>
-  <div class="cg" id="crm-grid"><div class="cc" onclick="editContact(1)" title="Click to edit"><div style="position:absolute;top:10px;right:10px;font-size:10px;color:var(--muted)">Edit</div><div class="cn">Georgia Property Preservation ANT LLC</div><div class="cm">770-899-1408</div><div class="cm">turnerroberto@gmail.com</div><div class="note">1 Carlton Dr Rockmart GA FAILED did not close repeat client</div><div style="margin-top:6px"><span class="ctag tag-past">past</span><span class="src-tag">Repeat</span><span class="agent-tag">Tammy</span></div></div><div class="cc" onclick="editContact(2)" title="Click to edit"><div style="position:absolute;top:10px;right:10px;font-size:10px;color:var(--muted)">Edit</div><div class="cn">Sydnee Miller</div><div class="cm">678-770-1878</div><div class="cm">smiller789@gmail.com</div><div class="cm">Price: $375,900</div><div class="cm" style="color:var(--turq)">Closed: May 20 2026</div><div class="note">108 Jeffery Ln Dallas GA CLOSED $375900 Lender Craig Lebhaft Milestone Rebecca h...</div><div style="margin-top:6px"><span class="ctag tag-past">past</span><span class="src-tag">Social Media</span><span class="agent-tag">Rebecca</span></div></div><div class="cc" onclick="editContact(3)" title="Click to edit"><div style="position:absolute;top:10px;right:10px;font-size:10px;color:var(--muted)">Edit</div><div class="cn">David and Nia Sturgill</div><div class="cm">678-663-4211</div><div class="cm">davidleesturgill@gmail.com</div><div class="cm">Price: $529,000</div><div class="cm" style="color:var(--turq)">Closed: Jun 5 2026</div><div class="note">763 Kiowa Ln Marietta GA CLOSED $529000 Repeat client TC Rebecca $1300 Lender Ja...</div><div style="margin-top:6px"><span class="ctag tag-past">past</span><span class="src-tag">Repeat</span><span class="agent-tag">Rebecca</span></div></div><div class="cc" onclick="editContact(4)" title="Click to edit"><div style="position:absolute;top:10px;right:10px;font-size:10px;color:var(--muted)">Edit</div><div class="cn">Bryan Ramirez</div><div class="cm">404-667-0679</div><div class="cm">bryanramirez185@yahoo.com</div><div class="cm">Price: $165,000</div><div class="note">807 Jones Ave Rockmart GA CONTINGENT Closing Jun 19 2026 Lender Linda Kennedy CC...</div><div style="margin-top:6px"><span class="ctag tag-buyer">buyer</span><span class="src-tag">Website</span><span class="agent-tag">Rebecca</span></div></div><div class="cc" onclick="editContact(5)" title="Click to edit"><div style="position:absolute;top:10px;right:10px;font-size:10px;color:var(--muted)">Edit</div><div class="cn">Jennifer and Jeremy Garrett</div><div class="cm">706-506-4327</div><div class="cm">gjen08@aol.com</div><div class="cm">Price: $139,711</div><div class="note">00 Puckett Rd FAILED transaction Family source</div><div style="margin-top:6px"><span class="ctag tag-buyer">buyer</span><span class="src-tag">Family</span><span class="agent-tag">Tammy</span></div></div><div class="cc" onclick="editContact(6)" title="Click to edit"><div style="position:absolute;top:10px;right:10px;font-size:10px;color:var(--muted)">Edit</div><div class="cn">92 Holliday Rd Seller</div><div class="cm">Price: $349,900</div><div class="note">92 Holliday Rd Franklin GA FAILED listing side did not close</div><div style="margin-top:6px"><span class="ctag tag-seller">seller</span><span class="src-tag">Repeat</span><span class="agent-tag">Tammy</span></div></div><div class="cc" onclick="editContact(1782397163714)" title="Click to edit"><div style="position:absolute;top:10px;right:10px;font-size:10px;color:var(--muted)">Edit</div><div class="cn">Briana</div><div class="cm">Boggan</div><div class="cm">briboggan@gmail.com</div><div class="cm">Price: 275k</div><div class="cm" style="color:var(--turq)">Closed: August 18th 2026</div><div class="note">Sold her Grandparents Marilyn and James Dean a home in Cedartown and her brother...</div><div style="margin-top:6px"><span class="ctag tag-buyer">buyer</span><span class="src-tag">Repeat</span><span class="agent-tag">Rebecca</span></div></div></div>
+  <div class="cg" id="crm-grid"></div>
   <div id="crm-empty" style="text-align:center;padding:40px;color:var(--muted);display:none">No contacts found.</div>
 </div>
 
@@ -203,10 +203,10 @@ select option{background:var(--g2)}
   <div class="shdr">Deal Pipeline</div>
   <div class="ssub">Click any name to edit or move them to a new stage.</div>
   <div class="pipe" style="min-height:200px">
-    <div class="pc"><div class="pl" style="color:var(--muted)">New Leads</div><div id="fp-leads"><div class="pi" onclick="editContact(1)" title="Click to edit">Georgia Property Preservation ANT LLC<br><span style="color:var(--muted);font-size:10px">Repeat</span></div><div class="pi" onclick="editContact(2)" title="Click to edit">Sydnee Miller<br><span style="color:var(--muted);font-size:10px">Social Media $375,900</span></div><div class="pi" onclick="editContact(3)" title="Click to edit">David and Nia Sturgill<br><span style="color:var(--muted);font-size:10px">Repeat $529,000</span></div><div class="pi" onclick="editContact(5)" title="Click to edit">Jennifer and Jeremy Garrett<br><span style="color:var(--muted);font-size:10px">Family $139,711</span></div><div class="pi" onclick="editContact(6)" title="Click to edit">92 Holliday Rd Seller<br><span style="color:var(--muted);font-size:10px">Repeat $349,900</span></div></div></div>
-    <div class="pc"><div class="pl" style="color:var(--gold)">Nurturing</div><div id="fp-active"><div style="color:var(--muted);font-size:11px;padding:6px">Empty</div></div></div>
-    <div class="pc"><div class="pl" style="color:var(--turq)">Listed / Searching</div><div id="fp-listed"><div style="color:var(--muted);font-size:11px;padding:6px">Empty</div></div></div>
-    <div class="pc"><div class="pl" style="color:var(--pink)">Under Contract</div><div id="fp-closing"><div class="pi" onclick="editContact(4)" title="Click to edit">Bryan Ramirez<br><span style="color:var(--muted);font-size:10px">Website $165,000</span></div><div class="pi" onclick="editContact(1782397163714)" title="Click to edit">Briana<br><span style="color:var(--muted);font-size:10px">Repeat 275k</span></div></div></div>
+    <div class="pc"><div class="pl" style="color:var(--muted)">New Leads</div><div id="fp-leads"></div></div>
+    <div class="pc"><div class="pl" style="color:var(--gold)">Nurturing</div><div id="fp-active"></div></div>
+    <div class="pc"><div class="pl" style="color:var(--turq)">Listed / Searching</div><div id="fp-listed"></div></div>
+    <div class="pc"><div class="pl" style="color:var(--pink)">Under Contract</div><div id="fp-closing"></div></div>
   </div>
 </div>
 
@@ -215,10 +215,10 @@ select option{background:var(--g2)}
   <div class="shdr">Closing Tracker</div>
   <div class="ssub">Every deal. Every dollar. Fully broken down.</div>
   <div class="g4" style="margin-bottom:16px">
-    <div class="stat"><div class="snum" style="font-size:24px;color:var(--turq)" id="c-vol">$904,900</div><div class="slbl">Volume</div></div>
-    <div class="stat"><div class="snum" style="font-size:24px;color:var(--gold)" id="c-gross">$27,147</div><div class="slbl">Gross Comm</div></div>
-    <div class="stat"><div class="snum" style="font-size:24px;color:var(--green)" id="c-net">$18,093</div><div class="slbl">Net Comm</div></div>
-    <div class="stat"><div class="snum" style="font-size:24px" id="c-count">2</div><div class="slbl">Closed Ends</div></div>
+    <div class="stat"><div class="snum" style="font-size:24px;color:var(--turq)" id="c-vol">$0</div><div class="slbl">Volume</div></div>
+    <div class="stat"><div class="snum" style="font-size:24px;color:var(--gold)" id="c-gross">$0</div><div class="slbl">Gross Comm</div></div>
+    <div class="stat"><div class="snum" style="font-size:24px;color:var(--green)" id="c-net">$0</div><div class="slbl">Net Comm</div></div>
+    <div class="stat"><div class="snum" style="font-size:24px" id="c-count">0</div><div class="slbl">Closed Ends</div></div>
   </div>
   <div class="card"><div class="ct">LOG A CLOSING</div>
     <div class="g2">
@@ -249,7 +249,7 @@ select option{background:var(--g2)}
       <div class="tbl-hdr" style="grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;min-width:700px">
         <div>Client / Address</div><div>Price</div><div>Gross</div><div>Ref/TC</div><div>MLS/EO</div><div>Tax</div><div>NET</div><div>Source</div>
       </div>
-      <div id="cl-list"><div class="tbl-row" style="grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;min-width:700px"><div><strong>David and Nia Sturgill</strong><div style="font-size:10px;color:var(--muted)">763 Kiowa Ln Marietta GA</div><span class="bdg bdg-w">Georgia</span> <span class="bdg bdg-g">Buyer</span></div><div style="font-weight:700">$529,000</div><div style="color:var(--gold)">$15870</div><div style="color:var(--red)">-$1300</div><div style="color:var(--red)">-$0</div><div style="color:var(--red)">-$4371</div><div style="color:var(--green);font-weight:700">$10199</div><div><span class="src-tag">Repeat</span></div></div><div class="tbl-row" style="grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;min-width:700px"><div><strong>Sydnee Miller</strong><div style="font-size:10px;color:var(--muted)">108 Jeffery Ln Dallas GA</div><span class="bdg bdg-w">Georgia</span> <span class="bdg bdg-g">Buyer</span></div><div style="font-weight:700">$375,900</div><div style="color:var(--gold)">$11277</div><div style="color:var(--red)">-$0</div><div style="color:var(--red)">-$0</div><div style="color:var(--red)">-$3383</div><div style="color:var(--green);font-weight:700">$7894</div><div><span class="src-tag">Social Media</span></div></div></div>
+      <div id="cl-list"></div>
     </div>
     <div id="cl-empty" style="text-align:center;color:var(--muted);padding:20px;display:none">No closings yet.</div>
   </div>
@@ -262,7 +262,7 @@ select option{background:var(--g2)}
 
   <div style="background:var(--g2);border:1px solid var(--turq);border-radius:10px;padding:16px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
     <div style="font-size:13px">All scripts are generated by Claude AI. Copy the prompt, open Claude, paste it in and fill in your details.</div>
-    <a href="https://claude.ai/" target="_blank" class="btn bp" style="text-decoration:none;padding:10px 20px">Open Claude AI</a>
+    <a href="https://claude.ai" target="_blank" class="btn bp" style="text-decoration:none;padding:10px 20px">Open Claude AI</a>
   </div>
 
   <div class="g2">
@@ -272,7 +272,7 @@ select option{background:var(--g2)}
       <div class="f"><label>Area</label><input type="text" id="exp-area" placeholder="Cedartown GA or Gadsden AL"></div>
       <div class="f"><label>Original List Price</label><input type="text" id="exp-price" placeholder="$275,000"></div>
       <div class="f"><label>Days on Market</label><input type="text" id="exp-dom" placeholder="90 days"></div>
-      <button class="btn bp" style="margin-top:6px;width:100%" onclick="buildAndCopy(&#39;expired&#39;)">Build and Copy Prompt</button>
+      <button class="btn bp" style="margin-top:6px;width:100%" onclick="buildAndCopy('expired')">Build and Copy Prompt</button>
       <div id="exp-copied" style="display:none;color:var(--green);font-size:12px;margin-top:6px;font-weight:700">Copied! Now paste into Claude AI.</div>
     </div>
 
@@ -281,7 +281,7 @@ select option{background:var(--g2)}
       <div style="font-size:12px;color:var(--muted);margin-bottom:8px">Fill in your details then copy and paste into Claude.</div>
       <div class="f"><label>Area</label><input type="text" id="fsbo-area" placeholder="Floyd County GA or Cherokee County AL"></div>
       <div class="f"><label>Asking Price</label><input type="text" id="fsbo-price" placeholder="$290,000"></div>
-      <button class="btn bp" style="margin-top:6px;width:100%" onclick="buildAndCopy(&#39;fsbo&#39;)">Build and Copy Prompt</button>
+      <button class="btn bp" style="margin-top:6px;width:100%" onclick="buildAndCopy('fsbo')">Build and Copy Prompt</button>
       <div id="fsbo-copied" style="display:none;color:var(--green);font-size:12px;margin-top:6px;font-weight:700">Copied! Now paste into Claude AI.</div>
     </div>
 
@@ -298,7 +298,7 @@ select option{background:var(--g2)}
           <option>Mailer copy</option>
         </select>
       </div>
-      <button class="btn bp" style="margin-top:6px;width:100%" onclick="buildAndCopy(&#39;circle&#39;)">Build and Copy Prompt</button>
+      <button class="btn bp" style="margin-top:6px;width:100%" onclick="buildAndCopy('circle')">Build and Copy Prompt</button>
       <div id="circle-copied" style="display:none;color:var(--green);font-size:12px;margin-top:6px;font-weight:700">Copied! Now paste into Claude AI.</div>
     </div>
 
@@ -314,7 +314,7 @@ select option{background:var(--g2)}
           <option>Phone call</option>
         </select>
       </div>
-      <button class="btn bp" style="margin-top:6px;width:100%" onclick="buildAndCopy(&#39;sphere&#39;)">Build and Copy Prompt</button>
+      <button class="btn bp" style="margin-top:6px;width:100%" onclick="buildAndCopy('sphere')">Build and Copy Prompt</button>
       <div id="sphere-copied" style="display:none;color:var(--green);font-size:12px;margin-top:6px;font-weight:700">Copied! Now paste into Claude AI.</div>
     </div>
 
@@ -336,7 +336,7 @@ select option{background:var(--g2)}
           <option>Schedule a call</option>
         </select>
       </div>
-      <button class="btn bp" style="margin-top:6px;width:100%" onclick="buildAndCopy(&#39;ad&#39;)">Build and Copy Prompt</button>
+      <button class="btn bp" style="margin-top:6px;width:100%" onclick="buildAndCopy('ad')">Build and Copy Prompt</button>
       <div id="ad-copied" style="display:none;color:var(--green);font-size:12px;margin-top:6px;font-weight:700">Copied! Now paste into Claude AI.</div>
     </div>
 
@@ -353,7 +353,7 @@ select option{background:var(--g2)}
           <option>Introduction</option>
         </select>
       </div>
-      <button class="btn bp" style="margin-top:6px;width:100%" onclick="buildAndCopy(&#39;farm&#39;)">Build and Copy Prompt</button>
+      <button class="btn bp" style="margin-top:6px;width:100%" onclick="buildAndCopy('farm')">Build and Copy Prompt</button>
       <div id="farm-copied" style="display:none;color:var(--green);font-size:12px;margin-top:6px;font-weight:700">Copied! Now paste into Claude AI.</div>
     </div>
   </div>
@@ -367,20 +367,20 @@ select option{background:var(--g2)}
   <div class="g2">
     <div class="card">
       <div class="ct">CHOOSE A TEMPLATE</div>
-      <div class="tpl-card" onclick="loadTpl(&#39;uc&#39;)"><div class="tpl-name">Under Contract - Buyer</div><div class="tpl-desc">Next steps, due diligence, what NOT to do</div></div>
-      <div class="tpl-card" onclick="loadTpl(&#39;ucs&#39;)"><div class="tpl-name">Under Contract - Seller</div><div class="tpl-desc">Post-ratification next steps</div></div>
-      <div class="tpl-card" onclick="loadTpl(&#39;nl&#39;)"><div class="tpl-name">New Listing Announcement</div><div class="tpl-desc">Announce to your sphere and database</div></div>
-      <div class="tpl-card" onclick="loadTpl(&#39;ccb&#39;)"><div class="tpl-name">Closing Congrats - Buyer</div><div class="tpl-desc">Keys in hand, warm and referral-forward</div></div>
-      <div class="tpl-card" onclick="loadTpl(&#39;ccs&#39;)"><div class="tpl-name">Closing Congrats - Seller</div><div class="tpl-desc">Chapter closed, celebrate</div></div>
-      <div class="tpl-card" onclick="loadTpl(&#39;ci&#39;)"><div class="tpl-name">Past Client Check-In</div><div class="tpl-desc">Stay top of mind, genuine</div></div>
-      <div class="tpl-card" onclick="loadTpl(&#39;pr&#39;)"><div class="tpl-name">Price Reduction</div><div class="tpl-desc">Professional, positive, proactive</div></div>
-      <div class="tpl-card" onclick="loadTpl(&#39;lp&#39;)"><div class="tpl-name">Post Listing Presentation</div><div class="tpl-desc">Follow up same night or next morning</div></div>
-      <div class="tpl-card" onclick="loadTpl(&#39;of&#39;)"><div class="tpl-name">Offer Submitted</div><div class="tpl-desc">Keep buyer calm while they wait</div></div>
-      <div class="tpl-card" onclick="loadTpl(&#39;an&#39;)"><div class="tpl-name">Home Anniversary</div><div class="tpl-desc">Build that lifelong relationship</div></div>
-      <div class="tpl-card" onclick="loadTpl(&#39;sf&#39;)"><div class="tpl-name">Showing Feedback Request</div><div class="tpl-desc">Get feedback from showing agents fast</div></div>
-      <div class="tpl-card" onclick="loadTpl(&#39;oh&#39;)"><div class="tpl-name">Open House Follow-Up</div><div class="tpl-desc">Same day follow-up to visitors</div></div>
-      <div class="tpl-card" onclick="loadTpl(&#39;pp&#39;)"><div class="tpl-name">Price Improvement - New Buyer Push</div><div class="tpl-desc">Alert buyers agents to price drop</div></div>
-      <div class="tpl-card" onclick="loadTpl(&#39;rr&#39;)"><div class="tpl-name">Repair Request Follow-Up</div><div class="tpl-desc">Status check on agreed repairs</div></div>
+      <div class="tpl-card" onclick="loadTpl('uc')"><div class="tpl-name">Under Contract - Buyer</div><div class="tpl-desc">Next steps, due diligence, what NOT to do</div></div>
+      <div class="tpl-card" onclick="loadTpl('ucs')"><div class="tpl-name">Under Contract - Seller</div><div class="tpl-desc">Post-ratification next steps</div></div>
+      <div class="tpl-card" onclick="loadTpl('nl')"><div class="tpl-name">New Listing Announcement</div><div class="tpl-desc">Announce to your sphere and database</div></div>
+      <div class="tpl-card" onclick="loadTpl('ccb')"><div class="tpl-name">Closing Congrats - Buyer</div><div class="tpl-desc">Keys in hand, warm and referral-forward</div></div>
+      <div class="tpl-card" onclick="loadTpl('ccs')"><div class="tpl-name">Closing Congrats - Seller</div><div class="tpl-desc">Chapter closed, celebrate</div></div>
+      <div class="tpl-card" onclick="loadTpl('ci')"><div class="tpl-name">Past Client Check-In</div><div class="tpl-desc">Stay top of mind, genuine</div></div>
+      <div class="tpl-card" onclick="loadTpl('pr')"><div class="tpl-name">Price Reduction</div><div class="tpl-desc">Professional, positive, proactive</div></div>
+      <div class="tpl-card" onclick="loadTpl('lp')"><div class="tpl-name">Post Listing Presentation</div><div class="tpl-desc">Follow up same night or next morning</div></div>
+      <div class="tpl-card" onclick="loadTpl('of')"><div class="tpl-name">Offer Submitted</div><div class="tpl-desc">Keep buyer calm while they wait</div></div>
+      <div class="tpl-card" onclick="loadTpl('an')"><div class="tpl-name">Home Anniversary</div><div class="tpl-desc">Build that lifelong relationship</div></div>
+      <div class="tpl-card" onclick="loadTpl('sf')"><div class="tpl-name">Showing Feedback Request</div><div class="tpl-desc">Get feedback from showing agents fast</div></div>
+      <div class="tpl-card" onclick="loadTpl('oh')"><div class="tpl-name">Open House Follow-Up</div><div class="tpl-desc">Same day follow-up to visitors</div></div>
+      <div class="tpl-card" onclick="loadTpl('pp')"><div class="tpl-name">Price Improvement - New Buyer Push</div><div class="tpl-desc">Alert buyers agents to price drop</div></div>
+      <div class="tpl-card" onclick="loadTpl('rr')"><div class="tpl-name">Repair Request Follow-Up</div><div class="tpl-desc">Status check on agreed repairs</div></div>
     </div>
 
     <div class="card">
@@ -397,7 +397,7 @@ select option{background:var(--g2)}
         <div id="email-body" style="font-size:13px;line-height:1.8;white-space:pre-wrap;color:var(--white)"></div>
       </div>
       <div style="margin-top:14px;background:var(--g2);border-radius:8px;padding:12px;font-size:12px;color:var(--muted)">
-        Need something custom? <a href="https://claude.ai/" target="_blank" style="color:var(--turq);font-weight:700">Open Claude AI</a> and ask for a custom email.
+        Need something custom? <a href="https://claude.ai" target="_blank" style="color:var(--turq);font-weight:700">Open Claude AI</a> and ask for a custom email.
       </div>
     </div>
   </div>
@@ -416,7 +416,7 @@ select option{background:var(--g2)}
       3. Paste the prompt and fill in your details<br>
       4. Get your answer in seconds
     </div>
-    <a href="https://claude.ai/" target="_blank" class="btn bp" style="display:inline-block;text-decoration:none;padding:12px 24px">Open Claude AI</a>
+    <a href="https://claude.ai" target="_blank" class="btn bp" style="display:inline-block;text-decoration:none;padding:12px 24px">Open Claude AI</a>
   </div>
 
   <div class="g2">
@@ -424,56 +424,56 @@ select option{background:var(--g2)}
       <div class="ct">OBJECTION HANDLER</div>
       <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Copy this prompt, paste into Claude, fill in the objection:</div>
       <div style="background:var(--black);border:1px solid var(--g3);border-radius:8px;padding:12px;font-size:12px;line-height:1.7;color:var(--white)" id="obj-prompt">You are helping Tammy Plamondon, Licensed Real Estate Broker at Loft and Main Realty Group in Cedartown GA. Handle this objection and give Tammy the exact words to say: [PASTE THE OBJECTION HERE]. Keep it warm, confident, and not pushy.</div>
-      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt(&#39;obj-prompt&#39;)">Copy Prompt</button>
+      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt('obj-prompt')">Copy Prompt</button>
     </div>
 
     <div class="card">
       <div class="ct">LISTING APPOINTMENT PREP</div>
       <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Copy this prompt, paste into Claude, fill in the details:</div>
       <div style="background:var(--black);border:1px solid var(--g3);border-radius:8px;padding:12px;font-size:12px;line-height:1.7;color:var(--white)" id="lp-prompt">You are helping Tammy Plamondon, Licensed Real Estate Broker at Loft and Main Realty Group in Cedartown GA. Give Tammy 5 sharp listing appointment talking points for this property and situation: [ADDRESS AND SELLER SITUATION HERE]. Include the price conversation and how to ask for the listing at the end.</div>
-      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt(&#39;lp-prompt&#39;)">Copy Prompt</button>
+      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt('lp-prompt')">Copy Prompt</button>
     </div>
 
     <div class="card">
       <div class="ct">FOLLOW-UP TEXT</div>
       <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Copy this prompt, paste into Claude, fill in who you are texting:</div>
       <div style="background:var(--black);border:1px solid var(--g3);border-radius:8px;padding:12px;font-size:12px;line-height:1.7;color:var(--white)" id="fut-prompt">You are helping Tammy Plamondon, Licensed Real Estate Broker at Loft and Main Realty Group in Cedartown GA. Write a short follow-up text Tammy can send to this person: [WHO THEY ARE AND SITUATION]. Under 2 sentences. Sound real, not scripted.</div>
-      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt(&#39;fut-prompt&#39;)">Copy Prompt</button>
+      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt('fut-prompt')">Copy Prompt</button>
     </div>
 
     <div class="card">
       <div class="ct">REBECCA BUYER BRIEF</div>
       <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Copy this prompt, paste into Claude, fill in the buyer details:</div>
       <div style="background:var(--black);border:1px solid var(--g3);border-radius:8px;padding:12px;font-size:12px;line-height:1.7;color:var(--white)" id="reb-prompt">You are helping Tammy Plamondon at Loft and Main Realty Group. Write a showing brief for Rebecca, Tammy's buyer agent teammate, for these clients: [CLIENT NAME AND DETAILS - what they want, price range, situation]. Give Rebecca: 3 things to listen for, 2 qualifying questions, the morning-of text to send the client, what to say if they love a house or hate every house.</div>
-      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt(&#39;reb-prompt&#39;)">Copy Prompt</button>
+      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt('reb-prompt')">Copy Prompt</button>
     </div>
 
     <div class="card">
       <div class="ct">EXPIRED LISTING SCRIPT</div>
       <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Copy this prompt, paste into Claude:</div>
       <div style="background:var(--black);border:1px solid var(--g3);border-radius:8px;padding:12px;font-size:12px;line-height:1.7;color:var(--white)" id="exp-prompt">You are helping Tammy Plamondon, Licensed Real Estate Broker at Loft and Main Realty Group in Cedartown GA, licensed in GA and AL. Write a confident expired listing cold call script for this property: Area [AREA], Original price [PRICE], Days on market [DAYS]. Include opener, empathy, value prop, and appointment close. Tammy is NOT a Realtor.</div>
-      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt(&#39;exp-prompt&#39;)">Copy Prompt</button>
+      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt('exp-prompt')">Copy Prompt</button>
     </div>
 
     <div class="card">
       <div class="ct">FSBO SCRIPT</div>
       <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Copy this prompt, paste into Claude:</div>
       <div style="background:var(--black);border:1px solid var(--g3);border-radius:8px;padding:12px;font-size:12px;line-height:1.7;color:var(--white)" id="fsbo-prompt">You are helping Tammy Plamondon, Licensed Real Estate Broker at Loft and Main Realty Group in Cedartown GA, licensed in GA and AL. Write a FSBO cold call script for a property in [AREA] asking [PRICE]. Focus on what FSBOs miss, net proceeds comparison, and Tammy's value. Direct and warm. Tammy is NOT a Realtor.</div>
-      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt(&#39;fsbo-prompt&#39;)">Copy Prompt</button>
+      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt('fsbo-prompt')">Copy Prompt</button>
     </div>
 
     <div class="card">
       <div class="ct">SOCIAL MEDIA POST</div>
       <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Copy this prompt, paste into Claude:</div>
       <div style="background:var(--black);border:1px solid var(--g3);border-radius:8px;padding:12px;font-size:12px;line-height:1.7;color:var(--white)" id="soc-prompt">You are helping Tammy Plamondon, Broker at Loft and Main Realty Group in Cedartown GA. Write a [FACEBOOK / INSTAGRAM / TIKTOK] post about: [TOPIC]. Tone: sassy and real, no corporate speak. Tammy's tagline is No fluff. No filter. Just real estate. Add relevant hashtags.</div>
-      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt(&#39;soc-prompt&#39;)">Copy Prompt</button>
+      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt('soc-prompt')">Copy Prompt</button>
     </div>
 
     <div class="card">
       <div class="ct">CMA ANALYSIS</div>
       <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Copy this prompt, paste into Claude:</div>
       <div style="background:var(--black);border:1px solid var(--g3);border-radius:8px;padding:12px;font-size:12px;line-height:1.7;color:var(--white)" id="cma-prompt">You are helping Tammy Plamondon, Broker at Loft and Main Realty Group in Cedartown GA. Analyze this CMA. Subject property: [ADDRESS, BEDS, BATHS, SQFT, YEAR, LOT]. Seller target price: [PRICE]. Condition notes: [UPDATES/CONDITION]. Comps: [PASTE COMP DATA HERE]. Give me: price per sqft per comp, adjusted value range for subject, whether seller target is realistic, and how to present this diplomatically to the seller.</div>
-      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt(&#39;cma-prompt&#39;)">Copy Prompt</button>
+      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt('cma-prompt')">Copy Prompt</button>
     </div>
   </div>
 </div>
@@ -493,18 +493,17 @@ select option{background:var(--g2)}
       </div>
       <div>
         <div class="f"><label>Comp Data from MLS</label>
-          <textarea id="cma-comps" style="min-height:200px" placeholder="456 Oak Ave $238000 3/2 1380sqft sold 45 days ago
-789 Pine Rd $255000 3/2 1500sqft sold 60 days ago"></textarea>
+          <textarea id="cma-comps" style="min-height:200px" placeholder="456 Oak Ave $238000 3/2 1380sqft sold 45 days ago&#10;789 Pine Rd $255000 3/2 1500sqft sold 60 days ago"></textarea>
         </div>
       </div>
     </div>
-    <button class="btn bp" onclick="runAI(&#39;cma&#39;)">Analyze and Price It</button>
-    <div class="ai-box" id="cma-box"><div class="ail"><span>CMA Analysis</span><button class="copy-btn" onclick="cp(&#39;cma-txt&#39;)">Copy</button></div><div id="cma-txt"></div></div>
+    <button class="btn bp" onclick="runAI('cma')">Analyze and Price It</button>
+    <div class="ai-box" id="cma-box"><div class="ail"><span>CMA Analysis</span><button class="copy-btn" onclick="cp('cma-txt')">Copy</button></div><div id="cma-txt"></div></div>
   </div>
   <div class="card"><div class="ct">SELLER PRICE CONVERSATION</div>
     <div class="f"><textarea id="price-sit" style="min-height:70px" placeholder="Seller wants $310k, comps support $275k. 3/2, 1600sqft, no updates since 2010."></textarea></div>
-    <button class="btn bp" onclick="runAI(&#39;price&#39;)">Write the Conversation</button>
-    <div class="ai-box" id="price-box"><div class="ail"><span>Your Script</span><button class="copy-btn" onclick="cp(&#39;price-txt&#39;)">Copy</button></div><div id="price-txt"></div></div>
+    <button class="btn bp" onclick="runAI('price')">Write the Conversation</button>
+    <div class="ai-box" id="price-box"><div class="ail"><span>Your Script</span><button class="copy-btn" onclick="cp('price-txt')">Copy</button></div><div id="price-txt"></div></div>
   </div>
 </div>
 
@@ -515,44 +514,44 @@ select option{background:var(--g2)}
 
   <div style="background:var(--g2);border:1px solid var(--turq);border-radius:10px;padding:16px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
     <div style="font-size:13px">All social content is generated by Claude AI. Click below to open it.</div>
-    <a href="https://claude.ai/" target="_blank" class="btn bp" style="text-decoration:none;padding:10px 20px">Open Claude AI</a>
+    <a href="https://claude.ai" target="_blank" class="btn bp" style="text-decoration:none;padding:10px 20px">Open Claude AI</a>
   </div>
 
   <div class="g2">
     <div class="card">
       <div class="ct">FACEBOOK POST</div>
       <div style="background:var(--black);border:1px solid var(--g3);border-radius:8px;padding:12px;font-size:12px;line-height:1.7;color:var(--white)" id="fb-prompt">Write a Facebook post for Tammy Plamondon, Broker at Loft and Main Realty Group in Cedartown GA. Topic: [WHAT HAPPENED OR WHAT YOU WANT TO POST ABOUT]. Tone: sassy, real, no corporate speak. Tagline: No fluff. No filter. Just real estate. Add hashtags.</div>
-      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt(&#39;fb-prompt&#39;)">Copy Prompt</button>
+      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt('fb-prompt')">Copy Prompt</button>
     </div>
 
     <div class="card">
       <div class="ct">INSTAGRAM POST</div>
       <div style="background:var(--black);border:1px solid var(--g3);border-radius:8px;padding:12px;font-size:12px;line-height:1.7;color:var(--white)" id="ig-prompt">Write an Instagram post for Tammy Plamondon, Broker at Loft and Main Realty Group in Cedartown GA. Topic: [WHAT HAPPENED OR WHAT YOU WANT TO POST ABOUT]. Keep it punchy, visual, and real. Add hashtags. Tammy is direct, warm, and sassy.</div>
-      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt(&#39;ig-prompt&#39;)">Copy Prompt</button>
+      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt('ig-prompt')">Copy Prompt</button>
     </div>
 
     <div class="card">
       <div class="ct">TIKTOK SCRIPT</div>
       <div style="background:var(--black);border:1px solid var(--g3);border-radius:8px;padding:12px;font-size:12px;line-height:1.7;color:var(--white)" id="tt-prompt">Write a 60-second TikTok script for Tammy Plamondon, Broker at Loft and Main Realty Group in Cedartown GA. Topic: [TOPIC OR HOOK IDEA]. Format: Hook 0-3 seconds, Body with value or story, CTA last 5 seconds. Add PAUSE, B-ROLL, and SHOW TEXT stage directions. On-camera and conversational.</div>
-      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt(&#39;tt-prompt&#39;)">Copy Prompt</button>
+      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt('tt-prompt')">Copy Prompt</button>
     </div>
 
     <div class="card">
       <div class="ct">30-DAY CONTENT CALENDAR</div>
       <div style="background:var(--black);border:1px solid var(--g3);border-radius:8px;padding:12px;font-size:12px;line-height:1.7;color:var(--white)" id="cal-prompt">Build a 30-day social media content calendar for Tammy Plamondon, Broker at Loft and Main Realty Group in Cedartown GA. Focus this month: [YOUR FOCUS - example: build seller leads, showcase closings, grow TikTok]. Mix Facebook, Instagram, TikTok. Use 3 pillars: Education, Personality and behind the scenes, Social proof. Format: Day number, Platform, Content type, Topic. Keep it realistic for a busy solo broker.</div>
-      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt(&#39;cal-prompt&#39;)">Copy Prompt</button>
+      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt('cal-prompt')">Copy Prompt</button>
     </div>
 
     <div class="card">
       <div class="ct">JUST LISTED POST</div>
       <div style="background:var(--black);border:1px solid var(--g3);border-radius:8px;padding:12px;font-size:12px;line-height:1.7;color:var(--white)" id="jl-prompt">Write a Just Listed social media post for Tammy Plamondon, Broker at Loft and Main Realty Group. Property: [ADDRESS]. Price: [PRICE]. Key features: [BEDS, BATHS, HIGHLIGHTS]. Write versions for Facebook and Instagram. Make it exciting and drive showings. Tammy is direct and real, no fluff.</div>
-      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt(&#39;jl-prompt&#39;)">Copy Prompt</button>
+      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt('jl-prompt')">Copy Prompt</button>
     </div>
 
     <div class="card">
       <div class="ct">JUST SOLD POST</div>
       <div style="background:var(--black);border:1px solid var(--g3);border-radius:8px;padding:12px;font-size:12px;line-height:1.7;color:var(--white)" id="js-prompt">Write a Just Sold social media post for Tammy Plamondon, Broker at Loft and Main Realty Group in Cedartown GA. Property: [ADDRESS]. Sale price: [PRICE]. Client type: [FIRST TIME BUYER / REPEAT CLIENT / SELLER etc]. Write versions for Facebook and Instagram. Warm and celebratory, referral-friendly at the end.</div>
-      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt(&#39;js-prompt&#39;)">Copy Prompt</button>
+      <button class="btn bp" style="margin-top:10px;width:100%" onclick="copyPrompt('js-prompt')">Copy Prompt</button>
     </div>
   </div>
 </div>
@@ -564,23 +563,23 @@ select option{background:var(--g2)}
   <div class="g2">
     <div class="card"><div class="ct">NEW LEAD 5-TOUCH</div>
       <div class="f"><label>Lead info</label><input type="text" id="d1" placeholder="Sarah M, Facebook lead, first-time buyer, under $280k"></div>
-      <button class="btn bp" style="margin-top:6px" onclick="runAI(&#39;d1&#39;)">Build Drip</button>
-      <div class="ai-box" id="d1-box"><div class="ail"><span>Your 5-Touch Drip</span><button class="copy-btn" onclick="cp(&#39;d1-txt&#39;)">Copy</button></div><div id="d1-txt"></div></div>
+      <button class="btn bp" style="margin-top:6px" onclick="runAI('d1')">Build Drip</button>
+      <div class="ai-box" id="d1-box"><div class="ail"><span>Your 5-Touch Drip</span><button class="copy-btn" onclick="cp('d1-txt')">Copy</button></div><div id="d1-txt"></div></div>
     </div>
     <div class="card"><div class="ct">PAST CLIENT ANNUAL 12-MONTH</div>
       <div class="f"><label>Client info</label><input type="text" id="d2" placeholder="Bob and Lisa, closed March 2024, first home, kids"></div>
-      <button class="btn bp" style="margin-top:6px" onclick="runAI(&#39;d2&#39;)">Build Annual Drip</button>
-      <div class="ai-box" id="d2-box"><div class="ail"><span>Your Annual Drip</span><button class="copy-btn" onclick="cp(&#39;d2-txt&#39;)">Copy</button></div><div id="d2-txt"></div></div>
+      <button class="btn bp" style="margin-top:6px" onclick="runAI('d2')">Build Annual Drip</button>
+      <div class="ai-box" id="d2-box"><div class="ail"><span>Your Annual Drip</span><button class="copy-btn" onclick="cp('d2-txt')">Copy</button></div><div id="d2-txt"></div></div>
     </div>
     <div class="card"><div class="ct">SELLER NURTURE 6-MONTH</div>
       <div class="f"><label>Seller lead info</label><input type="text" id="d3" placeholder="Mike T, wants to sell in 6 months, 4/3 in Rockmart"></div>
-      <button class="btn bp" style="margin-top:6px" onclick="runAI(&#39;d3&#39;)">Build Seller Drip</button>
-      <div class="ai-box" id="d3-box"><div class="ail"><span>Your Seller Drip</span><button class="copy-btn" onclick="cp(&#39;d3-txt&#39;)">Copy</button></div><div id="d3-txt"></div></div>
+      <button class="btn bp" style="margin-top:6px" onclick="runAI('d3')">Build Seller Drip</button>
+      <div class="ai-box" id="d3-box"><div class="ail"><span>Your Seller Drip</span><button class="copy-btn" onclick="cp('d3-txt')">Copy</button></div><div id="d3-txt"></div></div>
     </div>
     <div class="card"><div class="ct">COLD LEAD RE-ENGAGEMENT</div>
       <div class="f"><label>Who ghosted and when</label><input type="text" id="d4" placeholder="Lead from January, toured 3 homes, disappeared 4 months"></div>
-      <button class="btn bp" style="margin-top:6px" onclick="runAI(&#39;d4&#39;)">Re-Engage</button>
-      <div class="ai-box" id="d4-box"><div class="ail"><span>Your Re-Engagement</span><button class="copy-btn" onclick="cp(&#39;d4-txt&#39;)">Copy</button></div><div id="d4-txt"></div></div>
+      <button class="btn bp" style="margin-top:6px" onclick="runAI('d4')">Re-Engage</button>
+      <div class="ai-box" id="d4-box"><div class="ail"><span>Your Re-Engagement</span><button class="copy-btn" onclick="cp('d4-txt')">Copy</button></div><div id="d4-txt"></div></div>
     </div>
   </div>
 </div>
@@ -600,14 +599,14 @@ select option{background:var(--g2)}
     </div>
     <div class="card"><div class="ct">TODAY'S VISITORS</div>
       <div id="oh-list"></div>
-      <div id="oh-empty" style="text-align: center; color: var(--muted); font-size: 12px; padding: 20px; display: block;">No visitors logged today.</div>
+      <div id="oh-empty" style="text-align:center;color:var(--muted);font-size:12px;padding:20px">No visitors logged today.</div>
     </div>
   </div>
   <div class="card"><div class="ct">OPEN HOUSE FOLLOW-UP EMAIL</div>
     <div class="f"><label>Visitor name and notes</label><textarea id="oh-fu-in" style="min-height:60px" placeholder="Jennifer Williams, liked the house, pre-approved $300k, concerned about street noise"></textarea></div>
     <div class="f"><label>Property</label><input type="text" id="oh-fu-prop" placeholder="807 Jones Ave, Rockmart GA"></div>
-    <button class="btn bp" onclick="runAI(&#39;ohfu&#39;)">Write Follow-Up</button>
-    <div class="ai-box" id="ohfu-box"><div class="ail"><span>Your Email</span><button class="copy-btn" onclick="cp(&#39;ohfu-txt&#39;)">Copy</button></div><div id="ohfu-txt"></div></div>
+    <button class="btn bp" onclick="runAI('ohfu')">Write Follow-Up</button>
+    <div class="ai-box" id="ohfu-box"><div class="ail"><span>Your Email</span><button class="copy-btn" onclick="cp('ohfu-txt')">Copy</button></div><div id="ohfu-txt"></div></div>
   </div>
 </div>
 
@@ -619,16 +618,16 @@ select option{background:var(--g2)}
 
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px">
     <div class="pills" id="tx-filter">
-      <button class="pill on" onclick="filterTX(&#39;all&#39;,this)">All</button>
-      <button class="pill" onclick="filterTX(&#39;active&#39;,this)">Active</button>
-      <button class="pill" onclick="filterTX(&#39;closed&#39;,this)">Closed</button>
-      <button class="pill" onclick="filterTX(&#39;cancelled&#39;,this)">Cancelled</button>
+      <button class="pill on" onclick="filterTX('all',this)">All</button>
+      <button class="pill" onclick="filterTX('active',this)">Active</button>
+      <button class="pill" onclick="filterTX('closed',this)">Closed</button>
+      <button class="pill" onclick="filterTX('cancelled',this)">Cancelled</button>
     </div>
     <button class="btn bp" onclick="openTX(null)">+ New Transaction</button>
   </div>
 
-  <div id="tx-list"><div style="background:var(--g1);border:1px solid var(--g3);border-radius:12px;padding:18px;margin-bottom:14px"><div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px"><div><div style="font-weight:700;font-size:16px">807 Jones Ave, Rockmart GA 30153</div><div style="font-size:12px;color:var(--muted);margin-top:3px">Bryan Ramirez &nbsp;|&nbsp; $165,000</div><div style="margin-top:6px"><span class="bdg bdg-g" style="margin-right:6px">ACTIVE</span><span class="bdg bdg-w" style="margin-right:6px">BUYER</span><span class="bdg bdg-w">Georgia</span></div></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn bp" style="padding:6px 14px;font-size:11px" onclick="openTX(901)">Edit</button></div></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin-bottom:14px"><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Binding Date</div><div style="font-size:12px;font-weight:700;color:var(--white)">Jun 6, 2026<span style="font-size:10px;font-weight:400;color:var(--muted)"></span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Closing Date</div><div style="font-size:12px;font-weight:700;color:var(--red)">Jun 19, 2026<span style="font-size:10px;font-weight:400;color:var(--muted)"> (6d PAST)</span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Agent</div><div style="font-size:12px;font-weight:700;color:var(--white)">Rebecca Winkles<span style="font-size:10px;font-weight:400;color:var(--muted)"></span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Lender</div><div style="font-size:12px;font-weight:700;color:var(--white)">Linda Kennedy - CCM<span style="font-size:10px;font-weight:400;color:var(--muted)"></span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Attorney</div><div style="font-size:12px;font-weight:700;color:var(--white)">Christina Jenkins LLC<span style="font-size:10px;font-weight:400;color:var(--muted)"></span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Loan Type</div><div style="font-size:12px;font-weight:700;color:var(--white)">FHA<span style="font-size:10px;font-weight:400;color:var(--muted)"></span></div></div></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px"><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--g3)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Due Diligence</div><div style="font-size:13px;font-weight:700;color:var(--g3);margin-bottom:4px">No date set</div><span class="bdg bdg-g" style="font-size:9px">COMPLETE</span></div><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--g3)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Inspection</div><div style="font-size:13px;font-weight:700;color:var(--g3);margin-bottom:4px">No date set</div><span class="bdg bdg-g" style="font-size:9px">COMPLETE</span></div><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--g3)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Appraisal</div><div style="font-size:13px;font-weight:700;color:var(--g3);margin-bottom:4px">No date set</div><span class="bdg bdg-g" style="font-size:9px">COMPLETE</span></div><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--g3)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Financing</div><div style="font-size:13px;font-weight:700;color:var(--g3);margin-bottom:4px">No date set</div><span class="bdg bdg-y" style="font-size:9px">APPROVED</span><div style="font-size:11px;color:var(--muted);margin-top:6px">Contingent</div></div><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--g3)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Earnest Money</div><div style="font-size:13px;font-weight:700;color:var(--g3);margin-bottom:4px">No date set</div><span class="bdg bdg-g" style="font-size:9px">RECEIVED</span><div style="font-size:11px;color:var(--muted);margin-top:6px">$1,000 - Christina Jenkins LLC</div></div></div><div style="margin-top:12px;background:var(--g2);border-radius:8px;padding:10px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)">Document Checklist</span><span style="font-size:12px;font-weight:700;color:var(--red)">7 / 14 (50%)</span></div><div style="background:var(--g3);border-radius:20px;height:6px;overflow:hidden"><div style="background:var(--pink);height:100%;width:50%;transition:width .3s"></div></div></div><div style="margin-top:10px;background:var(--black);border:1px dashed var(--g3);border-radius:6px;padding:8px;font-size:11px;color:var(--muted)">Stage 3 Contingent. Buyer: bryanramirez185@yahoo.com. Lender: Linda Kennedy CCM. Attorney: Christina Jenkins LLC.</div></div><div style="background:var(--g1);border:1px solid var(--g3);border-radius:12px;padding:18px;margin-bottom:14px"><div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px"><div><div style="font-weight:700;font-size:16px">1606 Fieldgreen Overlook Stone Mountain Ga 30088</div><div style="font-size:12px;color:var(--muted);margin-top:3px">Briana Boggan &nbsp;|&nbsp; 280,000 &nbsp;|&nbsp; MLS: 7715838</div><div style="margin-top:6px"><span class="bdg bdg-g" style="margin-right:6px">ACTIVE</span><span class="bdg bdg-w" style="margin-right:6px">BUYER</span><span class="bdg bdg-w">Georgia</span></div></div><div style="display:flex;gap:8px;flex-wrap:wrap"><a href="https://drive.google.com/drive/u/0/folders/1kIL1S2IL34Vm0Cw4mniJ4tlyQymC-SJs" target="_blank" style="background:var(--g2);border:1px solid var(--turq);color:var(--turq);border-radius:6px;padding:6px 12px;font-size:11px;font-weight:700;text-decoration:none">Open Drive</a><button class="btn bp" style="padding:6px 14px;font-size:11px" onclick="openTX(1782399524901)">Edit</button></div></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin-bottom:14px"><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Binding Date</div><div style="font-size:12px;font-weight:700;color:var(--white)">June 22nd 2026<span style="font-size:10px;font-weight:400;color:var(--muted)"></span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Closing Date</div><div style="font-size:12px;font-weight:700;color:var(--white)">August 18th 2026<span style="font-size:10px;font-weight:400;color:var(--muted)"></span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Agent</div><div style="font-size:12px;font-weight:700;color:var(--white)">Rebecca Winkles<span style="font-size:10px;font-weight:400;color:var(--muted)"></span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Lender</div><div style="font-size:12px;font-weight:700;color:var(--white)">Mike Williams-Armed Forces Bank<span style="font-size:10px;font-weight:400;color:var(--muted)"></span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Attorney</div><div style="font-size:12px;font-weight:700;color:var(--white)">Okelley &amp; Sorohan -Duluth<span style="font-size:10px;font-weight:400;color:var(--muted)"></span></div></div><div style="background:var(--g2);border-radius:8px;padding:8px 10px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Loan Type</div><div style="font-size:12px;font-weight:700;color:var(--white)">VA<span style="font-size:10px;font-weight:400;color:var(--muted)"></span></div></div></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px"><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--g3)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Due Diligence</div><div style="font-size:13px;font-weight:700;color:var(--g3);margin-bottom:4px">No date set</div><span class="bdg bdg-y" style="font-size:9px">PENDING</span><div style="font-size:11px;color:var(--muted);margin-top:6px">Inspection with Noble-Completed, Termite-Completed</div></div><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--g3)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Inspection</div><div style="font-size:13px;font-weight:700;color:var(--g3);margin-bottom:4px">June 23, 2026 8:30 AM</div><span class="bdg bdg-g" style="font-size:9px">COMPLETE</span><div style="font-size:11px;color:var(--muted);margin-top:6px">No concerns from inspection or termite</div></div><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--g3)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Appraisal</div><div style="font-size:13px;font-weight:700;color:var(--g3);margin-bottom:4px">No date set</div><span class="bdg bdg-y" style="font-size:9px">PENDING</span></div><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--g3)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Financing</div><div style="font-size:13px;font-weight:700;color:var(--g3);margin-bottom:4px">No date set</div><span class="bdg bdg-y" style="font-size:9px">PENDING</span><div style="font-size:11px;color:var(--muted);margin-top:6px">Mike williams with Armed Forces Bank</div></div><div style="background:var(--g2);border-radius:8px;padding:12px;border-left:3px solid var(--g3)"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px">Earnest Money</div><div style="font-size:13px;font-weight:700;color:var(--g3);margin-bottom:4px">No date set</div><span class="bdg bdg-g" style="font-size:9px">RECEIVED</span><div style="font-size:11px;color:var(--muted);margin-top:6px">$2,800 - Okelly &amp; Sorohan</div></div></div><div style="margin-top:12px;background:var(--g2);border-radius:8px;padding:10px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)">Document Checklist</span><span style="font-size:12px;font-weight:700;color:var(--red)">2 / 14 (14%)</span></div><div style="background:var(--g3);border-radius:20px;height:6px;overflow:hidden"><div style="background:var(--pink);height:100%;width:14%;transition:width .3s"></div></div></div></div></div>
-  <div id="tx-empty" style="text-align: center; padding: 40px; color: var(--muted); display: none;">No transactions yet. Hit + New Transaction to get started.</div>
+  <div id="tx-list"></div>
+  <div id="tx-empty" style="text-align:center;padding:40px;color:var(--muted)">No transactions yet. Hit + New Transaction to get started.</div>
 </div>
 
 </div><!-- /main -->
@@ -639,7 +638,7 @@ select option{background:var(--g2)}
       <span id="m-ctitle">Add Contact</span>
       <div style="display:flex;gap:8px;align-items:center">
         <button id="m-del-btn" class="btn bred" style="display:none;padding:6px 14px;font-size:11px" onclick="delContact()">Delete</button>
-        <button class="mclose" onclick="closeModal(&#39;m-contact&#39;)">X</button>
+        <button class="mclose" onclick="closeModal('m-contact')">X</button>
       </div>
     </div>
     <input type="hidden" id="edit-id" value="">
@@ -661,10 +660,10 @@ select option{background:var(--g2)}
     </div>
     <div class="f"><label>Pipeline Stage</label>
       <div class="stage-select" id="stage-sel">
-        <div class="stage-opt" onclick="pickStage(&#39;leads&#39;,this)">New Lead</div>
-        <div class="stage-opt" onclick="pickStage(&#39;active&#39;,this)">Nurturing</div>
-        <div class="stage-opt" onclick="pickStage(&#39;listed&#39;,this)">Listed or Searching</div>
-        <div class="stage-opt" onclick="pickStage(&#39;closing&#39;,this)">Under Contract</div>
+        <div class="stage-opt" onclick="pickStage('leads',this)">New Lead</div>
+        <div class="stage-opt" onclick="pickStage('active',this)">Nurturing</div>
+        <div class="stage-opt" onclick="pickStage('listed',this)">Listed or Searching</div>
+        <div class="stage-opt" onclick="pickStage('closing',this)">Under Contract</div>
       </div>
     </div>
     <div class="f"><label>Lead Source</label>
@@ -676,7 +675,7 @@ select option{background:var(--g2)}
     </div>
     <div class="f"><label>Notes</label><textarea id="mc-notes" placeholder="How you met, what they need, Rebecca handling showings..."></textarea></div>
     <div class="fe">
-      <button class="btn bg" onclick="closeModal(&#39;m-contact&#39;)">Cancel</button>
+      <button class="btn bg" onclick="closeModal('m-contact')">Cancel</button>
       <button class="btn bp" onclick="saveContact()">Save Contact</button>
     </div>
   </div>
@@ -684,7 +683,7 @@ select option{background:var(--g2)}
 
 <div class="modal-ov" id="m-closing">
   <div class="modal">
-    <div class="mtitle">Log Closing <button class="mclose" onclick="closeModal(&#39;m-closing&#39;)">X</button></div>
+    <div class="mtitle">Log Closing <button class="mclose" onclick="closeModal('m-closing')">X</button></div>
     <div class="g2">
       <div>
         <div class="f"><label>Client Name(s)</label><input type="text" id="mcl-client" placeholder="John and Jane Doe"></div>
@@ -718,7 +717,7 @@ select option{background:var(--g2)}
       <span id="tx-modal-title">New Transaction</span>
       <div style="display:flex;gap:8px;align-items:center">
         <button id="tx-del-btn" class="btn bred" style="display:none;padding:6px 14px;font-size:11px" onclick="deleteTX()">Delete</button>
-        <button class="mclose" onclick="closeModal(&#39;m-tx&#39;)">X</button>
+        <button class="mclose" onclick="closeModal('m-tx')">X</button>
       </div>
     </div>
     <input type="hidden" id="tx-edit-id" value="">
@@ -765,7 +764,7 @@ select option{background:var(--g2)}
       <div class="f"><label>Buyer Phone</label><input type="text" id="tx-buyer-phone" placeholder="404-667-0679"></div>
     </div>
     <div class="g2">
-      <div class="f"><label>Seller Name(s)</label><input type="text" id="tx-seller" placeholder="John &amp; Jane Smith"></div>
+      <div class="f"><label>Seller Name(s)</label><input type="text" id="tx-seller" placeholder="John & Jane Smith"></div>
       <div class="f"><label>Seller Phone</label><input type="text" id="tx-seller-phone" placeholder="770-555-1234"></div>
     </div>
     <div class="g2">
@@ -777,7 +776,7 @@ select option{background:var(--g2)}
           <option>Cooperating Agent</option>
         </select>
       </div>
-      <div class="f"><label>Co-op Agent Name &amp; Brokerage</label><input type="text" id="tx-coop" placeholder="Jane Doe - RE/MAX"></div>
+      <div class="f"><label>Co-op Agent Name & Brokerage</label><input type="text" id="tx-coop" placeholder="Jane Doe - RE/MAX"></div>
     </div>
     <div class="g2">
       <div class="f"><label>Lender Name</label><input type="text" id="tx-lender" placeholder="Linda Kennedy - CCM"></div>
@@ -808,7 +807,7 @@ select option{background:var(--g2)}
     <hr style="border-color:var(--g3);margin:14px 0">
 
     <!-- CONTINGENCIES -->
-    <div style="font-family:Bebas Neue,sans-serif;font-size:15px;color:var(--turq);margin-bottom:10px;letter-spacing:1px">CONTINGENCIES &amp; DEADLINES</div>
+    <div style="font-family:Bebas Neue,sans-serif;font-size:15px;color:var(--turq);margin-bottom:10px;letter-spacing:1px">CONTINGENCIES & DEADLINES</div>
 
     <div style="background:var(--g2);border-radius:10px;padding:14px;margin-bottom:10px">
       <div style="font-weight:700;font-size:13px;color:var(--white);margin-bottom:8px">Due Diligence Period</div>
@@ -830,7 +829,7 @@ select option{background:var(--g2)}
     <div style="background:var(--g2);border-radius:10px;padding:14px;margin-bottom:10px">
       <div style="font-weight:700;font-size:13px;color:var(--white);margin-bottom:8px">Inspection</div>
       <div class="g2">
-        <div class="f"><label>Inspection Date &amp; Time</label><input type="text" id="tx-insp-date" placeholder="June 12, 2026 at 10am"></div>
+        <div class="f"><label>Inspection Date & Time</label><input type="text" id="tx-insp-date" placeholder="June 12, 2026 at 10am"></div>
         <div class="f"><label>Inspector Name</label><input type="text" id="tx-inspector" placeholder="Bob Smith Inspections"></div>
       </div>
       <div class="g2">
@@ -949,11 +948,11 @@ select option{background:var(--g2)}
     <hr style="border-color:var(--g3);margin:14px 0">
 
     <!-- DOCUMENTS & CHECKLIST -->
-    <div style="font-family:Bebas Neue,sans-serif;font-size:15px;color:var(--turq);margin-bottom:10px;letter-spacing:1px">DOCUMENTS &amp; FILE</div>
+    <div style="font-family:Bebas Neue,sans-serif;font-size:15px;color:var(--turq);margin-bottom:10px;letter-spacing:1px">DOCUMENTS & FILE</div>
     <div class="f"><label>Google Drive Folder Link</label><input type="text" id="tx-drive" placeholder="Paste your Google Drive folder link here"></div>
     <div style="margin-top:8px;margin-bottom:14px">
       <div id="tx-drive-link-display" style="display:none">
-        <a id="tx-drive-link-a" href="file:///C:/Users/tammy/Downloads/index%20(7).html#" target="_blank" style="color:var(--turq);font-size:13px;font-weight:700">Open Google Drive Folder</a>
+        <a id="tx-drive-link-a" href="#" target="_blank" style="color:var(--turq);font-size:13px;font-weight:700">Open Google Drive Folder</a>
       </div>
     </div>
 
@@ -967,7 +966,7 @@ select option{background:var(--g2)}
     <div class="f"><textarea id="tx-notes" style="min-height:80px" placeholder="Any other important notes about this transaction..."></textarea></div>
 
     <div class="fe">
-      <button class="btn bg" onclick="closeModal(&#39;m-tx&#39;)">Cancel</button>
+      <button class="btn bg" onclick="closeModal('m-tx')">Cancel</button>
       <button class="btn bp" onclick="saveTX()">Save Transaction</button>
     </div>
   </div>
@@ -2085,5 +2084,5 @@ renderClosings();
 renderOH();
 renderTX();
 </script>
-
-</body></html>
+</body>
+</html>
