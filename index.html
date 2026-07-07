@@ -386,7 +386,7 @@ window.saveCL=function(id,px){closings=closings.map(function(c){return c.id===id
 function rTransactions(){
   if(!pipeline.length)return'<div style="font-size:13px;color:#888;">No active deals. Add in Pipeline tab.</div>';
   if(!txSel||!pipeline.find(function(p){return p.id===txSel;})){txSel=pipeline[0].id;}
-  var tx=pipeline.find(function(p){return p.id===txSel;})||pipeline[0];
+  if(!txSel)txSel=pipeline[0].id; var tx=pipeline.find(function(p){return p.id===txSel;})||pipeline[0];
   var today=new Date().toISOString().split('T')[0];
   var h='<div class="g2" style="margin-bottom:14px;">';
   h+='<div><label class="flbl">Transaction</label><select onchange="setTxS(this.value)">';
