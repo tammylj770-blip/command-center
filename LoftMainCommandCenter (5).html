@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="L&M Command">
+<title>L&M Command Center</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:-apple-system,sans-serif;background:#f2f2f7;color:#1a1a1a;}
+#hdr{background:#1a1a1a;padding:12px 14px 10px;position:sticky;top:0;z-index:99;border-top:3px solid #E91E8C;}
+.brow{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.badge{background:#E91E8C;color:#fff;border-radius:6px;padding:4px 7px;font-size:11px;font-weight:700;}
+.bname{color:#fff;font-size:14px;font-weight:600;}
+.btag{color:#888;font-size:10px;}
+.tabs{display:flex;gap:5px;flex-wrap:wrap;}
+.tab{border:none;border-radius:6px;padding:6px 11px;font-size:12px;font-weight:600;background:rgba(255,255,255,0.1);color:#bbb;cursor:pointer;}
+.tab.on{background:#E91E8C;color:#fff;}
+#main{padding:14px 12px 80px;}
+.card{background:#fff;border-radius:10px;border:1px solid #e5e5e5;padding:13px 15px;margin-bottom:10px;}
+.cl{border-left:3px solid #E91E8C;}
+.ct{border-left:3px solid #00BCD4;}
+.metrics{display:flex;gap:8px;margin-bottom:16px;}
+.met{background:#f0f0f0;border-radius:8px;padding:11px 13px;flex:1;}
+.mlbl{font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px;}
+.mval{font-size:19px;font-weight:700;color:#1a1a1a;}
+.msub{font-size:11px;color:#999;margin-top:2px;}
+.slbl{font-size:11px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.5px;margin:16px 0 8px;}
+.pill{display:inline-block;border-radius:20px;padding:2px 9px;font-size:11px;font-weight:600;}
+.row{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+.rc{display:flex;justify-content:space-between;align-items:center;gap:8px;}
+.pills{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px;align-items:center;}
+.n14{font-size:14px;font-weight:600;}
+.n12{font-size:12px;color:#666;margin-top:2px;}
+.n11{font-size:11px;color:#888;margin-top:3px;}
+.netval{font-size:16px;font-weight:700;color:#E91E8C;}
+input,select,textarea{width:100%;padding:9px 11px;border-radius:7px;border:1px solid #ccc;background:#f8f8f8;color:#1a1a1a;font-size:14px;font-family:inherit;margin-top:3px;}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#E91E8C;}
+.flbl{font-size:12px;color:#666;margin-top:8px;display:block;}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.btns{display:flex;gap:8px;margin-top:12px;}
+.btn{border-radius:7px;border:1.5px solid #ccc;background:transparent;color:#1a1a1a;font-size:13px;font-weight:600;padding:8px 14px;cursor:pointer;font-family:inherit;}
+.bp{background:#E91E8C;border-color:#E91E8C;color:#fff;}
+.bt{background:#00BCD4;border-color:#00BCD4;color:#fff;}
+.bd{border-color:#e53935;color:#e53935;}
+.frow{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;align-items:center;}
+.editbox{background:#fff;border:2px solid #00BCD4;border-radius:10px;padding:13px 15px;margin-bottom:10px;}
+.preblock{white-space:pre-wrap;font-family:inherit;font-size:13px;color:#1a1a1a;background:#f5f5f5;border-radius:6px;padding:12px;margin:10px 0;line-height:1.6;}
+.dlrow{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f0f0f0;}
+.dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.commbox{background:#f0f0f0;border-radius:8px;padding:10px 13px;margin:10px 0;display:flex;gap:18px;flex-wrap:wrap;}
+.cml{font-size:11px;color:#666;}
+.cmv{font-size:14px;font-weight:700;margin-top:2px;}
+</style>
+</head>
+<body>
+
+<div id="hdr">
+  <div class="brow">
+    <div class="badge">L&amp;M</div>
+    <div><div class="bname">Loft &amp; Main Realty Group</div><div class="btag">No fluff. No filter. Just real estate.</div></div>
+  </div>
+  <div class="tabs" id="tabs"></div>
+</div>
+<div id="main"></div>
+
+<script>
+var PINK='#E91E8C',TURQ='#00BCD4';
+var TAB=['home','contacts','pipeline','closings','transactions','email','leadgen','social'];
+var TLBL=['Home','Contacts','Pipeline','Closings','Transactions','Email Templates','Lead Gen','Social Media'];
+var cur='home';
+
+// Default data
+var DC=[
+  {id:1,name:'Sydnee Miller',phone:'',email:'',source:'Social Media',status:'Closed',notes:'Closed May 20, 2026 · $375,900',agent:'Rebecca'},
+  {id:2,name:'David & Nia Sturgill',phone:'',email:'',source:'Repeat',status:'Closed',notes:'Closed Jun 5, 2026 · $529,000 · TC fee $1,300',agent:'Rebecca'},
+  {id:3,name:'Bryan Ramirez',phone:'',email:'',source:'Referral',status:'Under Contract',notes:'807 Jones Ave, Rockmart GA · FHA · Close Jun 19, 2026',agent:'Tammy'},
+  {id:4,name:'Brandi Jean Schaffran Webb — Living Trust',phone:'217-251-4091',email:'bgardwebb@gmail.com',source:'Other',status:'Active',notes:'54 DuPont Court, Dallas GA · $610,000 · Listing active',agent:'Tammy'},
+  {id:5,name:'Briana Boggan',phone:'',email:'',source:'Referral',status:'Under Contract',notes:'1606 Fieldgreen Overlook, Stone Mountain GA 30088 · $280,000 · VA · Binding Jun 22 · Close Aug 18',agent:'Rebecca'},
+  {id:6,name:'Estate of Beverly Jolly — Executor Tracy Lett',phone:'',email:'',source:'Other',status:'Under Contract',notes:'873 East Point Rd · $168,500 · Conventional · Binding Jun 10 · Close Jul 9',agent:'Rebecca'}
+];
+var DP=[
+  {id:1,contact:'Bryan Ramirez',address:'807 Jones Ave, Rockmart GA 30153',price:165000,stage:'Under Contract',closeDate:'2026-06-19',loanType:'FHA',lender:'Linda Kennedy · CCM',attorney:'Christina Jenkins LLC',agent:'Tammy',notes:''},
+  {id:2,contact:'Brandi Jean Schaffran Webb — Living Trust',address:'54 DuPont Court, Dallas GA',price:610000,stage:'Active',closeDate:'',loanType:'Conventional',lender:'',attorney:'',agent:'Tammy',notes:'Assumable VA loan · Luxury listing'},
+  {id:3,contact:'Briana Boggan',address:'1606 Fieldgreen Overlook, Stone Mountain GA 30088',price:280000,stage:'Under Contract',closeDate:'2026-08-18',loanType:'VA',lender:'Mike Williams · Armed Forces Bank',attorney:'Okelley & Sorohan · Duluth',agent:'Rebecca',notes:'Binding: Jun 22 · Earnest $2,800 held by Okelley & Sorohan · Inspection & termite complete · No concerns · MLS: 7715838'},
+  {id:4,contact:'Estate of Beverly Jolly — Executor Tracy Lett',address:'873 East Point Rd, Georgia',price:168500,stage:'Under Contract',closeDate:'2026-07-09',loanType:'Conventional',lender:'Debbi Lindsey',attorney:'MSP · Cedartown',agent:'Rebecca',notes:'Binding: Jun 10 · Earnest $1,000 held by MSP-Cedartown · Contingent upon repairs · Inspection scheduled · Listing side'}
+];
+var DCL=[
+  {id:1,contact:'Sydnee Miller',closeDate:'2026-05-20',salePrice:375900,side:'Buyer',source:'Social Media',agent:'Rebecca',commRate:2.5,tcFee:0,referralFee:0,notes:''},
+  {id:2,contact:'David & Nia Sturgill',closeDate:'2026-06-05',salePrice:529000,side:'Buyer',source:'Repeat',agent:'Rebecca',commRate:2.5,tcFee:1300,referralFee:0,notes:''}
+];
+
+function ls(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}}
+function ss(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+
+if(ls('lm_ver','')!=='v5'){try{localStorage.clear();}catch(e){} ss('lm_ver','v5');}
+var contacts=ls('lm_c',DC);
+var pipeline=ls('lm_p',DP);
+// Reset pipeline if stored version has fewer entries than default
+var closings=ls('lm_cl',DCL);
+function sav(){ss('lm_c',contacts);ss('lm_p',pipeline);ss('lm_cl',closings);}
+
+function usd(n){return'$'+Math.round(Number(n)||0).toLocaleString();}
+function fd(d){if(!d)return'';var p=d.split('-');return p[1]+'/'+p[2]+'/'+p[0];}
+function ad(ds,days){if(!ds)return'';var d=new Date(ds);d.setDate(d.getDate()+days);return d.toISOString().split('T')[0];}
+function net(c){return((Number(c.salePrice)*Number(c.commRate))/100)-Number(c.tcFee)-Number(c.referralFee);}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function pill(t,col){return'<span class="pill" style="background:'+col+'22;color:'+col+';border:1px solid '+col+'44">'+esc(t)+'</span>';}
+
+var SC={Lead:'#888',Active:TURQ,'Under Contract':PINK,Closed:'#4caf50',Dead:'#aaa',Pending:'#FF9800'};
+
+var DL={
+  FHA:[{l:'Inspection deadline',d:10},{l:'Financing contingency',d:21},{l:'Appraisal deadline',d:25},{l:'Final walk-through',r:1,d:-1},{l:'Closing',r:1,d:0}],
+  Conventional:[{l:'Inspection deadline',d:10},{l:'Financing contingency',d:21},{l:'Appraisal deadline',d:28},{l:'Final walk-through',r:1,d:-1},{l:'Closing',r:1,d:0}],
+  VA:[{l:'Inspection deadline',d:10},{l:'Financing contingency',d:21},{l:'Appraisal deadline',d:28},{l:'Final walk-through',r:1,d:-1},{l:'Closing',r:1,d:0}],
+  USDA:[{l:'Inspection deadline',d:10},{l:'Financing contingency',d:21},{l:'Appraisal deadline',d:25},{l:'Final walk-through',r:1,d:-1},{l:'Closing',r:1,d:0}],
+  Cash:[{l:'Inspection deadline',d:7},{l:'Due diligence ends',d:14},{l:'Final walk-through',r:1,d:-1},{l:'Closing',r:1,d:0}],
+  Other:[{l:'Inspection deadline',d:10},{l:'Financing contingency',d:21},{l:'Final walk-through',r:1,d:-1},{l:'Closing',r:1,d:0}]
+};
+
+var ET=[
+  {cat:'Buyer',title:'First meeting follow-up',body:'Hi [Name],\n\nGreat meeting you today! Quick recap:\n\n• Pre-approval status: [status]\n• Target price range: [range]\n• Must-haves: [list]\n\nI\'ll start sending matches right away. Call or text anytime — I pick up.\n\nLet\'s find you a home,\nTammy Plamondon\nLoft & Main Realty Group\nLicensed Broker · GA & AL\n[phone]'},
+  {cat:'Buyer',title:'Offer submitted',body:'Hi [Name],\n\nOffer is in!\n\n• Offer price: [price]\n• Earnest money: [amount]\n• Proposed close date: [date]\n• Response deadline: [deadline]\n\nI\'ll call the moment I hear back.\n\nYou\'ve got this,\nTammy'},
+  {cat:'Buyer',title:'Offer accepted!',body:'[Name]!\n\nWe\'re under contract. Congrats!\n\nNext steps:\n• Schedule inspection ASAP — deadline: [date]\n• No big purchases before closing\n• Your lender [name] will reach out\n\nI\'m with you every step.\n\nTammy'},
+  {cat:'Seller',title:'Listing agreement follow-up',body:'Hi [Name],\n\nThank you for trusting me with your home.\n\nWhat\'s next:\n• Photos: [date]\n• MLS go-live: [date]\n• Open house: [date]\n\nLet\'s get it sold,\nTammy Plamondon\nLoft & Main Realty Group'},
+  {cat:'Seller',title:'Price reduction conversation',body:'Hi [Name],\n\nI want to be straight with you — that\'s what you hired me for.\n\nWe\'ve had [X] showings in [X] days with [X] offers. The market is telling us something. Let\'s talk through a price adjustment.\n\nCall me: [phone]\n\nHonestly,\nTammy'},
+  {cat:'Under Contract',title:'Binding agreement recap',body:'Hi [Name],\n\nYou\'re officially under contract! Save these dates:\n\n• Binding date: [date]\n• Inspection deadline: [date]\n• Financing contingency: [date]\n• Appraisal deadline: [date]\n• Final walk-through: [date]\n• Closing: [date]\n\nNo big purchases or job changes before closing.\n\nAlmost there,\nTammy'},
+  {cat:'Under Contract',title:'Inspection results follow-up',body:'Hi [Name],\n\nInspection report is in.\n\n• Major items: [list or "none"]\n• Recommend requesting: [list]\n• Let go: [list]\n\nWe have until [deadline] to respond. Call me at [phone].\n\nTammy'},
+  {cat:'Closing',title:'Closing day congrats',body:'[Name]!\n\nYou did it. Keys are yours.\n\nPrivilege working with you. You have my number — I pick it up.\n\nDon\'t keep me a secret. If you know someone buying or selling, send them my way.\n\nCongratulations,\nTammy Plamondon\nLoft & Main Realty Group\nNo fluff. No filter. Just real estate.'},
+  {cat:'Past Client',title:'Annual check-in',body:'Hi [Name],\n\nJust thinking about you — it\'s been about a year.\n\nHow\'s the house? If you\'ve thought about making a move or know someone who has, I\'m always a call away.\n\nHope everything\'s good,\nTammy'},
+  {cat:'Referral',title:'Agent-to-agent referral',body:'Hi [Agent Name],\n\nReferring a great client — [Client Name]. They\'re [buying/selling] in your market.\n\n• Timeline: [timeline]\n• Price range: [range]\n• Key needs: [notes]\n\nTake good care of them.\n\nTammy Plamondon\nLoft & Main · Cedartown, GA · GA & AL Licensed'}
+];
+
+var LG=[
+  {platform:'TikTok',hook:'POV: asking me what it\'s actually like to buy in NW Georgia right now',prompt:'30-sec honest market breakdown. Real stats from your last 3 deals. No sugarcoating.'},
+  {platform:'TikTok',hook:'The thing no one tells first-time buyers about FHA loans',prompt:'45-sec FHA myth-buster. One real misconception you hear every week.'},
+  {platform:'TikTok',hook:'Why I drive a pink F150 and not a luxury car',prompt:'Tell the real story. Authenticity over optics. This is who you are.'},
+  {platform:'TikTok',hook:'I walked into a $165K house — here\'s what I found',prompt:'Quick walkthrough reaction. Be honest about what buyers at this price should expect.'},
+  {platform:'Facebook',hook:'Cedartown homeowners: your equity is probably higher than you think',prompt:'Polk County market update. Under 150 words. 1 stat, 1 insight, 1 soft CTA. Your number at the end.'},
+  {platform:'Facebook',hook:'54 Dupont Court — assumable VA loan — $610K',prompt:'Lead with monthly payment at assumed rate, not the price. Show the math. End with your direct number.'},
+  {platform:'YouTube',hook:'Everything you need to know about buying a home in Georgia in 2026',prompt:'10-min walkthrough. Chapters: Pre-approval → Search → Offer → Under Contract → Closing.'},
+  {platform:'YouTube',hook:'What does a licensed broker do that a regular agent can\'t?',prompt:'Broker vs agent in plain English. Lead with your 12 years and independence.'},
+  {platform:'Community',hook:'What\'s your favorite thing about living in Cedartown?',prompt:'Post in a local Facebook group or TikTok. Reply to every single comment.'},
+  {platform:'Direct Outreach',hook:'Expired listing opener',prompt:'"Hey [Name], Tammy Plamondon with Loft & Main. Your home came off the market — I have active buyers in your area. Five minutes?"'},
+  {platform:'Direct Outreach',hook:'FSBO text intro',prompt:'"Hi [Name], saw your sign on [address]. Not trying to list it — I have buyers in this price range. Any flexibility on a showing? — Tammy, Loft & Main"'}
+];
+
+var SM=[
+  {plat:'TikTok',type:'Personal 40%',prompt:'Film one real thing from your week. No script. From the truck. Caption: "Behind the broker life."'},
+  {plat:'TikTok',type:'Personal 40%',prompt:'Film Roxy and Buttercup doing something chaotic. Caption with a real estate analogy.'},
+  {plat:'TikTok',type:'Personal 40%',prompt:'Talk about being a broker at 45 with ADD who built her own shop. No fluff. Own it.'},
+  {plat:'TikTok',type:'Local 30%',prompt:'Go live at a local Cedartown business. Interview the owner 3 minutes. Tag them.'},
+  {plat:'TikTok',type:'Local 30%',prompt:'Drive a Cedartown neighborhood, narrate what you see — prices, vibes, condition. Raw footage.'},
+  {plat:'TikTok',type:'Real Estate 30%',prompt:'"One thing I wish every buyer knew before making an offer in Georgia." Under 60 seconds.'},
+  {plat:'TikTok',type:'Real Estate 30%',prompt:'A day from binding to close. Time-lapse your desk, texts, hustle. Show the work.'},
+  {plat:'Instagram',type:'Listing',prompt:'54 Dupont Court: "What if your mortgage was $[X]/mo?" Show the assumable VA math. Swipe for details.'},
+  {plat:'Instagram',type:'Brand',prompt:'Pink F150 in front of a listing. Caption: "No fluff. No filter. Just real estate."'},
+  {plat:'Instagram',type:'Value',prompt:'Carousel: "5 things to do before you list in Georgia." Last slide = your number + CTA.'},
+  {plat:'Facebook',type:'Community',prompt:'"This week in Cedartown real estate:" — every Monday. One price, days on market, one takeaway.'},
+  {plat:'Facebook',type:'Referral',prompt:'"Know someone buying or selling in GA or AL? I still pick up the phone." Pin it monthly.'},
+  {plat:'YouTube',type:'Education',prompt:'"What happens between offer and closing in Georgia?" Walk every step with your real checklist.'}
+];
+
+// State
+var cFilt='All',cEdit=null,cAdd=false;
+var pEdit=null,pAdd=false;
+var clEdit=null,clAdd=false;
+var txSel=pipeline[0]?pipeline[0].id:null,txBind='';
+var eCat='All',eOpen=null;
+var lgPlat='All';
+var smPlat='All';
+
+// Render tabs
+function rTabs(){
+  document.getElementById('tabs').innerHTML=TAB.map(function(t,i){
+    return '<button class="tab'+(t===cur?' on':'')+'" onclick="go(\''+t+'\')">'+TLBL[i]+'</button>';
+  }).join('');
+}
+
+function go(t){cur=t;rTabs();render();}
+
+// Main render
+function render(){
+  var m=document.getElementById('main');
+  if(cur==='home')m.innerHTML=rHome();
+  else if(cur==='contacts')m.innerHTML=rContacts();
+  else if(cur==='pipeline')m.innerHTML=rPipeline();
+  else if(cur==='closings')m.innerHTML=rClosings();
+  else if(cur==='transactions')m.innerHTML=rTransactions();
+  else if(cur==='email')m.innerHTML=rEmail();
+  else if(cur==='leadgen')m.innerHTML=rLeadGen();
+  else if(cur==='social')m.innerHTML=rSocial();
+}
+
+// HOME
+function rHome(){
+  var nt=closings.reduce(function(s,c){return s+net(c);},0);
+  var vt=closings.reduce(function(s,c){return s+Number(c.salePrice);},0);
+  var h='<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">';
+  h+='<div style="width:4px;height:36px;background:linear-gradient('+PINK+','+TURQ+');border-radius:2px;"></div>';
+  h+='<div><div style="font-size:17px;font-weight:700;">Tammy Plamondon, Licensed Broker</div>';
+  h+='<div class="n12">Loft &amp; Main Realty Group · Cedartown, GA · GA &amp; AL since 2014</div></div></div>';
+  h+='<div class="metrics">';
+  h+='<div class="met"><div class="mlbl">2026 Net</div><div class="mval" style="color:'+PINK+'">'+usd(nt)+'</div><div class="msub">'+closings.length+' ends</div></div>';
+  h+='<div class="met"><div class="mlbl">Volume</div><div class="mval">'+usd(vt)+'</div><div class="msub">closed</div></div>';
+  h+='<div class="met"><div class="mlbl">Pipeline</div><div class="mval">'+pipeline.length+'</div><div class="msub">deals</div></div>';
+  h+='</div>';
+  h+='<div class="slbl">Active Pipeline</div>';
+  pipeline.forEach(function(p){
+    var col=SC[p.stage]||TURQ;
+    h+='<div class="card" style="border-left:3px solid '+col+'">';
+    h+='<div class="row"><div><div class="n14">'+esc(p.contact)+'</div>';
+    h+='<div class="n12">'+esc(p.address)+'</div>';
+    h+='<div class="n12">'+usd(p.price)+' · '+esc(p.loanType)+(p.lender?' · '+esc(p.lender):'')+'</div></div>';
+    h+='<div style="text-align:right;flex-shrink:0;">'+pill(p.stage,col);
+    if(p.closeDate)h+='<div class="n12" style="margin-top:4px;">Close: '+fd(p.closeDate)+'</div>';
+    h+='</div></div></div>';
+  });
+  h+='<div class="slbl">Recent Closings</div>';
+  closings.slice().reverse().slice(0,3).forEach(function(c){
+    h+='<div class="card cl"><div class="rc">';
+    h+='<div><div class="n14">'+esc(c.contact)+'</div><div class="n12">'+fd(c.closeDate)+' · '+esc(c.side)+' · '+esc(c.agent)+'</div></div>';
+    h+='<div style="text-align:right;"><div class="netval">'+usd(net(c))+'</div><div style="font-size:11px;color:#999;">net</div></div>';
+    h+='</div></div>';
+  });
+  return h;
+}
+
+// CONTACTS
+function rContacts(){
+  var srcs=['All'].concat(contacts.map(function(c){return c.source;}).filter(function(v,i,a){return a.indexOf(v)===i;}));
+  var shown=cFilt==='All'?contacts:contacts.filter(function(c){return c.source===cFilt;});
+  var h='<div class="frow">';
+  srcs.forEach(function(s){h+='<button class="btn'+(cFilt===s?' bp':'')+'" style="padding:6px 12px;font-size:12px;" onclick="setCF(\''+esc(s)+'\')">'+esc(s)+'</button>';});
+  h+='<button class="btn bt" style="padding:6px 12px;font-size:12px;margin-left:auto;" onclick="toggleCA()">+ Add</button></div>';
+  if(cAdd)h+=cForm(null);
+  shown.forEach(function(c){h+=cEdit===c.id?cForm(c):cCard(c);});
+  return h;
+}
+function cCard(c){
+  var col=SC[c.status]||'#888';
+  var h='<div class="card"><div class="row">';
+  h+='<div style="flex:1;min-width:0;"><div class="n14">'+esc(c.name)+'</div>';
+  if(c.phone||c.email)h+='<div class="n12">'+(c.phone?esc(c.phone):'')+(c.phone&&c.email?' · ':'')+( c.email?esc(c.email):'')+'</div>';
+  h+='<div class="pills">'+pill(c.status,col)+' '+pill(c.source,TURQ)+'<span style="font-size:11px;color:#999;">'+esc(c.agent)+'</span></div>';
+  if(c.notes)h+='<div class="n11">'+esc(c.notes)+'</div>';
+  h+='</div><div style="display:flex;gap:6px;flex-shrink:0;margin-left:8px;">';
+  h+='<button class="btn" style="padding:5px 10px;font-size:12px;" onclick="editC('+c.id+')">Edit</button>';
+  h+='<button class="btn bd" style="padding:5px 10px;font-size:12px;" onclick="delC('+c.id+')">✕</button>';
+  h+='</div></div></div>';
+  return h;
+}
+function cForm(c){
+  var v=c||{name:'',phone:'',email:'',source:'Social Media',status:'Lead',notes:'',agent:'Tammy'};
+  var px=c?'ce'+c.id:'cn';
+  var h='<div class="editbox">';
+  h+='<div class="g2">';
+  h+='<div><label class="flbl">Name</label><input id="'+px+'_nm" value="'+esc(v.name)+'"></div>';
+  h+='<div><label class="flbl">Phone</label><input id="'+px+'_ph" value="'+esc(v.phone)+'"></div>';
+  h+='<div><label class="flbl">Email</label><input id="'+px+'_em" value="'+esc(v.email)+'"></div>';
+  h+='<div><label class="flbl">Agent</label><input id="'+px+'_ag" value="'+esc(v.agent)+'"></div>';
+  h+='<div><label class="flbl">Source</label><select id="'+px+'_src">'+['Social Media','Referral','Repeat','Sign Call','Online','Cold Outreach','Other'].map(function(s){return'<option'+(s===v.source?' selected':'')+'>'+s+'</option>';}).join('')+'</select></div>';
+  h+='<div><label class="flbl">Status</label><select id="'+px+'_st">'+['Lead','Active','Under Contract','Closed','Dead'].map(function(s){return'<option'+(s===v.status?' selected':'')+'>'+s+'</option>';}).join('')+'</select></div>';
+  h+='</div><label class="flbl">Notes</label><textarea id="'+px+'_no" rows="2" style="resize:vertical">'+esc(v.notes)+'</textarea>';
+  h+='<div class="btns"><button class="btn bp" onclick="'+(c?'saveC('+c.id+',\''+px+'\')':'addC(\''+px+'\')')+'">Save</button>';
+  h+='<button class="btn" onclick="'+(c?'cEdit=null;render()':'cAdd=false;render()')+'">Cancel</button></div></div>';
+  return h;
+}
+function readCF(px){return{name:g(px+'_nm'),phone:g(px+'_ph'),email:g(px+'_em'),agent:g(px+'_ag'),source:g(px+'_src'),status:g(px+'_st'),notes:g(px+'_no')};}
+window.setCF=function(s){cFilt=s;render();};
+window.toggleCA=function(){cAdd=!cAdd;cEdit=null;render();};
+window.editC=function(id){cEdit=id;cAdd=false;render();};
+window.delC=function(id){contacts=contacts.filter(function(c){return c.id!==id;});sav();render();};
+window.addC=function(px){contacts.push(Object.assign({id:Date.now()},readCF(px)));sav();cAdd=false;render();};
+window.saveC=function(id,px){contacts=contacts.map(function(c){return c.id===id?Object.assign({},c,readCF(px)):c;});sav();cEdit=null;render();};
+
+// PIPELINE
+function rPipeline(){
+  var h='<div style="display:flex;justify-content:flex-end;margin-bottom:14px;"><button class="btn bt" onclick="togglePA()">+ Add Deal</button></div>';
+  if(pAdd)h+=pForm(null);
+  pipeline.forEach(function(p){h+=pEdit===p.id?pForm(p):pCard(p);});
+  if(!pipeline.length)h+='<div style="font-size:13px;color:#888;">No deals yet.</div>';
+  return h;
+}
+function pCard(p){
+  var col=SC[p.stage]||'#888';
+  var h='<div class="card" style="border-left:3px solid '+col+'"><div class="row">';
+  h+='<div style="flex:1;min-width:0;"><div class="n14">'+esc(p.contact)+'</div>';
+  h+='<div class="n12">'+esc(p.address)+'</div>';
+  h+='<div class="pills">'+pill(p.stage,col)+' '+pill(p.loanType,TURQ)+'</div>';
+  h+='<div class="n12">'+usd(p.price)+(p.closeDate?' · Close: '+fd(p.closeDate):'')+'</div>';
+  if(p.lender||p.attorney)h+='<div class="n12">'+(p.lender?'Lender: '+esc(p.lender):'')+(p.lender&&p.attorney?' · ':'')+(p.attorney?'Attorney: '+esc(p.attorney):'')+'</div>';
+  if(p.notes)h+='<div class="n11">'+esc(p.notes)+'</div>';
+  h+='</div><div style="display:flex;gap:6px;flex-shrink:0;margin-left:8px;">';
+  h+='<button class="btn" style="padding:5px 10px;font-size:12px;" onclick="editP('+p.id+')">Edit</button>';
+  h+='<button class="btn bd" style="padding:5px 10px;font-size:12px;" onclick="delP('+p.id+')">✕</button>';
+  h+='</div></div></div>';
+  return h;
+}
+function pForm(p){
+  var v=p||{contact:'',address:'',price:'',stage:'Active',closeDate:'',loanType:'Conventional',lender:'',attorney:'',agent:'Tammy',notes:''};
+  var px=p?'pe'+p.id:'pn';
+  var h='<div class="editbox"><div class="g2">';
+  h+='<div><label class="flbl">Contact</label><input id="'+px+'_co" value="'+esc(v.contact)+'"></div>';
+  h+='<div><label class="flbl">Price</label><input id="'+px+'_pr" value="'+esc(v.price)+'"></div>';
+  h+='<div><label class="flbl">Address</label><input id="'+px+'_ad" value="'+esc(v.address)+'"></div>';
+  h+='<div><label class="flbl">Agent</label><input id="'+px+'_ag" value="'+esc(v.agent)+'"></div>';
+  h+='<div><label class="flbl">Lender</label><input id="'+px+'_le" value="'+esc(v.lender)+'"></div>';
+  h+='<div><label class="flbl">Attorney</label><input id="'+px+'_at" value="'+esc(v.attorney)+'"></div>';
+  h+='<div><label class="flbl">Close Date</label><input type="date" id="'+px+'_cd" value="'+esc(v.closeDate)+'"></div>';
+  h+='<div><label class="flbl">Stage</label><select id="'+px+'_st">'+['Lead','Active','Under Contract','Pending','Closed','Dead'].map(function(s){return'<option'+(s===v.stage?' selected':'')+'>'+s+'</option>';}).join('')+'</select></div>';
+  h+='<div><label class="flbl">Loan Type</label><select id="'+px+'_lt">'+['FHA','Conventional','VA','USDA','Cash','Other'].map(function(s){return'<option'+(s===v.loanType?' selected':'')+'>'+s+'</option>';}).join('')+'</select></div>';
+  h+='</div><label class="flbl">Notes</label><textarea id="'+px+'_no" rows="2" style="resize:vertical">'+esc(v.notes)+'</textarea>';
+  h+='<div class="btns"><button class="btn bp" onclick="'+(p?'saveP('+p.id+',\''+px+'\')':'addP(\''+px+'\')')+'">Save</button>';
+  h+='<button class="btn" onclick="'+(p?'pEdit=null;render()':'pAdd=false;render()')+'">Cancel</button></div></div>';
+  return h;
+}
+function readPF(px){return{contact:g(px+'_co'),address:g(px+'_ad'),price:Number(g(px+'_pr'))||0,agent:g(px+'_ag'),lender:g(px+'_le'),attorney:g(px+'_at'),closeDate:g(px+'_cd'),stage:g(px+'_st'),loanType:g(px+'_lt'),notes:g(px+'_no')};}
+window.togglePA=function(){pAdd=!pAdd;pEdit=null;render();};
+window.editP=function(id){pEdit=id;pAdd=false;render();};
+window.delP=function(id){pipeline=pipeline.filter(function(p){return p.id!==id;});sav();render();};
+window.addP=function(px){pipeline.push(Object.assign({id:Date.now()},readPF(px)));sav();pAdd=false;render();};
+window.saveP=function(id,px){pipeline=pipeline.map(function(p){return p.id===id?Object.assign({},p,readPF(px)):p;});sav();pEdit=null;render();};
+
+// CLOSINGS
+function rClosings(){
+  var nt=closings.reduce(function(s,c){return s+net(c);},0);
+  var vt=closings.reduce(function(s,c){return s+Number(c.salePrice);},0);
+  var h='<div class="metrics">';
+  h+='<div class="met"><div class="mlbl">Total Net</div><div class="mval" style="color:'+PINK+'">'+usd(nt)+'</div><div class="msub">'+closings.length+' ends</div></div>';
+  h+='<div class="met"><div class="mlbl">Volume</div><div class="mval">'+usd(vt)+'</div></div>';
+  h+='<div class="met"><div class="mlbl">Avg Net</div><div class="mval">'+(closings.length?usd(nt/closings.length):'$0')+'</div></div>';
+  h+='</div><div style="display:flex;justify-content:flex-end;margin-bottom:12px;"><button class="btn bt" onclick="toggleCLA()">+ Add Closing</button></div>';
+  if(clAdd)h+=clForm(null);
+  closings.slice().reverse().forEach(function(c){h+=clEdit===c.id?clForm(c):clCard(c);});
+  return h;
+}
+function clCard(c){
+  var n=net(c);
+  var h='<div class="card"><div class="row">';
+  h+='<div style="flex:1;min-width:0;"><div class="n14">'+esc(c.contact)+'</div>';
+  h+='<div class="n12">'+fd(c.closeDate)+' · '+esc(c.side)+' · '+esc(c.agent)+'</div>';
+  h+='<div class="pills">'+pill(c.source,TURQ)+'<span style="font-size:12px;color:#666;">'+usd(c.salePrice)+' at '+c.commRate+'%</span></div>';
+  h+='<div class="n12">Gross: '+usd((c.salePrice*c.commRate)/100)+(c.tcFee?' · TC: –'+usd(c.tcFee):'')+(c.referralFee?' · Ref: –'+usd(c.referralFee):'')+'</div>';
+  h+='</div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;margin-left:8px;">';
+  h+='<div class="netval">'+usd(n)+'</div>';
+  h+='<div style="display:flex;gap:6px;"><button class="btn" style="padding:5px 10px;font-size:12px;" onclick="editCL('+c.id+')">Edit</button>';
+  h+='<button class="btn bd" style="padding:5px 10px;font-size:12px;" onclick="delCL('+c.id+')">✕</button></div>';
+  h+='</div></div></div>';
+  return h;
+}
+function clForm(c){
+  var v=c||{contact:'',closeDate:'',salePrice:'',side:'Buyer',source:'Social Media',agent:'Tammy',commRate:2.5,tcFee:0,referralFee:0,notes:''};
+  var px=c?'cle'+c.id:'cln';
+  var gr=((Number(v.salePrice)*Number(v.commRate))/100);
+  var n=gr-Number(v.tcFee)-Number(v.referralFee);
+  var h='<div class="editbox"><div class="g2">';
+  h+='<div><label class="flbl">Contact</label><input id="'+px+'_co" value="'+esc(v.contact)+'"></div>';
+  h+='<div><label class="flbl">Close Date</label><input type="date" id="'+px+'_cd" value="'+esc(v.closeDate)+'"></div>';
+  h+='<div><label class="flbl">Sale Price ($)</label><input id="'+px+'_sp" value="'+esc(v.salePrice)+'"></div>';
+  h+='<div><label class="flbl">Comm % (e.g. 2.5)</label><input id="'+px+'_cr" value="'+esc(v.commRate)+'"></div>';
+  h+='<div><label class="flbl">TC Fee ($)</label><input id="'+px+'_tf" value="'+esc(v.tcFee)+'"></div>';
+  h+='<div><label class="flbl">Referral Fee ($)</label><input id="'+px+'_rf" value="'+esc(v.referralFee)+'"></div>';
+  h+='<div><label class="flbl">Agent</label><input id="'+px+'_ag" value="'+esc(v.agent)+'"></div>';
+  h+='<div><label class="flbl">Side</label><select id="'+px+'_si">'+['Buyer','Seller','Both'].map(function(s){return'<option'+(s===v.side?' selected':'')+'>'+s+'</option>';}).join('')+'</select></div>';
+  h+='<div><label class="flbl">Source</label><select id="'+px+'_src">'+['Social Media','Referral','Repeat','Sign Call','Online','Cold Outreach','Other'].map(function(s){return'<option'+(s===v.source?' selected':'')+'>'+s+'</option>';}).join('')+'</select></div>';
+  h+='</div>';
+  h+='<div class="commbox"><div><div class="cml">Gross</div><div class="cmv">'+usd(gr)+'</div></div>';
+  h+='<div><div class="cml">Deductions</div><div class="cmv">–'+usd(Number(v.tcFee)+Number(v.referralFee))+'</div></div>';
+  h+='<div><div class="cml">Net to Tammy</div><div class="cmv" style="color:'+PINK+'">'+usd(n)+'</div></div></div>';
+  h+='<label class="flbl">Notes</label><textarea id="'+px+'_no" rows="2" style="resize:vertical">'+esc(v.notes)+'</textarea>';
+  h+='<div class="btns"><button class="btn bp" onclick="'+(c?'saveCL('+c.id+',\''+px+'\')':'addCL(\''+px+'\')')+'">Save</button>';
+  h+='<button class="btn" onclick="'+(c?'clEdit=null;render()':'clAdd=false;render()')+'">Cancel</button></div></div>';
+  return h;
+}
+function readCLF(px){return{contact:g(px+'_co'),closeDate:g(px+'_cd'),salePrice:Number(g(px+'_sp'))||0,commRate:Number(g(px+'_cr'))||0,tcFee:Number(g(px+'_tf'))||0,referralFee:Number(g(px+'_rf'))||0,agent:g(px+'_ag'),side:g(px+'_si'),source:g(px+'_src'),notes:g(px+'_no')};}
+window.toggleCLA=function(){clAdd=!clAdd;clEdit=null;render();};
+window.editCL=function(id){clEdit=id;clAdd=false;render();};
+window.delCL=function(id){closings=closings.filter(function(c){return c.id!==id;});sav();render();};
+window.addCL=function(px){closings.push(Object.assign({id:Date.now()},readCLF(px)));sav();clAdd=false;render();};
+window.saveCL=function(id,px){closings=closings.map(function(c){return c.id===id?Object.assign({},c,readCLF(px)):c;});sav();clEdit=null;render();};
+
+// TRANSACTIONS
+function rTransactions(){
+  if(!pipeline.length)return'<div style="font-size:13px;color:#888;">No active deals. Add in Pipeline tab.</div>';
+  if(!txSel||!pipeline.find(function(p){return p.id===txSel;})){txSel=pipeline[0].id;}
+  var tx=pipeline.find(function(p){return p.id===txSel;})||pipeline[0];
+  var today=new Date().toISOString().split('T')[0];
+  var h='<div class="g2" style="margin-bottom:14px;">';
+  h+='<div><label class="flbl">Transaction</label><select onchange="setTxS(this.value)">';
+  pipeline.forEach(function(p){h+='<option value="'+p.id+'"'+(p.id===txSel?' selected':'')+'>'+esc(p.contact)+'</option>';});
+  h+='</select></div>';
+  h+='<div><label class="flbl">Binding Date</label><input type="date" value="'+txBind+'" onchange="setTxB(this.value)"></div></div>';
+  if(tx){
+    h+='<div class="card cl" style="margin-bottom:16px;">';
+    h+='<div class="n14">'+esc(tx.contact)+'</div>';
+    h+='<div class="n12">'+esc(tx.address)+'</div>';
+    h+='<div class="n12">'+usd(tx.price)+' · '+esc(tx.loanType)+' · Close: '+fd(tx.closeDate)+'</div>';
+    if(tx.lender)h+='<div class="n12">Lender: '+esc(tx.lender)+' · Attorney: '+esc(tx.attorney)+'</div>';
+    h+='</div>';
+  }
+  if(!txBind){h+='<div style="font-size:13px;color:#888;">Enter binding date to auto-calculate deadlines.</div>';return h;}
+  var dls=(DL[tx.loanType]||DL.Other).map(function(d){return Object.assign({},d,{date:d.r?ad(tx.closeDate,d.d):ad(txBind,d.d)});});
+  h+='<div class="slbl">'+esc(tx.loanType)+' Timeline</div>';
+  dls.forEach(function(d){
+    var diff=Math.round((new Date(d.date)-new Date(today))/86400000);
+    var past=diff<0,close2=!past&&diff<=3,isC=d.l==='Closing';
+    var col=isC?PINK:past?'#ccc':close2?'#FF9800':TURQ;
+    h+='<div class="dlrow"><div class="dot" style="background:'+col+'"></div>';
+    h+='<div style="flex:1;font-size:13px;color:'+(past?'#aaa':'#1a1a1a')+';text-decoration:'+(past?'line-through':'none')+';font-weight:'+(isC?700:400)+'>'+esc(d.l)+'</div>';
+    h+='<div style="text-align:right;"><div style="font-size:13px;font-weight:700;color:'+col+'">'+fd(d.date)+'</div>';
+    h+='<div style="font-size:11px;color:#999;">'+(past?'passed':diff===0?'today':diff+'d away')+'</div></div></div>';
+  });
+  return h;
+}
+window.setTxS=function(v){txSel=Number(v);render();};
+window.setTxB=function(v){txBind=v;render();};
+
+// EMAIL
+function rEmail(){
+  var cats=['All'].concat(ET.map(function(t){return t.cat;}).filter(function(v,i,a){return a.indexOf(v)===i;}));
+  var shown=eCat==='All'?ET:ET.filter(function(t){return t.cat===eCat;});
+  var h='<div class="frow">'+cats.map(function(c){return'<button class="btn'+(eCat===c?' bp':'')+'" style="padding:6px 12px;font-size:12px;" onclick="setEC(\''+esc(c)+'\')">'+esc(c)+'</button>';}).join('')+'</div>';
+  shown.forEach(function(t,i){
+    h+='<div class="card"><div class="rc" style="cursor:pointer;" onclick="toggleE('+i+')">';
+    h+='<div><span style="font-size:10px;color:'+TURQ+';font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-right:8px;">'+esc(t.cat)+'</span>';
+    h+='<span style="font-size:14px;font-weight:600;">'+esc(t.title)+'</span></div>';
+    h+='<span style="color:#888;">'+( eOpen===i?'▲':'▼')+'</span></div>';
+    if(eOpen===i){h+='<div class="preblock">'+esc(t.body)+'</div><button class="btn bp" id="eb'+i+'" onclick="copyE('+i+')">Copy template</button>';}
+    h+='</div>';
+  });
+  return h;
+}
+window.setEC=function(c){eCat=c;eOpen=null;render();};
+window.toggleE=function(i){eOpen=eOpen===i?null:i;render();};
+window.copyE=function(i){
+  var shown=eCat==='All'?ET:ET.filter(function(t){return t.cat===eCat;});
+  navigator.clipboard.writeText(shown[i].body).then(function(){
+    var b=document.getElementById('eb'+i);if(b){b.textContent='Copied!';setTimeout(function(){b.textContent='Copy template';},1500);}
+  }).catch(function(){});
+};
+
+// LEAD GEN
+function rLeadGen(){
+  var plats=['All'].concat(LG.map(function(l){return l.platform;}).filter(function(v,i,a){return a.indexOf(v)===i;}));
+  var shown=lgPlat==='All'?LG:LG.filter(function(l){return l.platform===lgPlat;});
+  var h='<div class="frow">'+plats.map(function(p){return'<button class="btn'+(lgPlat===p?' bp':'')+'" style="padding:6px 12px;font-size:12px;" onclick="setLGP(\''+esc(p)+'\')">'+esc(p)+'</button>';}).join('')+'</div>';
+  shown.forEach(function(l,i){
+    h+='<div class="card"><div class="row"><div style="flex:1;">';
+    h+='<div style="font-size:10px;color:'+TURQ+';font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">'+esc(l.platform)+'</div>';
+    h+='<div style="font-size:14px;font-weight:600;margin-bottom:5px;">&ldquo;'+esc(l.hook)+'&rdquo;</div>';
+    h+='<div style="font-size:13px;color:#444;">'+esc(l.prompt)+'</div>';
+    h+='</div><button class="btn bp" id="lb'+i+'" style="flex-shrink:0;margin-left:10px;padding:6px 12px;font-size:12px;" onclick="copyLG('+i+')">Copy</button></div></div>';
+  });
+  return h;
+}
+window.setLGP=function(p){lgPlat=p;render();};
+window.copyLG=function(i){
+  var shown=lgPlat==='All'?LG:LG.filter(function(l){return l.platform===lgPlat;});
+  navigator.clipboard.writeText('Hook: '+shown[i].hook+'\n\n'+shown[i].prompt).then(function(){
+    var b=document.getElementById('lb'+i);if(b){b.textContent='Copied!';setTimeout(function(){b.textContent='Copy';},1500);}
+  }).catch(function(){});
+};
+
+// SOCIAL
+function rSocial(){
+  var plats=['All','TikTok','Instagram','Facebook','YouTube'];
+  var shown=smPlat==='All'?SM:SM.filter(function(s){return s.plat===smPlat;});
+  var h='<div style="font-size:12px;color:#666;margin-bottom:10px;">Mix: 40% personal · 30% local · 30% real estate</div>';
+  h+='<div class="frow">'+plats.map(function(p){return'<button class="btn'+(smPlat===p?' bp':'')+'" style="padding:6px 12px;font-size:12px;" onclick="setSMP(\''+p+'\')">'+p+'</button>';}).join('')+'</div>';
+  shown.forEach(function(s,i){
+    h+='<div class="card"><div class="row"><div style="flex:1;">';
+    h+='<div class="pills" style="margin-top:0;margin-bottom:6px;">'+pill(s.plat,PINK)+' '+pill(s.type,TURQ)+'</div>';
+    h+='<div style="font-size:13px;color:#333;">'+esc(s.prompt)+'</div>';
+    h+='</div><button class="btn bp" id="sb'+i+'" style="flex-shrink:0;margin-left:10px;padding:6px 12px;font-size:12px;" onclick="copySM('+i+')">Copy</button></div></div>';
+  });
+  return h;
+}
+window.setSMP=function(p){smPlat=p;render();};
+window.copySM=function(i){
+  var shown=smPlat==='All'?SM:SM.filter(function(s){return s.plat===smPlat;});
+  navigator.clipboard.writeText(shown[i].prompt).then(function(){
+    var b=document.getElementById('sb'+i);if(b){b.textContent='Copied!';setTimeout(function(){b.textContent='Copy';},1500);}
+  }).catch(function(){});
+};
+
+// Helper
+function g(id){var el=document.getElementById(id);return el?el.value:'';}
+
+// Boot
+rTabs();
+render();
+</script>
+</body>
+</html>
