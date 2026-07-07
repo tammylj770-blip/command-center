@@ -97,7 +97,7 @@ function ss(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
 
 if(ls('lm_ver','')!=='v5'){try{localStorage.clear();}catch(e){} ss('lm_ver','v5');}
 var contacts=ls('lm_c',DC);
-var pipeline=ls('lm_p',DP);
+var pipeline=DP; ss('lm_p',DP);
 // Reset pipeline if stored version has fewer entries than default
 var closings=ls('lm_cl',DCL);
 function sav(){ss('lm_c',contacts);ss('lm_p',pipeline);ss('lm_cl',closings);}
